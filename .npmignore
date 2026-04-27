@@ -1,0 +1,37 @@
+# Source
+src/
+.storybook/
+
+# Config files
+vite.config.ts
+tsconfig*.json
+eslint.config.mjs
+.prettierrc
+.babelrc
+gen.js
+
+# Dev artifacts
+node_modules/
+storybook-static/
+.cache/
+.nx/
+
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Git
+.git/
+.gitignore
+
+# Lock files (let consumers use their own)
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
