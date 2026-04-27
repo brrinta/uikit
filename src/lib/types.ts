@@ -94,19 +94,6 @@ export interface ModalProps<T = any> {
 	onSaved?: () => void;
 }
 
-export type RouteMeta = {
-	title?: ReactNode;
-	// pageTitle?: string;
-	// htmlTitle?: string;
-	// htmlTitlePattern?: string;
-	to?: CreateLinkProps;
-	needAuthorization?: boolean;
-	disabled?: boolean;
-	settingsToolbar?: boolean;
-	before?: Array<RouteMeta>;
-	after?: Array<RouteMeta>;
-};
-
 export type SessionAlertType =
 	| {
 	message: string;
