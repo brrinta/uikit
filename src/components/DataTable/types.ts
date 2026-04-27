@@ -1,5 +1,5 @@
 import { ColumnDef } from '@tanstack/react-table';
-import { SortDirection } from '@entero/schema';
+import { SortDirection } from '@uikit/schema';
 import { ButtonProps } from '@uikit/ui/button';
 import { FilterFieldConfig } from '@uikit/ui/filters';
 import { SelectItemOption } from '@uikit/ui/select-input';

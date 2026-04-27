@@ -1,4 +1,4 @@
-import { SortDirection } from '@entero/schema';
+import { SortDirection } from '@uikit/schema';
 import { RadioGroup } from '@uikit/ui/radio';
 import { Tabs } from '@uikit/ui/tabs';
 import { Popover } from '@uikit/ui/popover';

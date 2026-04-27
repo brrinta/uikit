@@ -8,9 +8,7 @@
 		"moduleResolution": "bundler",
 		"baseUrl": ".",
 		"paths": {
-			"@entero/uikit": ["./src/index.ts"],
-			"@uikit/*": ["./src/*"],
-			"@entero/schema": ["./schema/index.ts"]
+			"@uikit/*": ["./src/*"]
 		}
 	},
 	"files": [],

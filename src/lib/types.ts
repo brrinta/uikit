@@ -1,7 +1,7 @@
 import { ReactNode, Ref } from 'react';
 import { CreateLinkProps } from '@tanstack/react-router';
 import { AxiosInstance as ax, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { FileUpload, ResponseError, ResponseInterface } from '@entero/schema';
+import { FileUpload, ResponseError, ResponseInterface } from '@uikit/schema';
 
 export interface AxiosInstance extends ax {
 	/**
@@ -128,7 +128,6 @@ declare module '@tanstack/react-router' {
 	}
 }
 
-// @ts-ignore
 declare module '*.md' {
 	const value: string;
 	export default value;

@@ -54,7 +54,7 @@ import { FormField, FormFieldProps } from '@uikit/ui/form-field';
 import { Field, FieldControlProps } from '@uikit/ui/field';
 import { Dialog } from '@uikit/ui/dialog';
 import { TextInput } from '@uikit/ui/text-input';
-import { FieldTypes, TemplateUserValue } from '@entero/schema';
+import { FieldTypes, TemplateUserValue } from '@uikit/schema';
 import { uniqBy } from 'lodash-es';
 import { $createParagraphNode, $getSelection, $isRangeSelection, ElementFormatType, FORMAT_ELEMENT_COMMAND } from 'lexical';
 import { $createHeadingNode, HeadingNode, HeadingTagType } from '@lexical/rich-text';

@@ -11,7 +11,7 @@ import {
 import { AxiosDefaults, AxiosRequestConfig } from 'axios';
 import * as React from 'react';
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
-import { DatatableResponse, ResponseInterface, SortDirection } from '@entero/schema';
+import { DatatableResponse, ResponseInterface, SortDirection } from '@uikit/schema';
 import { keepPreviousData, QueryObserverResult, RefetchOptions, useQuery } from '@tanstack/react-query';
 import { DatatableOptions, SortType } from '@uikit/components/DataTable/types';
 import { IconAlertTriangle, IconDotsVertical, IconReload } from '@tabler/icons-react';

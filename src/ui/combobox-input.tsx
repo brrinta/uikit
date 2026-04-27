@@ -17,7 +17,7 @@ import {
 	PrimitiveComboboxInputProps,
 } from '@uikit/ui/combobox';
 import { cn } from '@uikit/lib/utils';
-import { MongoDbObjectID } from '@entero/schema';
+import { MongoDbObjectID } from '@uikit/schema';
 import { CircleFadingPlus } from 'lucide-react';
 import { uniqBy } from 'lodash-es';
 import { Combobox as BaseCombobox } from '@base-ui/react/combobox';

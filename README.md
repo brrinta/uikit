@@ -1,4 +1,4 @@
-# @champtekllc/uikit
+# @brrinta/uikit
 
 A standalone React UI component library built with **Tailwind CSS v4**, **Radix UI primitives**, and **shadcn/ui** patterns. 
 ---
@@ -41,7 +41,7 @@ A standalone React UI component library built with **Tailwind CSS v4**, **Radix 
 
 ```bash
 # Clone the repository
-git clone https://github.com/champtekllc/uikit.git
+git clone https://github.com/brrinta/uikit.git
 cd uikit
 
 # Install dependencies
@@ -81,7 +81,7 @@ In your monorepo's `package.json`:
 ```json
 {
   "dependencies": {
-    "@champtekllc/uikit": "workspace:*"
+    "@brrinta/uikit": "workspace:*"
   }
 }
 ```
@@ -94,9 +94,9 @@ Add the following to your project's `tsconfig.json` so TypeScript resolves the p
 {
   "compilerOptions": {
     "paths": {
-      "@entero/uikit": ["./node_modules/@champtekllc/uikit/src/index.ts"],
-      "@uikit/*": ["./node_modules/@champtekllc/uikit/src/*"],
-      "@entero/schema": ["./node_modules/@champtekllc/uikit/schema/index.ts"]
+      "@entero/uikit": ["./node_modules/@brrinta/uikit/src/index.ts"],
+      "@uikit/*": ["./node_modules/@brrinta/uikit/src/*"],
+      "@entero/schema": ["./node_modules/@brrinta/uikit/schema/index.ts"]
     }
   }
 }
@@ -107,7 +107,7 @@ Add the following to your project's `tsconfig.json` so TypeScript resolves the p
 In your app entry point (e.g. `main.tsx`):
 
 ```typescript
-import '@champtekllc/uikit/src/styles/global.css';
+import '@brrinta/uikit/src/styles/global.css';
 ```
 
 ### 4. Use components

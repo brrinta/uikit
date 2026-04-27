@@ -1,8 +1,7 @@
 {
-	"name": "@champtekllc/uikit",
+	"name": "@brrinta/uikit",
 	"version": "0.1.0",
-	"private": true,
-	"description": "Standalone React UI component library for Champtekllc projects.",
+	"description": " React UI component library.",
 	"main": "./src/index.ts",
 	"types": "./src/index.ts",
 	"scripts": {

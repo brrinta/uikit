@@ -2,7 +2,7 @@
 
 import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon } from 'lucide-react';
 import { toast, Toaster as Sonner, type ToasterProps } from 'sonner';
-import { ResponseInterface } from '@entero/schema';
+import { ResponseInterface } from '@uikit/schema';
 import { ReactNode } from 'react';
 
 export function showNotification({

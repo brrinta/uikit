@@ -1,7 +1,7 @@
 import axios, { CreateAxiosDefaults } from 'axios';
 import { AxiosInstance } from '@uikit/lib/types';
 import mitt from 'mitt';
-import { HttpStatus } from '@entero/schema';
+import { HttpStatus } from '@uikit/schema';
 import { showNotification } from '@uikit/ui/sonner';
 
 const axiosApiInstance: (props: CreateAxiosDefaults) => AxiosInstance = (props) => {
