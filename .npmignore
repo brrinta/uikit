@@ -1,5 +1,5 @@
 # Source
-src/
+# src/ (removed because we want to publish as is)
 .storybook/
 
 # Config files
