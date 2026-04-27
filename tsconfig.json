@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"jsx": "react-jsx",
+		"allowJs": false,
+		"esModuleInterop": false,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"moduleResolution": "bundler",
+		"baseUrl": ".",
+		"paths": {
+			"@entero/uikit": ["./src/index.ts"],
+			"@uikit/*": ["./src/*"],
+			"@entero/schema": ["./schema/index.ts"]
+		}
+	},
+	"files": [],
+	"include": [],
+	"references": [
+		{
+			"path": "./tsconfig.lib.json"
+		},
+		{
+			"path": "./tsconfig.storybook.json"
+		},
+		{
+			"path": "./tsconfig.spec.json"
+		}
+	]
+}

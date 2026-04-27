@@ -1,0 +1,54 @@
+
+[data-type="button-link-node"] [data-lexical-editor="true"] {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+}
+
+[data-type="button-link-node"] p {
+	margin: 0 !important;
+}
+
+[data-type="button-link-node"] [class*="_genericComponentName"] {
+	display: none !important;
+}
+
+[data-type="button-link-node"] [class*="_directiveEditor"] {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.folded-banner-ribbon {
+	--d: .6em;
+	position: absolute;
+	inset-inline: calc(-1 * var(--d));
+	border-top: var(--d) solid #0008;
+	line-height: 1.8;
+	clip-path: polygon(0 100%, 100% 100%, 100% var(--d), calc(100% - var(--d)) 0%, calc(100% - var(--d)) var(--d), var(--d) var(--d), var(--d) 0%, 0 var(--d));
+}
+
+
+/*input[type="date"]::-webkit-inner-spin-button,*/
+/*input[type="date"]::-webkit-calendar-picker-indicator {*/
+/*	display: none;*/
+/*	-webkit-appearance: none;*/
+/*}*/
+
+::view-transition-old(root), ::view-transition-new(root) {
+	animation: none;
+	mix-blend-mode: normal;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+@utility no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
