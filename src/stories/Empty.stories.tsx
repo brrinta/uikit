@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Empty } from '@uikit/ui/empty';
-import { Button } from '@uikit/ui/button';
+import { Empty } from '../ui/empty';
+import { Button } from '../ui/button';
 import { InboxIcon } from 'lucide-react';
 
 const meta: Meta<typeof Empty> = {

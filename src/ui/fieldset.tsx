@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Fieldset as FieldsetPrimitive } from '@base-ui/react/fieldset';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 export type FieldsetProps = React.ComponentProps<typeof FieldsetPrimitive.Root> & { invalid?: boolean };
 function Fieldset({ className, ...props }: FieldsetProps) {

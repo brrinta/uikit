@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';
 import { ChevronDown, LucideIcon } from 'lucide-react';
-import { Spinner } from '@uikit/ui/spinner';
+import { Spinner } from './spinner';
 import { Button as ButtonPrimitive } from '@base-ui/react/button';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { Separator } from '@uikit/ui/separator';
+import { Separator } from './separator';
 
 export const buttonVariants = cvaWithMeta(
 	`cursor-pointer group focus-visible:outline-hidden inline-flex items-center justify-center [&_svg:not([class*=size-])]:size-4

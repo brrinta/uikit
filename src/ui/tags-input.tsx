@@ -1,6 +1,6 @@
 import * as TagsInputPrimitive from '@diceui/tags-input';
 import type * as React from 'react';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { XIcon } from 'lucide-react';
 
 function TagsInput({ className, ...props }: React.ComponentProps<typeof TagsInputPrimitive.Root>) {

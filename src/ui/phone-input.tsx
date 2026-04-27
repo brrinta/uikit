@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useMask } from '@react-input/mask';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field, FieldControlProps } from '@uikit/ui/field';
-import { cn } from '@uikit/lib/utils';
+import { FormField, FormFieldProps } from './form-field';
+import { Field, FieldControlProps } from './field';
+import { cn } from '../lib/utils';
 
 type PhoneFieldProps = Pick<FieldControlProps, 'defaultValue' | 'onValueChange' | 'value'>;
 

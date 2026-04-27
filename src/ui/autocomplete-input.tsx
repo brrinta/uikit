@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import { ReactNode } from 'react';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field, FieldControlProps } from '@uikit/ui/field';
+import { FormField, FormFieldProps } from './form-field';
+import { Field, FieldControlProps } from './field';
 import {
 	Autocomplete,
 	AutocompleteContentProps,
@@ -12,7 +12,7 @@ import {
 	AutocompletePickedPositionerProps,
 	AutocompleteProps,
 	PrimitiveAutocompleteInputProps,
-} from '@uikit/ui/autocomplete';
+} from './autocomplete';
 
 export type AutocompleteItem<V extends string = string> = {
 	value: V;

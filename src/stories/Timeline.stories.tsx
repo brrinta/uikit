@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Timeline } from '@uikit/ui/timeline';
+import { Timeline } from '../ui/timeline';
 import { AlertCircleIcon, CheckIcon, ClockIcon } from 'lucide-react';
 
 const meta: Meta<typeof Timeline> = {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Table } from '@uikit/ui/table';
+import { Table } from '../ui/table';
 
 const meta: Meta<typeof Table> = {
 	title: 'Components/Table',

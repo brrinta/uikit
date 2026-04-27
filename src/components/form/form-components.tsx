@@ -1,15 +1,15 @@
-import { useFormContext } from '@uikit/components/form/form';
+import { useFormContext } from './form';
 import clsx from 'clsx';
 import { ReactNode } from 'react';
 import { AlertTriangle } from 'lucide-react';
 import { uniq } from 'lodash-es';
 import { StandardSchemaV1Issue, useStore } from '@tanstack/react-form';
-import { cn } from '@uikit/lib/utils';
-import { Alert, AlertProps } from '@uikit/ui/alert';
-import { Button, ButtonProps } from '@uikit/ui/button';
-import { Fieldset, FieldsetProps } from '@uikit/ui/fieldset';
-import { Text, TextProps } from '@uikit/ui/text';
-import { LoadingOverlay } from '@uikit/ui/loading';
+import { cn } from '../../lib/utils';
+import { Alert, AlertProps } from '../../ui/alert';
+import { Button, ButtonProps } from '../../ui/button';
+import { Fieldset, FieldsetProps } from '../../ui/fieldset';
+import { Text, TextProps } from '../../ui/text';
+import { LoadingOverlay } from '../../ui/loading';
 
 export function Errors({ className, children, variant, appearance, ...props }: AlertProps) {
 	const form = useFormContext();

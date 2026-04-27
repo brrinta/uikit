@@ -1,5 +1,5 @@
 import { NavigationMenu as NavigationMenuPrimitive } from '@base-ui/react/navigation-menu';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { ChevronDownIcon } from 'lucide-react';
 import React from 'react';
 

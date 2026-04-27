@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import { DateRangeInput, DateRangeWithPresetsInput } from '@uikit/ui/date-range';
+import { DateRangeInput, DateRangeWithPresetsInput } from '../ui/date-range';
 
 const meta: Meta<typeof DateRangeInput> = {
 	title: 'Components/DateRange',

@@ -2,8 +2,8 @@
 
 import * as React from 'react';
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
-import { Button } from '@uikit/ui/button';
+import { cn, cvaWithMeta } from '../lib/utils';
+import { Button } from './button';
 import { XIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
 

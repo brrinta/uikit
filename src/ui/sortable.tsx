@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { mergeProps, useRender } from '@base-ui/react';
 import {
 	defaultDropAnimation,

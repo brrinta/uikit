@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 
 export const alertVariants = cvaWithMeta('flex items-stretch w-full gap-2 group-[.toaster]:w-(--width)', {
 	variants: {

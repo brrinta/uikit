@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field, FieldControlProps } from '@uikit/ui/field';
+import { FormField, FormFieldProps } from './form-field';
+import { Field, FieldControlProps } from './field';
 import { NumberField, NumberFieldRootProps } from '@base-ui/react/number-field';
 
 type NumberFieldProps = Pick<

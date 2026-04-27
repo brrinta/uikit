@@ -2,12 +2,12 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import cardValidator from 'card-validator';
 import { useMask } from '@react-input/mask';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { cn } from '@uikit/lib/utils';
-import { withFieldGroup } from '@uikit/components/form/form';
+import { FormField, FormFieldProps } from '../../ui/form-field';
+import { cn } from '../../lib/utils';
+import { withFieldGroup } from './form';
 import { useStore } from '@tanstack/react-form';
-import { AmexIcon, CreditCardIcon, DinersClubIcon, DiscoverIcon, JcbIcon, MasterCardIcon, VisaIcon } from '@uikit/components/CreditCardBrand';
-import { Field } from '@uikit/ui/field';
+import { AmexIcon, CreditCardIcon, DinersClubIcon, DiscoverIcon, JcbIcon, MasterCardIcon, VisaIcon } from '../CreditCardBrand';
+import { Field } from '../../ui/field';
 
 function getCardIcon(type: string | undefined) {
 	switch (type) {

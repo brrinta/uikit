@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ReactNode, useCallback, useMemo } from 'react';
-import { Badge } from '@uikit/ui/badge';
+import { Badge } from './badge';
 import { X } from 'lucide-react';
-import { cn } from '@uikit/lib/utils';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field } from '@uikit/ui/field';
+import { cn } from '../lib/utils';
+import { FormField, FormFieldProps } from './form-field';
+import { Field } from './field';
 import {
 	Select,
 	SelectContentProps,
@@ -13,7 +13,7 @@ import {
 	SelectProps,
 	SelectTriggerProps,
 	SelectValueProps,
-} from '@uikit/ui/select';
+} from './select';
 
 export type SelectItemOption<V> = { label: ReactNode; value: V };
 export type SelectItems<V> = Record<string, ReactNode> | SelectItemOption<V>[];

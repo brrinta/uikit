@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar } from '@uikit/ui/avatar';
+import { Avatar } from '../ui/avatar';
 
 const meta: Meta<typeof Avatar> = {
 	title: 'Components/Avatar',

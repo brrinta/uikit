@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tree, TreeItemType } from '@uikit/ui/tree';
-import { useTree } from '@uikit/hooks/use-tree';
+import { Tree, TreeItemType } from '../ui/tree';
+import { useTree } from '../hooks/use-tree';
 const meta: Meta<typeof Tree> = {
 	title: 'Components/Tree',
 	component: Tree,

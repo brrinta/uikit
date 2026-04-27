@@ -1,11 +1,11 @@
 'use client';
 import * as React from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
-import { cn } from '@uikit/lib/utils';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@uikit/ui/dialog';
-import { Input, InputAddonProps, InputGroupProps, inputVariants } from '@uikit/ui/input';
+import { cn } from '../lib/utils';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './dialog';
+import { Input, InputAddonProps, InputGroupProps, inputVariants } from './input';
 import { CheckIcon, SearchIcon } from 'lucide-react';
-import { Spinner } from '@uikit/ui/spinner';
+import { Spinner } from './spinner';
 
 function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
 	return (

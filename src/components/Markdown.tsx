@@ -7,7 +7,7 @@ import remarkDirective from 'remark-directive';
 import { visit } from 'unist-util-visit';
 import rehypeKatex from 'rehype-katex';
 import remarkMath from 'remark-math';
-import { cn, parseStyle } from '@uikit/lib/utils';
+import { cn, parseStyle } from '../lib/utils';
 import '@mdxeditor/editor/style.css';
 
 interface MarkdownPreviewProps {

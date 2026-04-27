@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Button } from '@uikit/ui/button';
-import { Calendar } from '@uikit/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from '@uikit/ui/popover';
-import { ScrollArea } from '@uikit/ui/scroll-area';
+import { Button } from './button';
+import { Calendar } from './calendar';
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
+import { ScrollArea } from './scroll-area';
 import { endOfMonth, endOfYear, format, isEqual, startOfDay, startOfMonth, startOfYear, subDays, subMonths, subYears } from 'date-fns';
 import { DateRange } from 'react-day-picker';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 type CustomRendererProps = {
 	values: unknown[];

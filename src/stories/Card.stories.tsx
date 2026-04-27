@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, cardVariants } from '@uikit/ui/card';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Card, cardVariants } from '../ui/card';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Card> = {
 	title: 'Components/Card',

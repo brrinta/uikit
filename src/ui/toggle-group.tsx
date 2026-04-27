@@ -4,8 +4,8 @@ import * as React from 'react';
 import { Toggle as TogglePrimitive } from '@base-ui/react/toggle';
 import { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group';
 import { type VariantProps } from 'class-variance-authority';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
-import { InputSize, InputVariant } from '@uikit/lib/variants';
+import { cn, cvaWithMeta } from '../lib/utils';
+import { InputSize, InputVariant } from '../lib/variants';
 
 export const toggleVariants = cvaWithMeta(
 	[

@@ -1,8 +1,8 @@
 import { ColumnDef } from '@tanstack/react-table';
-import { SortDirection } from '@uikit/schema';
-import { ButtonProps } from '@uikit/ui/button';
-import { FilterFieldConfig } from '@uikit/ui/filters';
-import { SelectItemOption } from '@uikit/ui/select-input';
+import { SortDirection } from '../../schema';
+import { ButtonProps } from '../../ui/button';
+import { FilterFieldConfig } from '../../ui/filters';
+import { SelectItemOption } from '../../ui/select-input';
 
 /**
  * Represents a label-value pair for datatable filters.

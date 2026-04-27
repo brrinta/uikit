@@ -1,6 +1,6 @@
-import { Flex } from '@uikit/ui/flex';
-import { cn } from '@uikit/lib/utils';
-import { Skeleton } from '@uikit/ui/skeleton';
+import { Flex } from '../../ui/flex';
+import { cn } from '../../lib/utils';
+import { Skeleton } from '../../ui/skeleton';
 
 export const TableFooterSkeleton = ({ plain }: { plain?: boolean }) => {
 	return (

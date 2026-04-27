@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { TextareaInput } from '@uikit/ui/textarea-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { TextareaInput } from '../../ui/textarea-input';
 
 const meta: Meta<typeof TextareaInput> = {
 	title: 'Components/Input/Textarea',

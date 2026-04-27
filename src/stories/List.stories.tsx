@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { List } from '@uikit/ui/list';
+import { List } from '../ui/list';
 import { CheckIcon } from 'lucide-react';
 
 const meta: Meta<typeof List> = {

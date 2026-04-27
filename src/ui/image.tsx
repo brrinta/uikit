@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 	/** Apply an aspect-ratio container, e.g. "16/9", "1/1" */

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Badge, badgeVariants } from '@uikit/ui/badge';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Badge, badgeVariants } from '../ui/badge';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Badge> = {
 	title: 'Components/Badge',

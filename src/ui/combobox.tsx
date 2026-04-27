@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { CheckIcon, ChevronsUpDownIcon, XIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
-import { fieldControlVariants } from '@uikit/ui/field';
-import { popoverContentVariants } from '@uikit/ui/popover';
-import { badgeButtonVariants, badgeVariants } from '@uikit/ui/badge';
+import { fieldControlVariants } from './field';
+import { popoverContentVariants } from './popover';
+import { badgeButtonVariants, badgeVariants } from './badge';
 import { useRender } from '@base-ui/react/use-render';
-import { PopupArrowSvg } from '@uikit/components/PopupArrowSvg';
+import { PopupArrowSvg } from '../components/PopupArrowSvg';
 
 export type ComboboxProps<Value = any, Multiple extends boolean | undefined = false> = ComboboxPrimitive.Root.Props<Value, Multiple>;
 const Combobox = <Value = any, Multiple extends boolean | undefined = false>(props: ComboboxProps<Value, Multiple>) => {

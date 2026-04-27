@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import { useId } from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';
 import { Switch as SwitchPrimitive } from '@base-ui/react/switch';
-import { Flex } from '@uikit/ui/flex';
-import { Label } from '@uikit/ui/label';
+import { Flex } from './flex';
+import { Label } from './label';
 
 export const switchVariants = cvaWithMeta(
 	`

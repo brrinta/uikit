@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { showNotification, Toaster } from '@uikit/ui/sonner';
-import { Button } from '@uikit/ui/button';
+import { showNotification, Toaster } from '../ui/sonner';
+import { Button } from '../ui/button';
 
 const meta: Meta<typeof Toaster> = {
 	title: 'Components/Toaster',

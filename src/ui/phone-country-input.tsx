@@ -2,10 +2,10 @@ import * as React from 'react';
 import { ChevronsUpDown } from 'lucide-react';
 import * as BasePhoneInput from 'react-phone-number-input';
 import flags from 'react-phone-number-input/flags';
-import { Button } from '@uikit/ui/button';
-import { Combobox } from '@uikit/ui/combobox';
-import { Input } from '@uikit/ui/input';
-import { cn } from '@uikit/lib/utils';
+import { Button } from './button';
+import { Combobox } from './combobox';
+import { Input } from './input';
+import { cn } from '../lib/utils';
 
 type PhoneCountryInputProps = Omit<React.ComponentProps<'input'>, 'onChange' | 'value' | 'ref'> &
 	Omit<BasePhoneInput.Props<typeof BasePhoneInput.default>, 'onChange'> & {

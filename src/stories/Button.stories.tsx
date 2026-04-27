@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button, buttonVariants } from '@uikit/ui/button';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Button, buttonVariants } from '../ui/button';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Button> = {
 	title: 'Components/Button',

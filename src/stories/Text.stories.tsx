@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Text } from '@uikit/ui/text';
+import { Text } from '../ui/text';
 
 const meta: Meta<typeof Text> = {
 	title: 'Components/Text',

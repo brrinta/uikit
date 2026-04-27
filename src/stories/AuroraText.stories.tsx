@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AuroraText } from '@uikit/ui/aurora-text';
+import { AuroraText } from '../ui/aurora-text';
 
 const meta: Meta<typeof AuroraText> = {
 	title: 'Components/AuroraText',

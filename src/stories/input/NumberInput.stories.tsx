@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { NumberInput } from '@uikit/ui/number-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { NumberInput } from '../../ui/number-input';
 import { DollarSign } from 'lucide-react';
 
 const meta: Meta<typeof NumberInput> = {

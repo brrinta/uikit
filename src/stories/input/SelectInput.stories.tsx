@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { SelectInput } from '@uikit/ui/select-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { SelectInput } from '../../ui/select-input';
 import { AppleIcon, BananaIcon } from 'lucide-react';
 
 const meta: Meta<typeof SelectInput> = {

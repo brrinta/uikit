@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { type VariantProps } from 'class-variance-authority';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 
 type TimelineContextType = {
 	lineWidth?: number;

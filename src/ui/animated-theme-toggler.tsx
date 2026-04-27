@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { MoonIcon, SunIcon } from 'lucide-react';
-import { useUikitProvider } from '@uikit/hooks/provider';
-import { Button, ButtonProps } from '@uikit/ui/button';
+import { useUikitProvider } from '../hooks/provider';
+import { Button, ButtonProps } from './button';
 
 type AnimatedThemeTogglerProps = Omit<ButtonProps, 'onClick'> & {
 	duration?: number;

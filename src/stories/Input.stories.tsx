@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Input, inputVariants } from '@uikit/ui/input';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Input, inputVariants } from '../ui/input';
+import { prepareArgTypes } from '../lib/utils';
 import { SearchIcon } from 'lucide-react';
 
 const meta: Meta<typeof Input> = {

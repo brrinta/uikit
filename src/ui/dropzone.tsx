@@ -1,10 +1,10 @@
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import React, { createContext, useCallback, useContext, useId, useMemo, useReducer, useState } from 'react';
 import { Accept, FileRejection, useDropzone as rootUseDropzone } from 'react-dropzone';
-import { Button, ButtonProps } from '@uikit/ui/button';
-import { Label, LabelProps } from '@uikit/ui/label';
-import { Text, TextProps } from '@uikit/ui/text';
-import { Box, BoxProps } from '@uikit/ui/box';
+import { Button, ButtonProps } from './button';
+import { Label, LabelProps } from './label';
+import { Text, TextProps } from './text';
+import { Box, BoxProps } from './box';
 import { v4 as uuidv4 } from 'uuid';
 
 type DropzoneResult<TUploadRes, TUploadError> =

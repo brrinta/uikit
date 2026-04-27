@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { useUikitProvider } from '@uikit/hooks/provider';
-import { cn } from '@uikit/lib/utils';
-import { Sidebar, SidebarProps } from '@uikit/ui/sidebar';
+import { useUikitProvider } from '../hooks/provider';
+import { cn } from '../lib/utils';
+import { Sidebar, SidebarProps } from '../ui/sidebar';
 import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
 

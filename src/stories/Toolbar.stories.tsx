@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Toolbar } from '@uikit/ui/toolbar';
+import { Toolbar } from '../ui/toolbar';
 import { BoldIcon, ImageIcon, ItalicIcon, LinkIcon, UnderlineIcon } from 'lucide-react';
 
 const meta: Meta<typeof Toolbar> = {

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';
 import { Input as BaseInput } from '@base-ui/react/input';
-import { InputAppearance, InputMode, InputSize, InputVariant } from '@uikit/lib/variants';
+import { InputAppearance, InputMode, InputSize, InputVariant } from '../lib/variants';
 import { mergeProps } from '@base-ui/react';
 
 export const inputVariants = cvaWithMeta(

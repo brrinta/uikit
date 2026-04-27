@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Kanban } from '@uikit/ui/sortable';
+import { Kanban } from '../ui/sortable';
 import { useState } from 'react';
 
 const meta: Meta<typeof Kanban> = {

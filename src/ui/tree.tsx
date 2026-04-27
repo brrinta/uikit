@@ -1,16 +1,16 @@
 'use client';
 
 import { JSX, ReactNode, useRef } from 'react';
-import { Button } from '@uikit/ui/button';
+import { Button } from './button';
 import { Box, ChevronDown, ChevronRight, Folder, Info, Search } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ContextMenu } from '@uikit/ui/context-menu';
-import { PreviewCard } from '@uikit/ui/preview-card';
-import { cn } from '@uikit/lib/utils';
-import { Input } from '@uikit/ui/input';
-import { ScrollArea } from '@uikit/ui/scroll-area';
-import { Checkbox } from '@uikit/ui/checkbox';
-import { TreeController } from '@uikit/hooks/use-tree';
+import { ContextMenu } from './context-menu';
+import { PreviewCard } from './preview-card';
+import { cn } from '../lib/utils';
+import { Input } from './input';
+import { ScrollArea } from './scroll-area';
+import { Checkbox } from './checkbox';
+import { TreeController } from '../hooks/use-tree';
 export interface TreeItemType {
 	id: string;
 	name: string;

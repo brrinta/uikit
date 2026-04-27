@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { LoadingOverlay } from '@uikit/ui/loading';
+import { LoadingOverlay } from '../ui/loading';
 import { useState } from 'react';
-import { Button } from '@uikit/ui/button';
+import { Button } from '../ui/button';
 
 const meta: Meta<typeof LoadingOverlay> = {
 	title: 'Components/LoadingOverlay',

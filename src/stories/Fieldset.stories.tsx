@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Fieldset } from '@uikit/ui/fieldset';
-import { Field } from '@uikit/ui/field';
-import { Input } from '@uikit/ui/input';
-import { Checkbox } from '@uikit/ui/checkbox';
+import { Fieldset } from '../ui/fieldset';
+import { Field } from '../ui/field';
+import { Input } from '../ui/input';
+import { Checkbox } from '../ui/checkbox';
 
 const meta: Meta<typeof Fieldset> = {
 	title: 'Components/Fieldset',

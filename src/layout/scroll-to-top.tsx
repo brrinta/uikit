@@ -1,7 +1,7 @@
 import { ArrowUp } from 'lucide-react';
-import { useWindowScroll } from '@uikit/hooks/use-window-scroll';
-import { Affix } from '@uikit/ui/affix';
-import { Button } from '@uikit/ui/button';
+import { useWindowScroll } from '../hooks/use-window-scroll';
+import { Affix } from '../ui/affix';
+import { Button } from '../ui/button';
 export const ScrollToTop = () => {
 	const [scroll, scrollTo] = useWindowScroll();
 	return (

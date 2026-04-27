@@ -1,5 +1,5 @@
 import { ErrorComponent, ErrorComponentProps, rootRouteId, useMatch, useRouter } from '@tanstack/react-router';
-import { AppLink } from '@uikit/components/app-link';
+import { AppLink } from '../components/app-link';
 
 export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
 	const router = useRouter();

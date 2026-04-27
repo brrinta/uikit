@@ -1,16 +1,16 @@
 'use client';
 
 import React, { createContext, useCallback, useContext, useMemo, useState } from 'react';
-import { Command } from '@uikit/ui/command';
-import { DropdownMenu } from '@uikit/ui/dropdown-menu';
-import { Popover } from '@uikit/ui/popover';
-import { Switch } from '@uikit/ui/switch';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@uikit/ui/tooltip';
+import { Command } from './command';
+import { DropdownMenu } from './dropdown-menu';
+import { Popover } from './popover';
+import { Switch } from './switch';
+import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { type VariantProps } from 'class-variance-authority';
 import { AlertCircle, Check, Plus, X } from 'lucide-react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
-import { Button, ButtonProps } from '@uikit/ui/button';
-import { DateRangeWithPresetsInput } from '@uikit/ui/date-range';
+import { cn, cvaWithMeta } from '../lib/utils';
+import { Button, ButtonProps } from './button';
+import { DateRangeWithPresetsInput } from './date-range';
 
 // i18n Configuration Interface
 export interface FilterI18nConfig {

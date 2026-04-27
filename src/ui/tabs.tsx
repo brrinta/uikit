@@ -1,4 +1,4 @@
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { Tabs as TabsPrimitive } from '@base-ui/react';
 import { type VariantProps } from 'class-variance-authority';
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';

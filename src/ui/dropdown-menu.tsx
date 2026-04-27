@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react/menu';
 
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { useRender } from '@base-ui/react/use-render';
-import { PopupArrowSvg } from '@uikit/components/PopupArrowSvg';
+import { PopupArrowSvg } from '../components/PopupArrowSvg';
 
 export type DropdownMenuProps = React.ComponentProps<typeof MenuPrimitive.Root>;
 function DropdownMenu({ ...props }: DropdownMenuProps) {

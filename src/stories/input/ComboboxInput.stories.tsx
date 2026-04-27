@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { ComboboxInput } from '@uikit/ui/combobox-input';
-import { Badge } from '@uikit/ui/badge';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { ComboboxInput } from '../../ui/combobox-input';
+import { Badge } from '../../ui/badge';
 
 const meta: Meta<typeof ComboboxInput> = {
 	title: 'Components/Input/Combobox',

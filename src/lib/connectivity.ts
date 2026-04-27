@@ -1,8 +1,8 @@
 import axios, { CreateAxiosDefaults } from 'axios';
-import { AxiosInstance } from '@uikit/lib/types';
+import { AxiosInstance } from './types';
 import mitt from 'mitt';
-import { HttpStatus } from '@uikit/schema';
-import { showNotification } from '@uikit/ui/sonner';
+import { HttpStatus } from '../schema';
+import { showNotification } from '../ui/sonner';
 
 const axiosApiInstance: (props: CreateAxiosDefaults) => AxiosInstance = (props) => {
 	const apibBase = axios.create({ withCredentials: true, ...props });

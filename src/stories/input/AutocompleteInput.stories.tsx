@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AutocompleteInput } from '@uikit/ui/autocomplete-input';
+import { AutocompleteInput } from '../../ui/autocomplete-input';
 import { useState } from 'react';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
 
 const meta: Meta<typeof AutocompleteInput> = {
 	title: 'Components/Input/Autocomplete',

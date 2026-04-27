@@ -1,6 +1,6 @@
 
 'use client';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import React, { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 

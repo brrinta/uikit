@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Select as SelectPrimitive } from '@base-ui/react/select';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import { buttonVariants } from '@uikit/ui/button';
+import { buttonVariants } from './button';
 import { VariantProps } from 'class-variance-authority';
-import { popoverContentVariants } from '@uikit/ui/popover';
+import { popoverContentVariants } from './popover';
 
 export type SelectProps<Value = any, Multiple extends boolean | undefined = false> = SelectPrimitive.Root.Props<Value, Multiple>;
 const Select = <Value = any, Multiple extends boolean | undefined = false>(props: SelectProps<Value, Multiple>) => {

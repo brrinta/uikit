@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { PasswordInput } from '@uikit/ui/password-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { PasswordInput } from '../../ui/password-input';
 
 const meta: Meta<typeof PasswordInput> = {
 	title: 'Components/Input/Password',

@@ -11,7 +11,7 @@ import {
 	SidebarMenuItem,
 	SidebarProvider,
 	SidebarTrigger,
-} from '@uikit/ui/sidebar';
+} from '../ui/sidebar';
 import { CalendarIcon, FolderIcon, HomeIcon, SettingsIcon, UsersIcon } from 'lucide-react';
 
 const meta: Meta<typeof Sidebar> = {

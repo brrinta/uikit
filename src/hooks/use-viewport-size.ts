@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useWindowEvent } from '@uikit/hooks/use-window-event';
+import { useWindowEvent } from './use-window-event';
 
 const eventListerOptions = {
 	passive: true,

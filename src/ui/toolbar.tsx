@@ -1,9 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import { ButtonProps, buttonVariants } from '@uikit/ui/button';
+import { ButtonProps, buttonVariants } from './button';
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 function Toolbar({ className, ...props }: React.ComponentProps<typeof BaseToolbar.Root>) {
 	return (

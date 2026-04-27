@@ -1,6 +1,6 @@
 import { Separator as SeparatorPrimitive } from '@base-ui/react/separator';
 import { type VariantProps } from 'class-variance-authority';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { ReactNode } from 'react';
 
 export const separatorVariants = cvaWithMeta(

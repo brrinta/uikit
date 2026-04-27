@@ -1,7 +1,7 @@
 import { LucideOctagonAlert } from 'lucide-react';
 import { ReactNode } from 'react';
-import { Empty } from '@uikit/ui/empty';
-import { cn } from '@uikit/lib/utils';
+import { Empty } from '../ui/empty';
+import { cn } from '../lib/utils';
 export const EmptyComponent = ({
 	description,
 	title,

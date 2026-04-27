@@ -95,7 +95,6 @@ Add the following to your project's `tsconfig.json` so TypeScript resolves the p
   "compilerOptions": {
     "paths": {
       "@entero/uikit": ["./node_modules/@brrinta/uikit/src/index.ts"],
-      "@uikit/*": ["./node_modules/@brrinta/uikit/src/*"],
       "@entero/schema": ["./node_modules/@brrinta/uikit/schema/index.ts"]
     }
   }

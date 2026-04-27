@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Accordion, accordionRootVariants } from '@uikit/ui/accordion';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Accordion, accordionRootVariants } from '../ui/accordion';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Accordion> = {
 	title: 'Components/Accordion',

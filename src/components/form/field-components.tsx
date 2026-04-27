@@ -1,16 +1,16 @@
-import { useFieldContext } from '@uikit/components/form/form';
+import { useFieldContext } from './form';
 import { useStore } from '@tanstack/react-form';
 import { useMemo } from 'react';
 import { uniq } from 'lodash-es';
-import { ComboboxData, ComboboxInput, ComboboxInputProps } from '@uikit/ui/combobox-input';
-import { FileInput, FileInputProps } from '@uikit/ui/file-input';
-import { DateInput, DateInputProps } from '@uikit/ui/date-input';
-import { PasswordInput, PasswordInputProps } from '@uikit/ui/password-input';
-import { TextInput, TextInputProps } from '@uikit/ui/text-input';
-import { PhoneInput, PhoneInputProps } from '@uikit/ui/phone-input';
-import { TextareaInput, TextareaInputProps } from '@uikit/ui/textarea-input';
-import { NumberInput, NumberInputProps } from '@uikit/ui/number-input';
-import { SelectInput, SelectInputProps } from '@uikit/ui/select-input';
+import { ComboboxData, ComboboxInput, ComboboxInputProps } from '../../ui/combobox-input';
+import { FileInput, FileInputProps } from '../../ui/file-input';
+import { DateInput, DateInputProps } from '../../ui/date-input';
+import { PasswordInput, PasswordInputProps } from '../../ui/password-input';
+import { TextInput, TextInputProps } from '../../ui/text-input';
+import { PhoneInput, PhoneInputProps } from '../../ui/phone-input';
+import { TextareaInput, TextareaInputProps } from '../../ui/textarea-input';
+import { NumberInput, NumberInputProps } from '../../ui/number-input';
+import { SelectInput, SelectInputProps } from '../../ui/select-input';
 
 export const getErrorMessage = (errors: Array<any>) => {
 	return uniq(errors.map((error: any) => (typeof error === 'string' ? error : error.message))).join(', ');

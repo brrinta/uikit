@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { type VariantProps } from 'class-variance-authority';
 import { ChevronDown, Plus } from 'lucide-react';

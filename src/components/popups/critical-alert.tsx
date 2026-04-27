@@ -1,9 +1,9 @@
-import { Alert, AlertProps } from '@uikit/ui/alert';
-import { useSessionStorage } from '@uikit/hooks/use-session-storage';
-import { useTimeout } from '@uikit/hooks/use-timeout';
+import { Alert, AlertProps } from '../../ui/alert';
+import { useSessionStorage } from '../../hooks/use-session-storage';
+import { useTimeout } from '../../hooks/use-timeout';
 import { useEffect } from 'react';
 import { IconInfoCircle } from '@tabler/icons-react';
-import { SessionAlertType } from '@uikit/lib/types';
+import { SessionAlertType } from '../../lib/types';
 
 export const CriticalAlert = (props: Omit<AlertProps, 'onClose'>) => {
 	const [criticalAlert, setCriticalAlert] = useSessionStorage<SessionAlertType>({

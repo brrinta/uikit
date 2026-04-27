@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
-import { Text, TextProps } from '@uikit/ui/text';
-import { Title, TitleProps } from '@uikit/ui/title';
-import { Flex } from '@uikit/ui/flex';
-import { Group, GroupProps } from '@uikit/ui/group';
+import { Text, TextProps } from '../ui/text';
+import { Title, TitleProps } from '../ui/title';
+import { Flex } from '../ui/flex';
+import { Group, GroupProps } from '../ui/group';
 import { IconPointFilled, IconProps } from '@tabler/icons-react';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 export interface InfoItemProps extends Omit<GroupProps, 'children' | 'title'> {
 	/** Main label */

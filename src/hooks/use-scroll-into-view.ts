@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
-import { useReducedMotion } from '@uikit/hooks/use-reduced-motion';
-import { useWindowEvent } from '@uikit/hooks/use-window-event';
+import { useReducedMotion } from './use-reduced-motion';
+import { useWindowEvent } from './use-window-event';
 
 interface UseScrollIntoViewAnimation {
 	/** Target element alignment relatively to parent based on current axis */

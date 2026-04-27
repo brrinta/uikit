@@ -1,7 +1,7 @@
 import { ReactNode, Ref } from 'react';
 import { CreateLinkProps } from '@tanstack/react-router';
 import { AxiosInstance as ax, AxiosRequestConfig, AxiosResponse } from 'axios';
-import { FileUpload, ResponseError, ResponseInterface } from '@uikit/schema';
+import { FileUpload, ResponseError, ResponseInterface } from '../schema';
 
 export interface AxiosInstance extends ax {
 	/**

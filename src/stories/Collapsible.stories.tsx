@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Collapsible } from '@uikit/ui/collapsible';
-import { Button } from '@uikit/ui/button';
+import { Collapsible } from '../ui/collapsible';
+import { Button } from '../ui/button';
 import { ChevronsUpDownIcon } from 'lucide-react';
 
 const meta: Meta<typeof Collapsible> = {

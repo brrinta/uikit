@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { cn } from '@uikit/lib/utils';
-import { useUikitProvider } from '@uikit/hooks/provider';
+import { cn } from '../lib/utils';
+import { useUikitProvider } from '../hooks/provider';
 import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
 

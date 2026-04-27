@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
 
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
-import { PopupArrowSvg } from '@uikit/components/PopupArrowSvg';
+import { cn, cvaWithMeta } from '../lib/utils';
+import { PopupArrowSvg } from '../components/PopupArrowSvg';
 
 export const popoverContentVariants = cvaWithMeta(
 	`bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 overflow-x-hidden

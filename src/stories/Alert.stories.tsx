@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert, alertVariants } from '@uikit/ui/alert';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Alert, alertVariants } from '../ui/alert';
+import { prepareArgTypes } from '../lib/utils';
 import { InfoIcon } from 'lucide-react';
 
 const meta: Meta<typeof Alert> = {

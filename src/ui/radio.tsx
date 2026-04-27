@@ -1,13 +1,13 @@
 import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { CircleCheckBig } from 'lucide-react';
 import * as React from 'react';
 import { useId } from 'react';
 import { type VariantProps } from 'class-variance-authority';
-import { Flex } from '@uikit/ui/flex';
-import { Label } from '@uikit/ui/label';
-import { Text } from '@uikit/ui/text';
+import { Flex } from './flex';
+import { Label } from './label';
+import { Text } from './text';
 
 export const radioGroupVariants = cvaWithMeta('grid gap-3', { variants: {}, defaultVariants: {} });
 export const radioGroupItemVariants = cvaWithMeta(

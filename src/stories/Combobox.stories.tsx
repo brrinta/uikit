@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Combobox } from '@uikit/ui/combobox';
+import { Combobox } from '../ui/combobox';
 import * as React from 'react';
 
 const items = [

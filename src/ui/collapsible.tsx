@@ -1,5 +1,5 @@
 import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 function Collapsible({ ...props }: CollapsiblePrimitive.Root.Props) {
 	return (

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { ChevronRightIcon, DotSquareIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
 

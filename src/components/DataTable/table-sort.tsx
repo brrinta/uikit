@@ -1,12 +1,12 @@
-import { SortDirection } from '@uikit/schema';
-import { RadioGroup } from '@uikit/ui/radio';
-import { Tabs } from '@uikit/ui/tabs';
-import { Popover } from '@uikit/ui/popover';
-import { Button, ButtonProps } from '@uikit/ui/button';
+import { SortDirection } from '../../schema';
+import { RadioGroup } from '../../ui/radio';
+import { Tabs } from '../../ui/tabs';
+import { Popover } from '../../ui/popover';
+import { Button, ButtonProps } from '../../ui/button';
 import { IconArrowsSort } from '@tabler/icons-react';
-import { SortType } from '@uikit/components/DataTable/types';
-import { enumToPair } from '@uikit/lib/uikit-utility';
-import { Stack } from '@uikit/ui/stack';
+import { SortType } from './types';
+import { enumToPair } from '../../lib/uikit-utility';
+import { Stack } from '../../ui/stack';
 
 export const TableSort = <T extends Record<string, unknown>>({
 	sortOptions,

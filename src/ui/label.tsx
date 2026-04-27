@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { VariantProps } from 'class-variance-authority';
 
 export const labelVariants = cvaWithMeta(

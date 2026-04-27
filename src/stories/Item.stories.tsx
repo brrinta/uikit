@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Item } from '@uikit/ui/item';
+import { Item } from '../ui/item';
 import { User, ChevronRight, Mail } from 'lucide-react';
 
 const meta: Meta<typeof Item> = {

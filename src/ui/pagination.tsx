@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
-import { Button, buttonVariants } from '@uikit/ui/button';
+import { cn, cvaWithMeta } from '../lib/utils';
+import { Button, buttonVariants } from './button';
 import { type VariantProps } from 'class-variance-authority';
 
 export const paginationVariants = cvaWithMeta('mx-auto flex justify-center', { variants: {}, defaultVariants: {} });

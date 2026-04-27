@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { formatBytes } from '@uikit/lib/uikit-utility';
+import { formatBytes } from '../lib/uikit-utility';
 import { PaperclipIcon, X } from 'lucide-react';
-import { Button } from '@uikit/ui/button';
-import { Field, FieldControlProps } from '@uikit/ui/field';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
+import { Button } from './button';
+import { Field, FieldControlProps } from './field';
+import { FormField, FormFieldProps } from './form-field';
 
 type FileFieldProps = Pick<FieldControlProps, 'accept' | 'placeholder'>;
 

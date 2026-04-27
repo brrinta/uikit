@@ -9,12 +9,12 @@ import {
 	SelectField,
 	TextareaField,
 	TextField,
-} from '@uikit/components/form/field-components';
-import { Errors, FormButton, LoadingFieldset, ResetButton, SubmitButton } from '@uikit/components/form/form-components';
+} from './field-components';
+import { Errors, FormButton, LoadingFieldset, ResetButton, SubmitButton } from './form-components';
 import { FormHTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
-import { LoadingOverlay, LoadingOverlayProps } from '@uikit/ui/loading';
-import { DevOnly } from '@uikit/components/DevOnly';
+import { LoadingOverlay, LoadingOverlayProps } from '../../ui/loading';
+import { DevOnly } from '../DevOnly';
 
 export const { fieldContext, formContext, useFormContext, useFieldContext } = createFormHookContexts();
 

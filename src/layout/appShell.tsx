@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { SidebarProvider, SidebarProviderProps } from '@uikit/ui/sidebar';
-import { AppShellSidebar } from '@uikit/layout/appShellSidebar';
-import { AppShellHeader } from '@uikit/layout/appShellHeader';
-import { AppShellFooter } from '@uikit/layout/appShellFooter';
-import { AppShellMain } from '@uikit/layout/appShellMain';
-import { AppShellAside } from '@uikit/layout/appShellAside';
-import { AppShellNav } from '@uikit/layout/appShellNav';
-import { AppShellSection } from '@uikit/layout/appShellSection';
-import { useUikitProvider } from '@uikit/hooks/provider';
-import { cn } from '@uikit/lib/utils';
+import { SidebarProvider, SidebarProviderProps } from '../ui/sidebar';
+import { AppShellSidebar } from './appShellSidebar';
+import { AppShellHeader } from './appShellHeader';
+import { AppShellFooter } from './appShellFooter';
+import { AppShellMain } from './appShellMain';
+import { AppShellAside } from './appShellAside';
+import { AppShellNav } from './appShellNav';
+import { AppShellSection } from './appShellSection';
+import { useUikitProvider } from '../hooks/provider';
+import { cn } from '../lib/utils';
 
 type AppShellProps<T extends boolean> = T extends true
 	? React.ComponentPropsWithRef<'div'> & { withSidebar?: T } & SidebarProviderProps

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { cn } from '@uikit/lib/utils';
-import { useUikitProvider } from '@uikit/hooks/provider';
+import { cn } from '../lib/utils';
+import { useUikitProvider } from '../hooks/provider';
 import { useRouterState } from '@tanstack/react-router';
 import { useRender } from '@base-ui/react/use-render';
 import { mergeProps } from '@base-ui/react/merge-props';
-import { LoadingOverlay } from '@uikit/ui/loading';
-import { cardVariants } from '@uikit/ui/card';
+import { LoadingOverlay } from './loading';
+import { cardVariants } from './card';
 
 type ContainerProps = {
 	children?: React.ReactNode;

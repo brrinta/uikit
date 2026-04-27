@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Check, Copy } from 'lucide-react';
-import { Tooltip } from '@uikit/ui/tooltip';
-import { cn } from '@uikit/lib/utils';
-import { Flex, FlexProps } from '@uikit/ui/flex';
+import { Tooltip } from '../ui/tooltip';
+import { cn } from '../lib/utils';
+import { Flex, FlexProps } from '../ui/flex';
 
 interface CopyButtonProps extends FlexProps {
 	/** The string value to copy to clipboard */

@@ -1,9 +1,9 @@
 import { Trash } from 'lucide-react';
 import { ReactNode, useMemo, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { AlertDialog } from '@uikit/ui/alert-dialog';
-import { Button, ButtonProps } from '@uikit/ui/button';
-import { useDisclosure } from '@uikit/hooks/use-disclosure';
+import { AlertDialog } from '../../ui/alert-dialog';
+import { Button, ButtonProps } from '../../ui/button';
+import { useDisclosure } from '../../hooks/use-disclosure';
 
 type ConfirmHandler = () => Promise<any> | any;
 

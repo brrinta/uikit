@@ -1,7 +1,7 @@
 import { DependencyList, useMemo } from 'react';
 import { ColumnDef } from '@tanstack/react-table';
-import { DatatableOptions } from '@uikit/components/DataTable/types';
-import { FilterFieldConfig, FilterType } from '@uikit/ui/filters';
+import { DatatableOptions } from './types';
+import { FilterFieldConfig, FilterType } from '../../ui/filters';
 
 const assignDefaultOperator = (item: FilterFieldConfig) =>
 	({

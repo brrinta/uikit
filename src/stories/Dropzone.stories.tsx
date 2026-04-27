@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Dropzone, useDropzone } from '@uikit/ui/dropzone';
+import { Dropzone, useDropzone } from '../ui/dropzone';
 
 const meta: Meta<typeof Dropzone> = {
 	title: 'Components/Dropzone',

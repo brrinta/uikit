@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { TagsInput } from '@uikit/ui/tags-input';
+import { TagsInput } from '../ui/tags-input';
 import { useState } from 'react';
 
 const meta: Meta<typeof TagsInput> = {

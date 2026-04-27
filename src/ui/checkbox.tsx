@@ -2,10 +2,10 @@ import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { CheckboxGroup as CheckboxGroupPrimitive } from '@base-ui/react/checkbox-group';
 import * as React from 'react';
 import { ReactNode, useId } from 'react';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { VariantProps } from 'class-variance-authority';
-import { Flex } from '@uikit/ui/flex';
-import { Label } from '@uikit/ui/label';
+import { Flex } from './flex';
+import { Label } from './label';
 import { CheckIcon } from 'lucide-react';
 
 // Define the variants for the Checkbox using cva.

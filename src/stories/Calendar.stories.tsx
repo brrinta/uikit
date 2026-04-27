@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Calendar } from '@uikit/ui/calendar';
+import { Calendar } from '../ui/calendar';
 import { useState } from 'react';
 
 const meta: Meta<typeof Calendar> = {

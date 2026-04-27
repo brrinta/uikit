@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useWindowEvent } from '@uikit/hooks/use-window-event';
+import { useWindowEvent } from './use-window-event';
 
 export interface UseWindowScrollPosition {
 	x: number;

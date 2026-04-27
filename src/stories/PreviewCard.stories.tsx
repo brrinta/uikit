@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { PreviewCard } from '@uikit/ui/preview-card';
-import { Button } from '@uikit/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@uikit/ui/avatar';
+import { PreviewCard } from '../ui/preview-card';
+import { Button } from '../ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const meta: Meta<typeof PreviewCard> = {
 	title: 'Components/PreviewCard',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ButtonGroup } from '@uikit/ui/button';
-import { Button } from '@uikit/ui/button';
+import { ButtonGroup } from '../ui/button';
+import { Button } from '../ui/button';
 import { Minus, Plus, RotateCcw } from 'lucide-react';
 
 const meta: Meta<typeof ButtonGroup> = {

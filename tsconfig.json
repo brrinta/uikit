@@ -7,9 +7,6 @@
 		"strict": true,
 		"moduleResolution": "bundler",
 		"baseUrl": ".",
-		"paths": {
-			"@uikit/*": ["./src/*"]
-		}
 	},
 	"files": [],
 	"include": [],

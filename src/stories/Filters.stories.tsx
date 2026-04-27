@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { FilterFieldConfig, Filters } from '@uikit/ui/filters';
+import { FilterFieldConfig, Filters } from '../ui/filters';
 import { Calendar, Hash, Mail, User } from 'lucide-react';
 import { useState } from 'react';
 

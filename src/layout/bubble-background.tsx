@@ -2,7 +2,7 @@
 'use client';
 import * as React from 'react';
 import { motion, type SpringOptions, useMotionValue, useSpring } from 'motion/react';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 type BubbleBackgroundProps = React.ComponentProps<'div'> & {
 	interactive?: boolean;

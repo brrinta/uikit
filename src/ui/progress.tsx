@@ -1,5 +1,5 @@
 import { Progress as ProgressPrimitive } from '@base-ui/react/progress';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';
 
 export const progressVariants = cvaWithMeta('flex flex-wrap gap-3', {

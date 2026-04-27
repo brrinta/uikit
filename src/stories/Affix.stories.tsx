@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Affix } from '@uikit/ui/affix';
-import { Button } from '@uikit/ui/button';
+import { Affix } from '../ui/affix';
+import { Button } from '../ui/button';
 import { ArrowUpIcon } from 'lucide-react';
 
 const meta: Meta<typeof Affix> = {

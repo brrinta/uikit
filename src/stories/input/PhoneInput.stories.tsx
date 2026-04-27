@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { PhoneInput } from '@uikit/ui/phone-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { PhoneInput } from '../../ui/phone-input';
 import { Phone } from 'lucide-react';
 
 const meta: Meta<typeof PhoneInput> = {

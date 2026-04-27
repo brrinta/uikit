@@ -1,13 +1,13 @@
 import { LinkProps } from '@tanstack/react-router';
-import { Button, ButtonGroup, buttonVariants } from '@uikit/ui/button';
+import { Button, ButtonGroup, buttonVariants } from '../ui/button';
 import { ChevronRightIcon } from 'lucide-react';
 import { isValidElement } from 'react';
-import { Collapsible } from '@uikit/ui/collapsible';
-import { Sidebar } from '@uikit/ui/sidebar';
-import { DropdownMenu } from '@uikit/ui/dropdown-menu';
-import { Badge } from '@uikit/ui/badge';
-import { cn } from '@uikit/lib/utils';
-import { AppLink } from '@uikit/components/app-link';
+import { Collapsible } from '../ui/collapsible';
+import { Sidebar } from '../ui/sidebar';
+import { DropdownMenu } from '../ui/dropdown-menu';
+import { Badge } from '../ui/badge';
+import { cn } from '../lib/utils';
+import { AppLink } from '../components/app-link';
 
 export interface NavbarLinkProps {
 	icon?: any;

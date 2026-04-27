@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { DateInput } from '@uikit/ui/date-input';
+import { fieldVariants } from '../../ui/field';
+import { prepareArgTypes } from '../../lib/utils';
+import { DateInput } from '../../ui/date-input';
 
 const meta: Meta<typeof DateInput> = {
 	title: 'Components/Input/Date',

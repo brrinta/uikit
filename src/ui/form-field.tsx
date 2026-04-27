@@ -9,8 +9,8 @@ import {
 	FieldGroupProps,
 	FieldLabelProps,
 	FieldProps,
-} from '@uikit/ui/field';
-import { Spinner } from '@uikit/ui/spinner';
+} from './field';
+import { Spinner } from './spinner';
 
 export type FormFieldProps = FieldProps & {
 	children: React.ReactElement<FieldControlProps>;

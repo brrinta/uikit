@@ -45,16 +45,16 @@ import {
 	usePublisher,
 } from '@mdxeditor/editor';
 import '@mdxeditor/editor/style.css';
-import { Tooltip } from '@uikit/ui/tooltip';
-import { Button } from '@uikit/ui/button';
-import { Popover } from '@uikit/ui/popover';
+import { Tooltip } from '../ui/tooltip';
+import { Button } from '../ui/button';
+import { Popover } from '../ui/popover';
 import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Baseline, Highlighter, MousePointer2, SettingsIcon, Variable } from 'lucide-react';
-import { cn, parseStyle } from '@uikit/lib/utils';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field, FieldControlProps } from '@uikit/ui/field';
-import { Dialog } from '@uikit/ui/dialog';
-import { TextInput } from '@uikit/ui/text-input';
-import { FieldTypes, TemplateUserValue } from '@uikit/schema';
+import { cn, parseStyle } from '../lib/utils';
+import { FormField, FormFieldProps } from '../ui/form-field';
+import { Field, FieldControlProps } from '../ui/field';
+import { Dialog } from '../ui/dialog';
+import { TextInput } from '../ui/text-input';
+import { FieldTypes, TemplateUserValue } from '../schema';
 import { uniqBy } from 'lodash-es';
 import { $createParagraphNode, $getSelection, $isRangeSelection, ElementFormatType, FORMAT_ELEMENT_COMMAND } from 'lexical';
 import { $createHeadingNode, HeadingNode, HeadingTagType } from '@lexical/rich-text';

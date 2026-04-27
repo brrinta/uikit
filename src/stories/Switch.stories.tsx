@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Switch, switchVariants } from '@uikit/ui/switch';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Switch, switchVariants } from '../ui/switch';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Switch> = {
 	title: 'Components/Switch',

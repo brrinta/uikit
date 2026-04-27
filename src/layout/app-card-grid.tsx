@@ -1,9 +1,9 @@
 import { IconListDetails, IconPlus } from '@tabler/icons-react';
-import { Button } from '@uikit/ui/button';
-import { ComboboxData, ComboboxInput, ComboboxInputProps } from '@uikit/ui/combobox-input';
-import { Flex, FlexProps } from '@uikit/ui/flex';
-import { Container, ContainerProps } from '@uikit/ui/container';
-import { useIsMobile } from '@uikit/hooks/use-mobile';
+import { Button } from '../ui/button';
+import { ComboboxData, ComboboxInput, ComboboxInputProps } from '../ui/combobox-input';
+import { Flex, FlexProps } from '../ui/flex';
+import { Container, ContainerProps } from '../ui/container';
+import { useIsMobile } from '../hooks/use-mobile';
 
 type SectionButtonProps = {
 	hide?: boolean;

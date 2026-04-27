@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Field, fieldVariants } from '@uikit/ui/field';
-import { Input } from '@uikit/ui/input';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Field, fieldVariants } from '../ui/field';
+import { Input } from '../ui/input';
+import { prepareArgTypes } from '../lib/utils';
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, UploadCloud } from 'lucide-react';
 
 const meta: Meta<typeof Field> = {

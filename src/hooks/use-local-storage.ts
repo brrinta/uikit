@@ -1,4 +1,4 @@
-import { createStorage, readValue, UseStorageOptions } from '@uikit/hooks/create-storage';
+import { createStorage, readValue, UseStorageOptions } from './create-storage';
 
 export function useLocalStorage<T = string>(props: UseStorageOptions<T>) {
 	return createStorage<T>('localStorage', 'use-local-storage')(props);

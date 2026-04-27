@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Drawer as BaseDrawer } from 'vaul-base';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 
 function Drawer({ ...props }: React.ComponentProps<typeof BaseDrawer.Root>) {
 	return (

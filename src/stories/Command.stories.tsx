@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Command } from '@uikit/ui/command';
+import { Command } from '../ui/command';
 import { User, Mail, Settings, CreditCard, Calculator, Smile, Calendar } from 'lucide-react';
 
 const meta: Meta<typeof Command> = {

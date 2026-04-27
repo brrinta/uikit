@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
-import { useComposedRefs } from '@uikit/lib/compose-refs';
-import { cn } from '@uikit/lib/utils';
+import { useComposedRefs } from '../lib/compose-refs';
+import { cn } from '../lib/utils';
 
 const PAST_YEARS_LIMIT = 120;
 const FUTURE_YEARS_LIMIT = 10;

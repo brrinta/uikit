@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { VariantProps } from 'class-variance-authority';
 import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar';
-import { cn, cvaWithMeta, getInitials, isValidImageUrl, stringToRgba } from '@uikit/lib/utils';
+import { cn, cvaWithMeta, getInitials, isValidImageUrl, stringToRgba } from '../lib/utils';
 import { Loader } from 'lucide-react';
 
 export const avatarStatusVariants = cvaWithMeta('flex items-center rounded-full size-4 border-2 border-background absolute -top-1 -right-1', {

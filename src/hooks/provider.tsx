@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect } from 'react';
-import { useLocalStorage } from '@uikit/hooks/use-local-storage';
+import { useLocalStorage } from './use-local-storage';
 
 type Theme = 'dark' | 'light' | 'system';
 

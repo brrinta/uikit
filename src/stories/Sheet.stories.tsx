@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Sheet } from '@uikit/ui/sheet';
-import { Button } from '@uikit/ui/button';
+import { Sheet } from '../ui/sheet';
+import { Button } from '../ui/button';
 
 const meta: Meta<typeof Sheet> = {
 	title: 'Components/Sheet',

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Field as BaseField } from '@base-ui/react/field';
 import { type VariantProps } from 'class-variance-authority';
-import { cn, cvaWithMeta } from '@uikit/lib/utils';
+import { cn, cvaWithMeta } from '../lib/utils';
 import { mergeProps } from '@base-ui/react';
-import { InputAppearance, InputOrientation, InputSize, InputVariant } from '@uikit/lib/variants';
+import { InputAppearance, InputOrientation, InputSize, InputVariant } from '../lib/variants';
 import { useRender } from '@base-ui/react/use-render';
 
 type FieldContextValue = {

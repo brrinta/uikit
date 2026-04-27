@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ReactNode, useCallback } from 'react';
-import { FormField, FormFieldProps } from '@uikit/ui/form-field';
-import { Field, FieldControlProps } from '@uikit/ui/field';
+import { FormField, FormFieldProps } from './form-field';
+import { Field, FieldControlProps } from './field';
 import {
 	Combobox,
 	ComboboxChipsProps,
@@ -15,13 +15,13 @@ import {
 	ComboboxTriggerProps,
 	ComboboxValueProps,
 	PrimitiveComboboxInputProps,
-} from '@uikit/ui/combobox';
-import { cn } from '@uikit/lib/utils';
-import { MongoDbObjectID } from '@uikit/schema';
+} from './combobox';
+import { cn } from '../lib/utils';
+import { MongoDbObjectID } from '../schema';
 import { CircleFadingPlus } from 'lucide-react';
 import { uniqBy } from 'lodash-es';
 import { Combobox as BaseCombobox } from '@base-ui/react/combobox';
-import { Spinner } from '@uikit/ui/spinner';
+import { Spinner } from './spinner';
 
 export type ComboboxData<V = any> = {
 	_id: Required<MongoDbObjectID> | string;

@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 import { Autocomplete as AutocompletePrimitive } from '@base-ui/react/autocomplete';
-import { cn } from '@uikit/lib/utils';
+import { cn } from '../lib/utils';
 import { XIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
-import { fieldControlVariants } from '@uikit/ui/field';
-import { popoverContentVariants } from '@uikit/ui/popover';
+import { fieldControlVariants } from './field';
+import { popoverContentVariants } from './popover';
 import { useRender } from '@base-ui/react/use-render';
-import { PopupArrowSvg } from '@uikit/components/PopupArrowSvg';
+import { PopupArrowSvg } from '../components/PopupArrowSvg';
 
 export type AutocompleteProps<Value = any> = AutocompletePrimitive.Root.Props<Value>;
 const Autocomplete = <Value = any,>(props: AutocompleteProps<Value>) => {

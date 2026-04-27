@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { TreeItemType } from '@uikit/ui/tree';
+import { TreeItemType } from '../ui/tree';
 
 export function updateTreeState(data: TreeItemType[], targetId: string, isChecked: boolean): TreeItemType[] {
 	const deepClone = JSON.parse(JSON.stringify(data));

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tabs, tabsListVariants } from '@uikit/ui/tabs';
-import { prepareArgTypes } from '@uikit/lib/utils';
+import { Tabs, tabsListVariants } from '../ui/tabs';
+import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Tabs> = {
 	title: 'Components/Tabs',

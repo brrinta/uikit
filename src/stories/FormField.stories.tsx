@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Field, fieldVariants } from '@uikit/ui/field';
-import { prepareArgTypes } from '@uikit/lib/utils';
-import { FormField } from '@uikit/ui/form-field';
+import { Field, fieldVariants } from '../ui/field';
+import { prepareArgTypes } from '../lib/utils';
+import { FormField } from '../ui/form-field';
 
 const meta: Meta<typeof FormField> = {
 	title: 'Components/FormField',

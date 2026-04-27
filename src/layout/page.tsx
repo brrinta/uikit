@@ -1,9 +1,9 @@
 import { ReactNode, useEffect } from 'react';
 import { useRouterState } from '@tanstack/react-router';
-import { showNotification } from '@uikit/ui/sonner';
-import { useSessionStorage } from '@uikit/hooks/use-session-storage';
-import { SessionAlertType } from '@uikit/lib/types';
-import { CriticalAlert } from '@uikit/components/popups/critical-alert';
+import { showNotification } from '../ui/sonner';
+import { useSessionStorage } from '../hooks/use-session-storage';
+import { SessionAlertType } from '../lib/types';
+import { CriticalAlert } from '../components/popups/critical-alert';
 export const Page = ({ children, disabled }: { children: ReactNode; disabled?: boolean }) => {
 	const [alert, setAlert] = useSessionStorage<SessionAlertType>({
 		key: 'alert',
