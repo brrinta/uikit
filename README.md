@@ -1,7 +1,6 @@
 # @champtekllc/uikit
 
-A standalone React UI component library built with **Tailwind CSS v4**, **Radix UI primitives**, and **shadcn/ui** patterns. Originally extracted from the [entero.biz](https://github.com/champtekllc/entero.biz) monorepo, this package is fully self-contained and can be used in any React project.
-
+A standalone React UI component library built with **Tailwind CSS v4**, **Radix UI primitives**, and **shadcn/ui** patterns. 
 ---
 
 ## Features
@@ -27,7 +26,7 @@ A standalone React UI component library built with **Tailwind CSS v4**, **Radix 
 | `src/lib/` | Utilities, types, helpers (axios factory, permissions, date helpers, …) |
 | `src/styles/` | Global CSS and custom overrides |
 | `src/stories/` | Storybook stories for all components |
-| `schema/` | Minimal type definitions extracted from the entero.biz schema (no Mongoose/server dependency) |
+| `schema/` | Minimal type definitions |
 
 ---
 
