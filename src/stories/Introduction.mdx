@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls, Primary, Unstyled } from '@storybook/blocks';
+
+<Meta title="Introduction" />
+
+<Unstyled>
+  <div className="flex flex-col gap-6 py-10 px-6 max-w-4xl mx-auto">
+    <div className="flex flex-col gap-2">
+      <h1 className="text-4xl font-bold tracking-tight">@brrinta/uikit</h1>
+      <p className="text-xl text-muted-foreground">
+        A standalone React UI component library built with Tailwind CSS v4, Radix UI primitives, and shadcn/ui patterns.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div className="border rounded-xl p-6 bg-card">
+        <h3 className="text-lg font-semibold mb-2">80+ Components</h3>
+        <p className="text-sm text-muted-foreground">
+          From basic primitives like Buttons and Inputs to complex layouts and data tables.
+        </p>
+      </div>
+      <div className="border rounded-xl p-6 bg-card">
+        <h3 className="text-lg font-semibold mb-2">Tailwind CSS v4</h3>
+        <p className="text-sm text-muted-foreground">
+          Leveraging the latest features of Tailwind CSS for styling.
+        </p>
+      </div>
+      <div className="border rounded-xl p-6 bg-card">
+        <h3 className="text-lg font-semibold mb-2">Dark Mode</h3>
+        <p className="text-sm text-muted-foreground">
+          Built-in support for dark and light themes with seamless switching.
+        </p>
+      </div>
+      <div className="border rounded-xl p-6 bg-card">
+        <h3 className="text-lg font-semibold mb-2">Type Safe</h3>
+        <p className="text-sm text-muted-foreground">
+          First-class TypeScript support for all components and hooks.
+        </p>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-4 mt-8">
+      <h2 className="text-2xl font-bold">Getting Started</h2>
+      <p>
+        Browse the components in the sidebar to see examples and documentation. Each component includes
+        automatically generated controls to test different variants and properties.
+      </p>
+      
+      <div className="bg-muted p-4 rounded-lg overflow-x-auto">
+        <code className="text-sm">pnpm install @brrinta/uikit</code>
+      </div>
+    </div>
+
+    <div className="flex flex-col gap-4 mt-8">
+      <h2 className="text-2xl font-bold">Project Structure</h2>
+      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+        <li><span className="font-medium text-foreground">UI/</span> - Core primitive components (Button, Input, etc.)</li>
+        <li><span className="font-medium text-foreground">Layout/</span> - Page structures and navigation components</li>
+        <li><span className="font-medium text-foreground">Components/</span> - Complex composite components</li>
+        <li><span className="font-medium text-foreground">Hooks/</span> - Reusable React hooks</li>
+      </ul>
+    </div>
+  </div>
+</Unstyled>
