@@ -3,7 +3,7 @@ import { Sheet } from '../ui/sheet';
 import { Button } from '../ui/button';
 
 const meta: Meta<typeof Sheet> = {
-	title: 'Components/Sheet',
+	title: 'UI/Sheet',
 	component: Sheet,
 	parameters: {
 		layout: 'centered',

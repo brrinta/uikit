@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../../lib/utils';
 import { DateInput } from '../../ui/date-input';
 
 const meta: Meta<typeof DateInput> = {
-	title: 'Components/Input/Date',
+	title: 'UI/Input/Date',
 	component: DateInput,
 	parameters: {
 		layout: 'centered',

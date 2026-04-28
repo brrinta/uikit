@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../lib/utils';
 import { InfoIcon } from 'lucide-react';
 
 const meta: Meta<typeof Alert> = {
-	title: 'Components/Alert',
+	title: 'UI/Alert',
 	component: Alert,
 	parameters: {
 		layout: 'centered',

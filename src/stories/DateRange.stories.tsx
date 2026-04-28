@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { DateRangeInput, DateRangeWithPresetsInput } from '../ui/date-range';
 
 const meta: Meta<typeof DateRangeInput> = {
-	title: 'Components/DateRange',
+	title: 'UI/DateRange',
 	component: DateRangeInput,
 	parameters: {
 		layout: 'centered',

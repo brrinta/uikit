@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NavigationMenu } from '../ui/navigation-menu';
 
 const meta: Meta<typeof NavigationMenu> = {
-	title: 'Components/NavigationMenu',
+	title: 'UI/NavigationMenu',
 	component: NavigationMenu,
 	parameters: {
 		layout: 'centered',

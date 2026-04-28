@@ -3,7 +3,7 @@ import { Tabs, tabsListVariants } from '../ui/tabs';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Tabs> = {
-	title: 'Components/Tabs',
+	title: 'UI/Tabs',
 	component: Tabs,
 	parameters: {
 		layout: 'centered',

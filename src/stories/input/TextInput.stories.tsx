@@ -5,7 +5,7 @@ import { TextInput } from '../../ui/text-input';
 import { DollarSign } from 'lucide-react';
 
 const meta: Meta<typeof TextInput> = {
-	title: 'Components/Input/Text',
+	title: 'UI/Input/Text',
 	component: TextInput,
 	parameters: {
 		layout: 'centered',

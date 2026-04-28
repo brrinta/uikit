@@ -5,7 +5,7 @@ import { PhoneInput } from '../../ui/phone-input';
 import { Phone } from 'lucide-react';
 
 const meta: Meta<typeof PhoneInput> = {
-	title: 'Components/Input/Phone',
+	title: 'UI/Input/Phone',
 	component: PhoneInput,
 	parameters: {
 		layout: 'centered',

@@ -15,7 +15,7 @@ import {
 import { CalendarIcon, FolderIcon, HomeIcon, SettingsIcon, UsersIcon } from 'lucide-react';
 
 const meta: Meta<typeof Sidebar> = {
-	title: 'Components/Sidebar',
+	title: 'UI/Sidebar',
 	component: Sidebar,
 	parameters: {
 		layout: 'fullscreen',

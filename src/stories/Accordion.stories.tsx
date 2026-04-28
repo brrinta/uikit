@@ -3,7 +3,7 @@ import { Accordion, accordionRootVariants } from '../ui/accordion';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Accordion> = {
-	title: 'Components/Accordion',
+	title: 'UI/Accordion',
 	component: Accordion,
 	parameters: {
 		layout: 'centered',

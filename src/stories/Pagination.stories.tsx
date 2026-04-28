@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Pagination } from '../ui/pagination';
 
 const meta: Meta<typeof Pagination> = {
-	title: 'Components/Pagination',
+	title: 'UI/Pagination',
 	component: Pagination,
 	parameters: {
 		layout: 'centered',

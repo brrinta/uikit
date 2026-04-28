@@ -3,7 +3,7 @@ import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTool
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 
 const meta: Meta<typeof ChartContainer> = {
-	title: 'Components/Chart',
+	title: 'UI/Chart',
 	component: ChartContainer,
 	parameters: {
 		layout: 'centered',

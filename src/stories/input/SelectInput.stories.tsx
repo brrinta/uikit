@@ -5,7 +5,7 @@ import { SelectInput } from '../../ui/select-input';
 import { AppleIcon, BananaIcon } from 'lucide-react';
 
 const meta: Meta<typeof SelectInput> = {
-	title: 'Components/Input/Select',
+	title: 'UI/Input/Select',
 	component: SelectInput,
 	parameters: {
 		layout: 'centered',

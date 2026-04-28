@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Title } from '../ui/title';
 
 const meta: Meta<typeof Title> = {
-	title: 'Components/Title',
+	title: 'UI/Title',
 	component: Title,
 	parameters: {
 		layout: 'centered',

@@ -3,7 +3,7 @@ import { Spinner, spinnerVariants } from '../ui/spinner';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Spinner> = {
-	title: 'Components/Spinner',
+	title: 'UI/Spinner',
 	component: Spinner,
 	parameters: {
 		layout: 'centered',

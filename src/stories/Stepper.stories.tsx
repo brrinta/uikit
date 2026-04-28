@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '../ui/button';
 
 const meta: Meta<typeof Stepper> = {
-	title: 'Components/Stepper',
+	title: 'UI/Stepper',
 	component: Stepper,
 	parameters: {
 		layout: 'centered',

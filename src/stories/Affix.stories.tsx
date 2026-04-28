@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { ArrowUpIcon } from 'lucide-react';
 
 const meta: Meta<typeof Affix> = {
-	title: 'Components/Affix',
+	title: 'UI/Affix',
 	component: Affix,
 	parameters: {
 		layout: 'fullscreen',

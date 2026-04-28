@@ -3,7 +3,7 @@ import { List } from '../ui/list';
 import { CheckIcon } from 'lucide-react';
 
 const meta: Meta<typeof List> = {
-	title: 'Components/List',
+	title: 'UI/List',
 	component: List,
 	parameters: {
 		layout: 'centered',

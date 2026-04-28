@@ -3,7 +3,7 @@ import { Kanban } from '../ui/sortable';
 import { useState } from 'react';
 
 const meta: Meta<typeof Kanban> = {
-	title: 'Components/Sortable',
+	title: 'UI/Sortable',
 	component: Kanban,
 	parameters: {
 		layout: 'centered',

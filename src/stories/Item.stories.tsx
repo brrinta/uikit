@@ -3,7 +3,7 @@ import { Item } from '../ui/item';
 import { User, ChevronRight, Mail } from 'lucide-react';
 
 const meta: Meta<typeof Item> = {
-	title: 'Components/Item',
+	title: 'UI/Item',
 	component: Item,
 	parameters: {
 		layout: 'centered',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tree, TreeItemType } from '../ui/tree';
 import { useTree } from '../hooks/use-tree';
 const meta: Meta<typeof Tree> = {
-	title: 'Components/Tree',
+	title: 'UI/Tree',
 	component: Tree,
 	parameters: {
 		layout: 'centered',

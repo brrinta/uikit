@@ -3,7 +3,7 @@ import { Calendar } from '../ui/calendar';
 import { useState } from 'react';
 
 const meta: Meta<typeof Calendar> = {
-	title: 'Components/Calendar',
+	title: 'UI/Calendar',
 	component: Calendar,
 	parameters: {
 		layout: 'centered',

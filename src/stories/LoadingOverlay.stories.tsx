@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '../ui/button';
 
 const meta: Meta<typeof LoadingOverlay> = {
-	title: 'Components/LoadingOverlay',
+	title: 'UI/LoadingOverlay',
 	component: LoadingOverlay,
 	parameters: {
 		layout: 'centered',

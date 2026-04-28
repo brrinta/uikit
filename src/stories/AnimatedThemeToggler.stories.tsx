@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AnimatedThemeToggler } from '../ui/animated-theme-toggler';
 
 const meta: Meta<typeof AnimatedThemeToggler> = {
-	title: 'Components/AnimatedThemeToggler',
+	title: 'UI/AnimatedThemeToggler',
 	component: AnimatedThemeToggler,
 	parameters: {
 		layout: 'centered',

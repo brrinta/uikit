@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../lib/utils';
 import { SearchIcon } from 'lucide-react';
 
 const meta: Meta<typeof Input> = {
-	title: 'Components/Input',
+	title: 'UI/Input',
 	component: Input,
 	parameters: {
 		layout: 'centered',

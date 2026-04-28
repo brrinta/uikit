@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ContextMenu } from '../ui/context-menu';
 
 const meta: Meta<typeof ContextMenu> = {
-	title: 'Components/ContextMenu',
+	title: 'UI/ContextMenu',
 	component: ContextMenu,
 	parameters: {
 		layout: 'centered',

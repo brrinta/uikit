@@ -3,7 +3,7 @@ import { TagsInput } from '../ui/tags-input';
 import { useState } from 'react';
 
 const meta: Meta<typeof TagsInput> = {
-	title: 'Components/TagsInput',
+	title: 'UI/TagsInput',
 	component: TagsInput,
 	parameters: {
 		layout: 'centered',

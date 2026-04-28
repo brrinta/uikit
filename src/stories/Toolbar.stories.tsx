@@ -3,7 +3,7 @@ import { Toolbar } from '../ui/toolbar';
 import { BoldIcon, ImageIcon, ItalicIcon, LinkIcon, UnderlineIcon } from 'lucide-react';
 
 const meta: Meta<typeof Toolbar> = {
-	title: 'Components/Toolbar',
+	title: 'UI/Toolbar',
 	component: Toolbar,
 	parameters: {
 		layout: 'centered',

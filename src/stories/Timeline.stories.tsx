@@ -3,7 +3,7 @@ import { Timeline } from '../ui/timeline';
 import { AlertCircleIcon, CheckIcon, ClockIcon } from 'lucide-react';
 
 const meta: Meta<typeof Timeline> = {
-	title: 'Components/Timeline',
+	title: 'UI/Timeline',
 	component: Timeline,
 	parameters: {
 		layout: 'centered',

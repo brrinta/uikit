@@ -3,7 +3,7 @@ import { Badge, badgeVariants } from '../ui/badge';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Badge> = {
-	title: 'Components/Badge',
+	title: 'UI/Badge',
 	component: Badge,
 	parameters: {
 		layout: 'centered',

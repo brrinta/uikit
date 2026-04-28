@@ -3,7 +3,7 @@ import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, Dr
 import { Button } from '../ui/button';
 
 const meta: Meta<typeof Drawer> = {
-	title: 'Components/Drawer',
+	title: 'UI/Drawer',
 	component: Drawer,
 	parameters: {
 		layout: 'centered',

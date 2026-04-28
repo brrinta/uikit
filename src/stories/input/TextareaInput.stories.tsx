@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../../lib/utils';
 import { TextareaInput } from '../../ui/textarea-input';
 
 const meta: Meta<typeof TextareaInput> = {
-	title: 'Components/Input/Textarea',
+	title: 'UI/Input/Textarea',
 	component: TextareaInput,
 	parameters: {
 		layout: 'centered',

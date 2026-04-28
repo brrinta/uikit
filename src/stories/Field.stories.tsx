@@ -5,7 +5,7 @@ import { prepareArgTypes } from '../lib/utils';
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, UploadCloud } from 'lucide-react';
 
 const meta: Meta<typeof Field> = {
-	title: 'Components/Field',
+	title: 'UI/Field',
 	component: Field,
 	parameters: {
 		layout: 'centered',

@@ -3,7 +3,7 @@ import { Switch, switchVariants } from '../ui/switch';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Switch> = {
-	title: 'Components/Switch',
+	title: 'UI/Switch',
 	component: Switch,
 	parameters: {
 		layout: 'centered',

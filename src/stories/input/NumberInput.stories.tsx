@@ -5,7 +5,7 @@ import { NumberInput } from '../../ui/number-input';
 import { DollarSign } from 'lucide-react';
 
 const meta: Meta<typeof NumberInput> = {
-	title: 'Components/Input/Number',
+	title: 'UI/Input/Number',
 	component: NumberInput,
 	parameters: {
 		layout: 'centered',

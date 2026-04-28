@@ -3,7 +3,7 @@ import { Command } from '../ui/command';
 import { User, Mail, Settings, CreditCard, Calculator, Smile, Calendar } from 'lucide-react';
 
 const meta: Meta<typeof Command> = {
-	title: 'Components/Command',
+	title: 'UI/Command',
 	component: Command,
 	parameters: {
 		layout: 'centered',

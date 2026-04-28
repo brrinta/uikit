@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../../lib/utils';
 import { PasswordInput } from '../../ui/password-input';
 
 const meta: Meta<typeof PasswordInput> = {
-	title: 'Components/Input/Password',
+	title: 'UI/Input/Password',
 	component: PasswordInput,
 	parameters: {
 		layout: 'centered',

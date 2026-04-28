@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AuroraText } from '../ui/aurora-text';
 
 const meta: Meta<typeof AuroraText> = {
-	title: 'Components/AuroraText',
+	title: 'UI/AuroraText',
 	component: AuroraText,
 	parameters: {
 		layout: 'centered',

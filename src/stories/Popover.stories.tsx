@@ -5,7 +5,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 
 const meta: Meta<typeof Popover> = {
-	title: 'Components/Popover',
+	title: 'UI/Popover',
 	component: Popover,
 	parameters: {
 		layout: 'centered',

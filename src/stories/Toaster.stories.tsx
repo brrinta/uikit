@@ -3,7 +3,7 @@ import { showNotification, Toaster } from '../ui/sonner';
 import { Button } from '../ui/button';
 
 const meta: Meta<typeof Toaster> = {
-	title: 'Components/Toaster',
+	title: 'UI/Toaster',
 	component: Toaster,
 	parameters: {
 		layout: 'centered',

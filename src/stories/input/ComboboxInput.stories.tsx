@@ -5,7 +5,7 @@ import { ComboboxInput } from '../../ui/combobox-input';
 import { Badge } from '../../ui/badge';
 
 const meta: Meta<typeof ComboboxInput> = {
-	title: 'Components/Input/Combobox',
+	title: 'UI/Input/Combobox',
 	component: ComboboxInput,
 	parameters: {
 		layout: 'centered',

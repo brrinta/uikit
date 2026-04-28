@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar } from '../ui/avatar';
 
 const meta: Meta<typeof Avatar> = {
-	title: 'Components/Avatar',
+	title: 'UI/Avatar',
 	component: Avatar,
 	parameters: {
 		layout: 'centered',

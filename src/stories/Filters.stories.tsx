@@ -4,7 +4,7 @@ import { Calendar, Hash, Mail, User } from 'lucide-react';
 import { useState } from 'react';
 
 const meta: Meta<typeof Filters> = {
-	title: 'Components/Filters',
+	title: 'UI/Filters',
 	component: Filters,
 	parameters: {
 		layout: 'centered',

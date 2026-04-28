@@ -10,7 +10,7 @@ const items = [
 ];
 
 const meta: Meta<typeof Combobox> = {
-	title: 'Components/Combobox',
+	title: 'UI/Combobox',
 	component: Combobox,
 	parameters: {
 		layout: 'centered',

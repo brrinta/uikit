@@ -5,7 +5,7 @@ import { fieldVariants } from '../../ui/field';
 import { prepareArgTypes } from '../../lib/utils';
 
 const meta: Meta<typeof AutocompleteInput> = {
-	title: 'Components/Input/Autocomplete',
+	title: 'UI/Input/Autocomplete',
 	component: AutocompleteInput,
 	parameters: {
 		layout: 'centered',

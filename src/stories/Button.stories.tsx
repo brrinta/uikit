@@ -3,7 +3,7 @@ import { Button, buttonVariants } from '../ui/button';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Button> = {
-	title: 'Components/Button',
+	title: 'UI/Button',
 	component: Button,
 	parameters: {
 		layout: 'centered',

@@ -5,7 +5,7 @@ import { Input } from '../ui/input';
 import { Checkbox } from '../ui/checkbox';
 
 const meta: Meta<typeof Fieldset> = {
-	title: 'Components/Fieldset',
+	title: 'UI/Fieldset',
 	component: Fieldset,
 	parameters: {
 		layout: 'centered',

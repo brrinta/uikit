@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../lib/utils';
 import { FormField } from '../ui/form-field';
 
 const meta: Meta<typeof FormField> = {
-	title: 'Components/FormField',
+	title: 'UI/FormField',
 	component: FormField,
 	parameters: {
 		layout: 'centered',

@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { Minus, Plus, RotateCcw } from 'lucide-react';
 
 const meta: Meta<typeof ButtonGroup> = {
-	title: 'Components/ButtonGroup',
+	title: 'UI/ButtonGroup',
 	component: ButtonGroup,
 	parameters: {
 		layout: 'centered',

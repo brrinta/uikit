@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 
 const meta: Meta<typeof PreviewCard> = {
-	title: 'Components/PreviewCard',
+	title: 'UI/PreviewCard',
 	component: PreviewCard,
 	parameters: {
 		layout: 'centered',

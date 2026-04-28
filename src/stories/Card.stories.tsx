@@ -3,7 +3,7 @@ import { Card, cardVariants } from '../ui/card';
 import { prepareArgTypes } from '../lib/utils';
 
 const meta: Meta<typeof Card> = {
-	title: 'Components/Card',
+	title: 'UI/Card',
 	component: Card,
 	parameters: {
 		layout: 'centered',

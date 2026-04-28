@@ -4,7 +4,7 @@ import { prepareArgTypes } from '../lib/utils';
 import { ToggleGroup, ToggleGroupItem, toggleVariants } from '../ui/toggle-group';
 
 const meta: Meta<typeof ToggleGroup> = {
-	title: 'Components/ToggleGroup',
+	title: 'UI/ToggleGroup',
 	component: ToggleGroup,
 	parameters: {
 		layout: 'centered',
