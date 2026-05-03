@@ -114,8 +114,3 @@ declare module '@tanstack/react-router' {
 		table?: boolean;
 	}
 }
-
-declare module '*.md' {
-	const value: string;
-	export default value;
-}

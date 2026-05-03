@@ -76,43 +76,44 @@ export type ComboboxInputProps<
 > = Omit<FormFieldProps, 'children' | 'onChange'> &
 	Pick<ComboboxProps<ITEM, M>, keyof ComboboxFieldProps<V, M>> &
 	ComboboxPickedPositionerProps & {
-		multiple?: M;
-		valueKey?: VK;
-		// defaultValue?: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null;
-		defaultValue?: (M extends true ? Array<V> : V) | null;
-		multipleValueMode?: 'more' | 'comma' | 'chips';
-		multipleValueLimit?: number;
-		// value?: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null;
-		value?: (M extends true ? Array<V> : V) | null;
-		// onValueChange?: (value: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null, evt: BaseCombobox.Root.ChangeEventDetails) => void;
-		onValueChange?: (
-			value: (M extends true ? Array<V> : V) | null,
-			keyValue: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null,
-			item: (M extends true ? Array<ITEM> : ITEM) | null,
-			evt: BaseCombobox.Root.ChangeEventDetails,
-		) => void;
-		clearable?: boolean;
-		loading?: boolean;
-		placeholderProps?: ComboboxPlaceholderProps;
-		placeholder?: string;
-		searchPlaceholder?: string;
-		comboboxProps?: Omit<ComboboxProps<ITEM, M>, keyof ComboboxFieldProps<V, M>>;
-		filedControlProps?: FieldControlProps;
-		triggerProps?: ComboboxTriggerProps;
-		clearProps?: ComboboxClearProps;
-		controlProps?: ComboboxControlProps;
-		inputProps?: PrimitiveComboboxInputProps;
-		valueProps?: ComboboxValueProps;
-		renderValue?: (val: ITEM) => ReactNode;
-		renderItem?: (item: ITEM, index: number) => ReactNode;
-		contentProps?: Omit<ComboboxContentProps, keyof ComboboxPickedPositionerProps>;
-		itemProps?: ComboboxItemProps;
-		chipsProps?: Omit<ComboboxChipsProps, 'values' | 'renderValue'>;
-		items: Array<ITEM>;
-		creatable?: boolean;
-		newItemBuilder?: (inputValue: ComboboxFieldProps<V, M>['inputValue']) => ITEM;
-		onNewItemCreated?: (item: ITEM) => void;
-	};
+	multiple?: M;
+	valueKey?: VK;
+	// defaultValue?: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null;
+	defaultValue?: (M extends true ? Array<V> : V) | null;
+	multipleValueMode?: 'more' | 'comma' | 'chips';
+	multipleValueLimit?: number;
+	// value?: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null;
+	value?: (M extends true ? Array<V> : V) | null;
+	// onValueChange?: (value: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null, evt: BaseCombobox.Root.ChangeEventDetails) => void;
+	onValueChange?: (
+		value: (M extends true ? Array<V> : V) | null,
+		keyValue: (M extends true ? Array<ITEM[VK]> : ITEM[VK]) | null,
+		item: (M extends true ? Array<ITEM> : ITEM) | null,
+		evt: BaseCombobox.Root.ChangeEventDetails,
+	) => void;
+	clearable?: boolean;
+	loading?: boolean;
+	triggerLoading?: boolean;
+	placeholderProps?: ComboboxPlaceholderProps;
+	placeholder?: string;
+	searchPlaceholder?: string;
+	comboboxProps?: Omit<ComboboxProps<ITEM, M>, keyof ComboboxFieldProps<V, M>>;
+	filedControlProps?: FieldControlProps;
+	triggerProps?: ComboboxTriggerProps;
+	clearProps?: ComboboxClearProps;
+	controlProps?: ComboboxControlProps;
+	inputProps?: PrimitiveComboboxInputProps;
+	valueProps?: ComboboxValueProps;
+	renderValue?: (val: ITEM) => ReactNode;
+	renderItem?: (item: ITEM, index: number) => ReactNode;
+	contentProps?: Omit<ComboboxContentProps, keyof ComboboxPickedPositionerProps>;
+	itemProps?: ComboboxItemProps;
+	chipsProps?: Omit<ComboboxChipsProps, 'values' | 'renderValue'>;
+	items: Array<ITEM>;
+	creatable?: boolean;
+	newItemBuilder?: (inputValue: ComboboxFieldProps<V, M>['inputValue']) => ITEM;
+	onNewItemCreated?: (item: ITEM) => void;
+};
 
 export const ComboboxInput = <
 	V = any,
@@ -120,76 +121,77 @@ export const ComboboxInput = <
 	ITEM extends ComboboxData<V> = ComboboxData<V>,
 	VK extends keyof ITEM = keyof ITEM,
 >({
-	valueKey = '_id' as VK,
-	defaultValue,
-	value,
-	onValueChange,
-	defaultInputValue,
-	inputValue,
-	onInputValueChange,
-	defaultOpen,
-	open,
-	onOpenChange,
-	highlightItemOnHover,
-	actionsRef,
-	filter,
-	filteredItems,
-	grid,
-	inline,
-	isItemEqualToValue,
-	itemToStringLabel,
-	itemToStringValue,
-	items = [],
-	limit,
-	locale,
-	modal,
-	multiple,
-	multipleValueMode = 'chips',
-	multipleValueLimit = 1,
-	onItemHighlighted,
-	onOpenChangeComplete,
-	virtualized,
-	disabled,
-	readOnly,
-	required,
-	inputRef,
+	  valueKey = '_id' as VK,
+	  defaultValue,
+	  value,
+	  onValueChange,
+	  defaultInputValue,
+	  inputValue,
+	  onInputValueChange,
+	  defaultOpen,
+	  open,
+	  onOpenChange,
+	  highlightItemOnHover,
+	  actionsRef,
+	  filter,
+	  filteredItems,
+	  grid,
+	  inline,
+	  isItemEqualToValue,
+	  itemToStringLabel,
+	  itemToStringValue,
+	  items = [],
+	  limit,
+	  locale,
+	  modal,
+	  multiple,
+	  multipleValueMode = 'chips',
+	  multipleValueLimit = 1,
+	  onItemHighlighted,
+	  onOpenChangeComplete,
+	  virtualized,
+	  disabled,
+	  readOnly,
+	  required,
+	  inputRef,
 
-	clearable,
-	renderValue,
-	renderItem,
-	itemProps,
-	contentProps,
-	disableAnchorTracking,
-	align,
-	alignOffset,
-	side,
-	sideOffset = 8,
-	arrowPadding,
-	anchor,
-	collisionAvoidance,
-	collisionBoundary,
-	collisionPadding,
-	sticky,
-	positionMethod,
-	comboboxProps,
-	placeholderProps,
-	placeholder,
-	searchPlaceholder,
-	triggerProps,
-	clearProps,
-	inputProps,
-	valueProps,
-	chipsProps,
-	controlProps,
-	filedControlProps,
+	  clearable,
+	  renderValue,
+	  renderItem,
+	  itemProps,
+	  contentProps,
+	  disableAnchorTracking,
+	  align,
+	  alignOffset,
+	  side,
+	  sideOffset = 8,
+	  arrowPadding,
+	  anchor,
+	  collisionAvoidance,
+	  collisionBoundary,
+	  collisionPadding,
+	  sticky,
+	  positionMethod,
+	  comboboxProps,
+	  placeholderProps,
+	  placeholder,
+	  searchPlaceholder,
+	  triggerProps,
+	  clearProps,
+	  inputProps,
+	  valueProps,
+	  chipsProps,
+	  controlProps,
+	  filedControlProps,
 
-	creatable,
-	newItemBuilder,
-	onNewItemCreated,
-	loading,
+	  creatable,
+	  newItemBuilder,
+	  onNewItemCreated,
+	  loading,
+	  triggerLoading,
 
-	...props
-}: ComboboxInputProps<V, M, ITEM, VK>) => {
+	  ...props
+  }: ComboboxInputProps<V, M, ITEM, VK>) => {
 	const [newCreatedItems, setNewCreatedItems] = React.useState<Array<ITEM>>([]);
 	const [selectedItemsCache, setSelectedItemsCache] = React.useState<Array<ITEM>>([]);
 
@@ -244,12 +246,12 @@ export const ComboboxInput = <
 			newItemBuilder
 				? newItemBuilder(sv)
 				: ({
-						_id: `new-${sv}`,
-						value: sv,
-						label: sv,
-						description: 'New Record',
-						__NEW__: true,
-					} as ITEM),
+					_id: `new-${sv}`,
+					value: sv,
+					label: sv,
+					description: 'New Record',
+					__NEW__: true,
+				} as ITEM),
 		[newItemBuilder],
 	);
 
@@ -473,6 +475,11 @@ export const ComboboxInput = <
 											);
 										}}
 									</Combobox.Value>
+									{triggerLoading &&
+									<Spinner
+										size={'md'}
+										className={cn( 'm-auto')}
+									/>}
 								</Combobox.Trigger>
 							}
 						/>
