@@ -476,10 +476,10 @@ export const ComboboxInput = <
 										}}
 									</Combobox.Value>
 									{triggerLoading &&
-									<Spinner
-										size={'md'}
-										className={cn( 'm-auto')}
-									/>}
+										<Spinner
+											size={'md'}
+											className={cn('m-auto absolute w-full h-full')}
+										/>}
 								</Combobox.Trigger>
 							}
 						/>
