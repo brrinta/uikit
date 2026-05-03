@@ -53,7 +53,6 @@ export function SubmitButton({ children, ...props }: ButtonProps) {
 		<form.Subscribe selector={(state) => [state.isSubmitting, state.isValid]}>
 			{([isSubmitting, valid]) => (
 				<Button
-					onClick={() => form.handleSubmit()}
 					{...props}
 					type={'submit'}
 					disabled={!valid}
