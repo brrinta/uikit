@@ -1,3 +1,4 @@
+import * as v from 'valibot';
 // Minimal schema types required by uikit.
 // These types are extracted from the entero.biz @entero/schema package, scoped to
 // only what the uikit library needs so that this package can be used standalone.
@@ -78,6 +79,7 @@ export enum FileStatus {
 	Uploaded = 0,
 	InUse = 1,
 }
+
 // ---------------------------------------------------------------------------
 // Primitive types
 // ---------------------------------------------------------------------------
@@ -90,7 +92,12 @@ export enum FileStatus {
  */
 export type MongoDbObjectID = string | undefined;
 
-
+export const MongoDbObjectIDSchema = v.optional(
+	v.pipe(
+		v.string(),
+		v.regex(/^[0-9a-fA-F]{24}$/, 'Invalid ObjectId format'),
+	),
+);
 // ---------------------------------------------------------------------------
 // Response types
 // ---------------------------------------------------------------------------
@@ -134,35 +141,37 @@ export type DatatableResponse<T = Record<string, any>> = {
 // ---------------------------------------------------------------------------
 // File & upload types
 // ---------------------------------------------------------------------------
+export const FileUploadSchema = v.object({
+	ref: v.string(),
 
-export type FileUpload<L=string> = {
-	/** table name */
-	ref: string;
-	/** primary id of the table */
-	refID?: MongoDbObjectID;
-	/** primary path of the table (_id) */
-	refPath?: string;
-	/** secondary id of the table like order id */
-	secID?: MongoDbObjectID;
-	/** secondary id path of the table like order id path ('orders._id') */
-	secPath?: string;
-	/** path of the file(s) in table */
-	pathInTable: string | { [x: string]: string };
-	/** status of the file */
-	status?: FileStatus;
-	/** path where file will be uploaded */
-	uploadPath: string;
-	/** Note for the file */
-	note?: string;
-	/** label of the file */
-	label?: L;
-	/** Group Identifier of attachment */
-	group?: string;
-	/** Secondary Identifier of attachment */
-	sec?: string;
+	refID: MongoDbObjectIDSchema,
+	refPath: v.optional(v.string()),
 
-	[x: string]: Array<File> | File | any;
+	secID: MongoDbObjectIDSchema,
+	secPath: v.optional(v.string()),
+
+	pathInTable: v.union([
+		v.string(),
+		v.record(v.string(), v.string()),
+	]),
+
+	status: v.optional(v.string()),
+
+	uploadPath: v.string(),
+
+	note: v.optional(v.string()),
+	label: v.optional(v.string()),
+	group: v.optional(v.string()),
+	sec: v.optional(v.string()),
+});
+
+type FileMap = {
+	[key: string]: File | File[] | unknown;
 };
+
+export type FileUpload = v.InferInput<typeof FileUploadSchema> & FileMap;
+
+export type FileUploadOutput = v.InferOutput<typeof FileUploadSchema> & FileMap;
 
 // ---------------------------------------------------------------------------
 // Template types

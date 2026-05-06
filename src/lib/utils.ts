@@ -124,7 +124,8 @@ export const parseStyle = (styleString: string | Record<string, any> | undefined
 		const [key, value] = rule.split(':');
 		if (key && value) {
 			const camelKey = key.trim().replace(/-([a-z])/g, (g) => g[1].toUpperCase());
-			// @ts-ignore - dynamic style key assignment
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-expect-error
 			acc[camelKey] = value.trim();
 		}
 		return acc;
