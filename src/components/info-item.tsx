@@ -43,20 +43,20 @@ export interface InfoItemProps extends Omit<GroupProps, 'children' | 'title'> {
 }
 
 export const InfoItem = ({
-	title,
-	description,
-	children,
-	withDot = false,
-	icon,
-	separator = ':',
-	orientation = 'vertical',
-	className,
-	classNames,
-	titleProps,
-	descriptionProps,
-	iconProps,
-	...props
-}: InfoItemProps) => {
+	                         title,
+	                         description,
+	                         children,
+	                         withDot = false,
+	                         icon,
+	                         separator = ':',
+	                         orientation = 'vertical',
+	                         className,
+	                         classNames,
+	                         titleProps,
+	                         descriptionProps,
+	                         iconProps,
+	                         ...props
+                         }: InfoItemProps) => {
 	// Determine the Icon
 	const finalIcon =
 		icon ||
@@ -99,7 +99,7 @@ export const InfoItem = ({
 				{(description || children) && (
 					<Text
 						render={<div />}
-						className={cn('text-sm text-muted-foreground pl-4', classNames?.description)}
+						className={cn('text-sm text-muted-foreground my-auto',{'pl-4':!isHorizontal}, classNames?.description)}
 						{...descriptionProps}>
 						{description}
 						{children}
