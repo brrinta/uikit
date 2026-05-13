@@ -80,7 +80,7 @@ export const InfoItem = ({
 				className={cn(
 					'w-full',
 					{
-						'flex-row gap-2': isHorizontal,
+						'flex-row gap-2 items-center': isHorizontal,
 						'flex-col': !isHorizontal,
 					},
 					classNames?.wrapper,
