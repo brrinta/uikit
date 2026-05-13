@@ -1,6 +1,8 @@
 # Dependencies
 node_modules/
 .pnpm-store/
+.junie
+.claude
 
 # Build outputs
 dist/
