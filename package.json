@@ -1,6 +1,6 @@
 {
 	"name": "@brrinta/uikit",
-	"version": "0.1.10",
+	"version": "0.1.11",
 	"description": " React UI component library.",
 	"main": "./src/index.ts",
 	"types": "./src/index.ts",
