@@ -40,7 +40,7 @@ function SeparatorWithLabel({
 	                            ...props
                             }: React.ComponentProps<'div'> & {
 	label?: ReactNode;
-	classNames: {
+	classNames?: {
 		wrapper?: string,
 		firstSeparator?: string,
 		lastSeparator?: string,
