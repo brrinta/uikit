@@ -146,7 +146,7 @@ const getRootError = (
 };
 
 type UseDropzoneProps<TUploadRes, TUploadError> = {
-	onDropFile: (file: File) => Promise<Exclude<DropzoneResult<TUploadRes, TUploadError>, { status: 'pending' }>>;
+	onDropFile?: (file: File) => Promise<Exclude<DropzoneResult<TUploadRes, TUploadError>, { status: 'pending' }>>;
 	onRemoveFile?: (id: string) => void | Promise<void>;
 	onFileUploaded?: (result: TUploadRes) => void;
 	onFileUploadError?: (error: TUploadError) => void;
@@ -229,6 +229,9 @@ const useDropzone = <TUploadRes, TUploadError = string>(
 
 	const _uploadFile = useCallback(
 		async (file: File, id: string, tries = 0) => {
+			if (pOnDropFile === undefined) {
+				return;
+			}
 			const result = await pOnDropFile(file);
 
 			if (result.status === 'error') {
