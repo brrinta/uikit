@@ -20,7 +20,7 @@ type DropzoneResult<TUploadRes, TUploadError> =
 			result: TUploadRes;
 	  };
 
-export type FileStatus<TUploadRes, TUploadError> = {
+export type FileWithStatus<TUploadRes, TUploadError> = {
 	id: string;
 	fileName: string;
 	file: File;
@@ -44,7 +44,7 @@ export type FileStatus<TUploadRes, TUploadError> = {
 );
 
 const fileStatusReducer = <TUploadRes, TUploadError>(
-	state: FileStatus<TUploadRes, TUploadError>[],
+	state: FileWithStatus<TUploadRes, TUploadError>[],
 	action:
 		| {
 				type: 'add';
@@ -61,13 +61,13 @@ const fileStatusReducer = <TUploadRes, TUploadError>(
 		  }
 		| {
 				type: 'set';
-				files: FileStatus<TUploadRes, TUploadError>[];
+				files: FileWithStatus<TUploadRes, TUploadError>[];
 		  }
 		| ({
 				type: 'update-status';
 				id: string;
 		  } & DropzoneResult<TUploadRes, TUploadError>),
-): FileStatus<TUploadRes, TUploadError>[] => {
+): FileWithStatus<TUploadRes, TUploadError>[] => {
 	switch (action.type) {
 		case 'add':
 			return [
@@ -94,7 +94,7 @@ const fileStatusReducer = <TUploadRes, TUploadError>(
 						...fileStatus,
 						...rest,
 						tries: action.status === 'pending' ? fileStatus.tries + 1 : fileStatus.tries,
-					} as FileStatus<TUploadRes, TUploadError>;
+					} as FileWithStatus<TUploadRes, TUploadError>;
 				}
 				return fileStatus;
 			});
@@ -178,8 +178,8 @@ interface UseDropzoneReturn<TUploadRes, TUploadError> {
 	setFiles: (files: File[]) => Promise<void>;
 	onRetry: (id: string) => Promise<void>;
 	canRetry: (id: string) => boolean;
-	setFileStatuses: (files: FileStatus<TUploadRes, TUploadError>[]) => void;
-	fileStatuses: FileStatus<TUploadRes, TUploadError>[];
+	setFileStatuses: (files: FileWithStatus<TUploadRes, TUploadError>[]) => void;
+	fileStatuses: FileWithStatus<TUploadRes, TUploadError>[];
 	files: File[];
 	isInvalid: boolean;
 	isDragActive: boolean;
@@ -279,7 +279,7 @@ const useDropzone = <TUploadRes, TUploadError = string>(
 
 	const reset = onClear;
 
-	const setFileStatuses = useCallback((files: FileStatus<TUploadRes, TUploadError>[]) => {
+	const setFileStatuses = useCallback((files: FileWithStatus<TUploadRes, TUploadError>[]) => {
 		dispatch({ type: 'set', files });
 	}, []);
 
@@ -369,8 +369,8 @@ const useDropzone = <TUploadRes, TUploadError = string>(
 		setFiles,
 		canRetry,
 		setFileStatuses,
-		fileStatuses: fileStatuses as FileStatus<TUploadRes, TUploadError>[],
-		files: (fileStatuses as FileStatus<TUploadRes, TUploadError>[]).map((fileStatus) => fileStatus.file),
+		fileStatuses: fileStatuses as FileWithStatus<TUploadRes, TUploadError>[],
+		files: (fileStatuses as FileWithStatus<TUploadRes, TUploadError>[]).map((fileStatus) => fileStatus.file),
 		isInvalid,
 		rootError,
 		isDragActive: dropzone.isDragActive,
@@ -479,7 +479,7 @@ DropzoneDescription.displayName = 'DropzoneDescription';
 interface DropzoneFileListContext<TUploadRes, TUploadError> {
 	onRemoveFile: () => Promise<void>;
 	onRetry: () => Promise<void>;
-	fileStatus: FileStatus<TUploadRes, TUploadError>;
+	fileStatus: FileWithStatus<TUploadRes, TUploadError>;
 	canRetry: boolean;
 	dropzoneId: string;
 	messageId: string;
@@ -492,7 +492,7 @@ const DropzoneFileListContext = createContext<DropzoneFileListContext<unknown, u
 	onRetry: async () => {
 		/* empty */
 	},
-	fileStatus: {} as FileStatus<unknown, unknown>,
+	fileStatus: {} as FileWithStatus<unknown, unknown>,
 	canRetry: false,
 	dropzoneId: '',
 	messageId: '',
@@ -521,7 +521,7 @@ const DropzoneFileList: React.FC<DropZoneFileListProps> = ({ className, ...props
 DropzoneFileList.displayName = 'DropzoneFileList';
 
 interface DropzoneFileListItemProps<TUploadRes, TUploadError> extends React.ComponentProps<'li'> {
-	file: FileStatus<TUploadRes, TUploadError>;
+	file: FileWithStatus<TUploadRes, TUploadError>;
 }
 
 const DropzoneFileListItem: React.FC<DropzoneFileListItemProps<unknown, unknown>> = ({ className, ...props }) => {

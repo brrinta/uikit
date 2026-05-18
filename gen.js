@@ -8,7 +8,7 @@ function generateTs(dir) {
 	const files = [];
 	readdirSync(path.join(__dirname, dir)).forEach((file) => {
 		if (toIgnore.includes(file)) return;
-		if (file !== 'index.ts' && !file.endsWith('.scss') && !file.endsWith('.css')&& !file.endsWith('.stories.tsx') && file !== '.DS_Store') {
+		if (file !== 'index.ts' && !file.endsWith('.scss') && !file.endsWith('.css')&& !file.endsWith('.stories.tsx')&& !file.endsWith('.md') && file !== '.DS_Store') {
 			const filePath = path.join(__dirname, dir, file);
 			const stats = lstatSync(filePath);
 			if (stats.isDirectory()) {
