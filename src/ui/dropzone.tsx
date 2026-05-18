@@ -180,6 +180,7 @@ interface UseDropzoneReturn<TUploadRes, TUploadError> {
 	canRetry: (id: string) => boolean;
 	setFileStatuses: (files: FileStatus<TUploadRes, TUploadError>[]) => void;
 	fileStatuses: FileStatus<TUploadRes, TUploadError>[];
+	files: File[];
 	isInvalid: boolean;
 	isDragActive: boolean;
 	rootError: string | undefined;
@@ -369,6 +370,7 @@ const useDropzone = <TUploadRes, TUploadError = string>(
 		canRetry,
 		setFileStatuses,
 		fileStatuses: fileStatuses as FileStatus<TUploadRes, TUploadError>[],
+		files: (fileStatuses as FileStatus<TUploadRes, TUploadError>[]).map((fileStatus) => fileStatus.file),
 		isInvalid,
 		rootError,
 		isDragActive: dropzone.isDragActive,
@@ -399,6 +401,7 @@ const DropZoneContext = createContext<UseDropzoneReturn<any, any>>({
 		/* empty */
 	},
 	fileStatuses: [],
+	files: [],
 	isInvalid: false,
 	isDragActive: false,
 	rootError: undefined,
