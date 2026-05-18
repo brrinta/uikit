@@ -155,7 +155,7 @@ export const FileUploadSchema = v.object({
 		v.record(v.string(), v.string()),
 	]),
 
-	status: v.optional(v.string()),
+	status: v.optional(v.number()),
 
 	uploadPath: v.string(),
 
