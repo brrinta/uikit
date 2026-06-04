@@ -410,7 +410,7 @@ const FieldGroup: React.FC<FieldGroupProps> = ({ className, variant, ...props })
 FieldGroup.displayName = 'Field.Group';
 
 export const fieldWrapperVariants = cvaWithMeta(
-	`flex items-center rounded-md grow
+	`flex items-center rounded-md grow min-w-0 
 	has-data-[slot=field-addon-start]:**:data-[slot=field-control]:rounded-l-none
 	has-data-[slot=field-addon-end]:**:data-[slot=field-control]:rounded-r-none
 `,

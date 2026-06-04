@@ -53,7 +53,7 @@ const SelectTrigger: React.FC<SelectTriggerProps> = ({
 				}),
 				`data-placeholder:text-muted-foreground dark:bg-input/30 dark:hover:bg-input/50 aria-invalid:bg-destructive-soft text-foreground
 				  dark:aria-invalid:bg-destructive-soft gap-1.5 rounded-md bg-transparent py-2 pr-2 pl-2.5 text-sm transition-[color,box-shadow]
-				  *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*='size-'])]:size-4 flex items-center
+				  *:data-[slot=select-value]:flex *:data-[slot=select-value]:gap-1.5 [&_svg:not([class*='size-'])]:size-4 flex items-center min-w-0 w-full 
 				  justify-between whitespace-nowrap outline-none disabled:cursor-not-allowed disabled:opacity-50 *:data-[slot=select-value]:line-clamp-1
 				  *:data-[slot=select-value]:items-center [&_svg]:pointer-events-none [&_svg]:shrink-0`,
 				className,
@@ -75,7 +75,7 @@ const SelectValue: React.FC<SelectValueProps> = ({ className, ...props }) => {
 	return (
 		<SelectPrimitive.Value
 			data-slot="select-value"
-			className={cn('flex flex-1 gap-1 flex-row grow text-left', className)}
+			className={cn('flex flex-1 gap-1 flex-row grow text-left truncate', className)}
 			{...props}
 		/>
 	);
