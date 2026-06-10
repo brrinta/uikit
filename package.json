@@ -40,6 +40,7 @@
 		"@react-input/mask": "^2.0.4",
 		"@tabler/icons-react": "^3.44.0",
 		"@tailwindcss/typography": "^0.5.19",
+		"@tanstack/react-db": "^0.1.86",
 		"bson-objectid": "^2.0.4",
 		"card-validator": "^10.0.4",
 		"class-variance-authority": "^0.7.1",
