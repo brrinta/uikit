@@ -65,8 +65,8 @@ export function saveAsFile(data: any, fileName: string, fileMimeType: string): v
 		data instanceof Blob
 			? data
 			: new Blob([data], {
-					type: fileMimeType,
-				});
+				type: fileMimeType,
+			});
 	const objectUrl = URL.createObjectURL(blob);
 
 	const link = document.createElement('a');
@@ -365,14 +365,57 @@ export const playErrorSound = () => {
 	audio.play();
 };
 
-export const toBase64 = (file: File | null) => {
+export const toBase64 = (file: File | null): Promise<string | null> => {
 	return new Promise((resolve, reject) => {
-		if (!file) return resolve(undefined);
+		if (!file) return resolve(null);
 		const reader = new FileReader();
 		reader.readAsDataURL(file);
-		reader.onload = () => resolve(reader.result);
+		reader.onload = () => resolve(reader.result as string);
 		reader.onerror = reject;
 	});
+};
+
+export const base64ToFile = async (
+	base64String: string | null,
+	filename: string
+): Promise<File | null> => {
+	if (!base64String) return null;
+
+	try {
+		const response = await fetch(base64String);
+		const blob = await response.blob();
+		return new File([blob], filename, { type: blob.type });
+	} catch (error) {
+		console.error("Failed to convert base64 to file", error);
+		return null;
+	}
+};
+
+export const base64ToFileSync = (
+	base64String: string | null,
+	filename: string
+): File | null => {
+	if (!base64String) return null;
+
+	// Split the Data URL into its type and data components
+	const arr = base64String.split(',');
+
+	// Extract the MIME type
+	const mimeMatch = arr[0].match(/:(.*?);/);
+	const mime = mimeMatch ? mimeMatch[1] : '';
+
+	// Decode the base64 string
+	const bstr = atob(arr[1]);
+	let n = bstr.length;
+	const u8arr = new Uint8Array(n);
+
+	// Convert into a typed array
+	while (n--) {
+		u8arr[n] = bstr.charCodeAt(n);
+	}
+
+	// Construct and return the File object
+	return new File([u8arr], filename, { type: mime });
 };
 export const diffFromDate = (start: Dayjs, unit: QUnitType, end: Dayjs) => {
 	return end.diff(start, unit);
