@@ -88,9 +88,9 @@ export type ModalRef<T = any, R = Record<string, any>> = {
 	show: (props: T | null) => void;
 } & R;
 
-export interface ModalProps<T = any> {
+export interface ModalProps<T = any, R = void> {
 	ref?: Ref<ModalRef<T>>;
-	onSaved?: () => void;
+	onSaved?: (params:R) => void;
 }
 
 export type SessionAlertType =
