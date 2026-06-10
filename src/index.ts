@@ -68,7 +68,6 @@ export * from './layout/wavy-background';
 export * from './lib/compose-refs';
 export * from './lib/connectivity';
 export * from './lib/consts';
-export * from './lib/localForageCollectionOptions';
 export * from './lib/markdown';
 export * from './lib/tiptap-utils';
 export * from './lib/types';
