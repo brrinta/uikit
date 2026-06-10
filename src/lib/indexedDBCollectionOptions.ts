@@ -3,6 +3,7 @@ import localforage from 'localforage';
 export interface IndexedDBCollectionOptions<T> {
 	id: string;
 	storageKey?: string;
+	dbName?: string;
 	getKey: (item: T) => string;
 	onInsert?: (ctx: any) => Promise<void> | void;
 	onUpdate?: (ctx: any) => Promise<void> | void;
@@ -14,7 +15,7 @@ export function indexedDBCollectionOptions<T>(options: IndexedDBCollectionOption
 
 	// Create an isolated IndexedDB instance for this specific collection
 	const store = localforage.createInstance({
-		name: 'TanStackDB', // You can rename this to your app's name
+		name: options.dbName || 'UiKitDB', // You can rename this to your app's name
 		storeName: storageKey,
 	});
 
@@ -58,9 +59,9 @@ export function indexedDBCollectionOptions<T>(options: IndexedDBCollectionOption
  * Utility function to load data from IndexedDB into the collection on startup.
  * Call this once when your app or provider mounts.
  */
-export async function hydrateIndexedDBCollection(collection: any, storageKey: string) {
+export async function hydrateIndexedDBCollection(collection: any, storageKey: string, dbName: string = 'UiKitDB') {
 	const store = localforage.createInstance({
-		name: 'TanStackDB',
+		name: dbName,
 		storeName: storageKey,
 	});
 
