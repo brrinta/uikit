@@ -1,7 +1,7 @@
 import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
 import { cn, cvaWithMeta } from '../lib/utils';
-import { CircleCheck, CircleCheckBig } from 'lucide-react';
+import { CircleCheck } from 'lucide-react';
 import * as React from 'react';
 import { useId } from 'react';
 import { type VariantProps } from 'class-variance-authority';
@@ -59,29 +59,29 @@ function Radio({ className, ...props }: RadioGroupPrimitive.Props & VariantProps
 }
 
 function RadioGroupItem({
-	className,
-	label,
-	description,
-	icon,
-	classNames,
-	color,
-	id,
-	...props
-}: RadioPrimitive.Root.Props &
+	                        className,
+	                        label,
+	                        description,
+	                        icon,
+	                        classNames,
+	                        color,
+	                        id,
+	                        ...props
+                        }: RadioPrimitive.Root.Props &
 	VariantProps<typeof radioGroupItemVariants> & {
-		label?: React.ReactNode;
-		description?: React.ReactNode;
-		icon?: (props: { className?: string }) => React.ReactNode;
-		classNames?: {
-			item?: string;
-			root?: string;
-			description?: string;
-			wrapper?: string;
-			indicator?: string;
-			label?: string;
-			icon?: string;
-		};
-	}) {
+	label?: React.ReactNode;
+	description?: React.ReactNode;
+	icon?: (props: { className?: string }) => React.ReactNode;
+	classNames?: {
+		item?: string;
+		root?: string;
+		description?: string;
+		wrapper?: string;
+		indicator?: string;
+		label?: string;
+		icon?: string;
+	};
+}) {
 	const genID = useId();
 	if (!label && !description) {
 		return (
