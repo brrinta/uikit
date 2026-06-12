@@ -1,7 +1,7 @@
 import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
 import { cn, cvaWithMeta } from '../lib/utils';
-import { CircleCheckBig } from 'lucide-react';
+import { CircleCheck, CircleCheckBig } from 'lucide-react';
 import * as React from 'react';
 import { useId } from 'react';
 import { type VariantProps } from 'class-variance-authority';
@@ -39,9 +39,9 @@ export const radioGroupItemVariants = cvaWithMeta(
 		},
 	},
 );
-export const radioGroupIndicatorVariants = cvaWithMeta('relative flex items-center justify-center size-4', { variants: {}, defaultVariants: {} });
+export const radioGroupIndicatorVariants = cvaWithMeta('relative flex items-center justify-center size-full', { variants: {}, defaultVariants: {} });
 export const radioGroupDotVariants = cvaWithMeta(
-	'z-50 text-primary cursor-pointer absolute top-1/2 left-1/2 size-5 -translate-x-1/2 -translate-y-1/2',
+	'z-50 text-primary cursor-pointer absolute top-1/2 left-1/2 size-[110%] -translate-x-1/2 -translate-y-1/2',
 	{
 		variants: {},
 		defaultVariants: {},
@@ -96,7 +96,7 @@ function RadioGroupItem({
 					{icon ? (
 						icon({ className: cn(radioGroupDotVariants(), classNames?.icon) })
 					) : (
-						<CircleCheckBig className={cn(radioGroupDotVariants(), classNames?.icon)} />
+						<CircleCheck className={cn(radioGroupDotVariants(), classNames?.icon)} />
 					)}
 				</RadioPrimitive.Indicator>
 			</RadioPrimitive.Root>
@@ -116,7 +116,7 @@ function RadioGroupItem({
 					{icon ? (
 						icon({ className: cn(radioGroupDotVariants(), classNames?.icon) })
 					) : (
-						<CircleCheckBig className={cn(radioGroupDotVariants(), classNames?.icon)} />
+						<CircleCheck className={cn(radioGroupDotVariants(), classNames?.icon)} />
 					)}
 				</RadioPrimitive.Indicator>
 			</RadioPrimitive.Root>
