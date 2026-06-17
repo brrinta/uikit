@@ -7,7 +7,7 @@ import { mergeProps } from '@base-ui/react';
 
 export const inputVariants = cvaWithMeta(
 	`
-    w-full bg-background border border-input shadow-xs shadow-black/5 transition-[color,box-shadow] text-foreground
+    w-full bg-input border border-border shadow-xs shadow-black/5 transition-[color,box-shadow] text-foreground
     placeholder:text-muted-foreground/80 focus-visible:ring-ring/30 focus-visible:border-ring focus-visible:outline-none
     focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-60 [[readonly]]:bg-muted/80 [[readonly]]:cursor-not-allowed
     file:h-full [[type=file]]:py-0 file:border-solid file:border-input file:bg-transparent rounded-md
