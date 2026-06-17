@@ -11,6 +11,7 @@ import {
 	FieldProps,
 } from './field';
 import { Spinner } from './spinner';
+import { useUikitProvider } from '../hooks/provider';
 
 export type FormFieldProps = FieldProps & {
 	children: React.ReactElement<FieldControlProps>;
@@ -41,31 +42,35 @@ export type FormFieldProps = FieldProps & {
 };
 
 export const FormField: React.FC<FormFieldProps> = ({
-	children,
-	labelProps,
-	label,
-	descriptionProps,
-	description,
-	errorProps,
-	error,
-	withAsterisk,
-	startProps,
-	start,
-	endProps,
-	end,
-	leftSection,
-	leftSectionProps,
-	rightSectionProps,
-	rightSection,
-	variant = 'outlined',
-	size = 'md',
-	contentProps,
-	groupProps,
-	wrapperProps,
-	loading,
-	loadingPosition = 'end',
-	...props
-}: FormFieldProps) => {
+	                                                    children,
+	                                                    labelProps,
+	                                                    label,
+	                                                    descriptionProps,
+	                                                    description,
+	                                                    errorProps,
+	                                                    error,
+	                                                    withAsterisk,
+	                                                    startProps,
+	                                                    start,
+	                                                    endProps,
+	                                                    end,
+	                                                    leftSection,
+	                                                    leftSectionProps,
+	                                                    rightSectionProps,
+	                                                    rightSection,
+	                                                    variant ,
+	                                                    size = 'md',
+	                                                    contentProps,
+	                                                    groupProps,
+	                                                    wrapperProps,
+	                                                    loading,
+	                                                    loadingPosition = 'end',
+	                                                    ...props
+                                                    }: FormFieldProps) => {
+	const { inputVariant } = useUikitProvider();
+	if (!variant) {
+		variant = inputVariant;
+	}
 	const loadingIndicator = (
 		<Spinner
 			data-slot={'field-loading-indicator'}
@@ -75,7 +80,7 @@ export const FormField: React.FC<FormFieldProps> = ({
 	);
 	return (
 		<Field
-			variant={variant}
+			variant={variant||'outlined'}
 			size={size}
 			{...props}
 			invalid={!!error || !!errorProps?.children || props?.invalid}>

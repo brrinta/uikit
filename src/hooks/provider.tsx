@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect } from 'react';
 import { useLocalStorage } from './use-local-storage';
+import { InputVariant } from '../lib/variants';
 
 type Theme = 'dark' | 'light' | 'system';
 
@@ -7,27 +8,31 @@ type UiKitProviderProps = {
 	prefix?: string;
 	children: React.ReactNode;
 	defaultTheme?: Theme;
+	inputVariant?: InputVariant
 	storageKey?: string;
 };
 type UiKitProviderState = {
 	prefix?: string;
 	theme: Theme;
+	inputVariant?: InputVariant
 	setTheme: (theme: Theme) => void;
 };
 const initialProps: UiKitProviderState = {
 	prefix: 'uikit-',
 	theme: 'system',
+	inputVariant: 'outlined',
 	setTheme: () => null,
 };
 const UiKitProviderContext = createContext<UiKitProviderState>(initialProps);
 
 const UiKitProvider: React.FC<UiKitProviderProps> = ({
-	children,
-	defaultTheme = 'system',
-	storageKey = 'app-theme',
-	prefix = 'uikit-',
-	...props
-}) => {
+	                                                     children,
+	                                                     defaultTheme = 'system',
+	                                                     storageKey = 'app-theme',
+	                                                     prefix = 'uikit-',
+	                                                     inputVariant = 'outlined',
+	                                                     ...props
+                                                     }) => {
 	const [theme, setTheme] = useLocalStorage<Theme>({
 		defaultValue: defaultTheme,
 		key: storageKey,
@@ -55,6 +60,7 @@ const UiKitProvider: React.FC<UiKitProviderProps> = ({
 			value={{
 				prefix,
 				theme,
+				inputVariant,
 				setTheme: (theme: Theme) => {
 					localStorage.setItem(storageKey, theme);
 					setTheme(theme);
