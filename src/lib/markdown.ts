@@ -1,6 +1,6 @@
 // lib/markdown.ts
 import { marked } from 'marked';
-import DOMPurify from 'isomorphic-dompurify';
+import DOMPurify from 'dompurify';
 
 marked.setOptions({
 	gfm: true,
