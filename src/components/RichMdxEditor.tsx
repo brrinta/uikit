@@ -190,7 +190,7 @@ const LinkButtonEditor: React.FC<DirectiveEditorProps> = (props) => {
 			/>
 			<div
 				className={
-					'absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none group-hover:pointer-events-auto'
+					'absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-9999 pointer-events-none group-hover:pointer-events-auto'
 				}>
 				<Button
 					type="button"
@@ -440,6 +440,7 @@ const PRESET_COLORS = [
 
 const ColorToggles: React.FC = () => {
 	const editor = useCellValue(activeEditor$);
+	const portalContainerRef = useRef<HTMLDivElement>(null);
 
 	const applyColor = (color: string) => {
 		editor?.update(() => {
@@ -494,7 +495,9 @@ const ColorToggles: React.FC = () => {
 	);
 
 	return (
-		<div className="flex items-center gap-0.5">
+		<div
+			ref={portalContainerRef}
+			className="flex items-center gap-0.5">
 			<Popover>
 				<Popover.Trigger
 					render={
@@ -516,7 +519,9 @@ const ColorToggles: React.FC = () => {
 						</Tooltip>
 					}
 				/>
-				<Popover.Content className="w-44 p-0">
+				<Popover.Content
+					className="w-44 p-0"
+					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyColor} />
 				</Popover.Content>
 			</Popover>
@@ -542,7 +547,9 @@ const ColorToggles: React.FC = () => {
 						</Tooltip>
 					}
 				/>
-				<Popover.Content className="w-44 p-0">
+				<Popover.Content
+					className="w-44 p-0"
+					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyBgColor} />
 				</Popover.Content>
 			</Popover>
@@ -580,7 +587,11 @@ const UserValues: React.FC<{
 	items: TemplateUserValue[];
 	onSelect: (item: TemplateUserValue) => void;
 }> = ({ items, onSelect }) => {
+	const portalContainerRef = useRef<HTMLDivElement>(null);
 	return (
+		<div
+			ref={portalContainerRef}
+			className="inline-flex">
 		<Popover>
 			<Popover.Trigger
 				render={
@@ -602,7 +613,9 @@ const UserValues: React.FC<{
 					</Tooltip>
 				}
 			/>
-			<Popover.Content className="w-75 h-100">
+			<Popover.Content
+				portalProps={{ container: portalContainerRef }}
+				className="w-75 h-100">
 				<div className="flex flex-col gap-1">
 					{items.map((item, index) => (
 						<div
@@ -625,6 +638,7 @@ const UserValues: React.FC<{
 				</div>
 			</Popover.Content>
 		</Popover>
+		</div>
 	);
 };
 
