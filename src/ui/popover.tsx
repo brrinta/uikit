@@ -64,7 +64,7 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
 				alignOffset={alignOffset}
 				side={side}
 				sideOffset={sideOffset}
-				className="isolate z-999"
+				className="isolate z-9999"
 				{...positionerProps}>
 				<PopoverPrimitive.Arrow
 					data-slot="popover-arrow"
