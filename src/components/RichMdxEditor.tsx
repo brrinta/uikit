@@ -496,10 +496,10 @@ const ColorToggles: React.FC = () => {
 	return (
 		<div className="flex items-center gap-0.5">
 			<Popover>
-				<Tooltip>
-					<Tooltip.Trigger
-						render={
-							<Popover.Trigger
+				<Popover.Trigger
+					render={
+						<Tooltip>
+							<Tooltip.Trigger
 								render={
 									<Button
 										type="button"
@@ -512,20 +512,20 @@ const ColorToggles: React.FC = () => {
 									</Button>
 								}
 							/>
-						}
-					/>
-					<Tooltip.Content>Text Color</Tooltip.Content>
-				</Tooltip>
+							<Tooltip.Content>Text Color</Tooltip.Content>
+						</Tooltip>
+					}
+				/>
 				<Popover.Content className="w-44 p-0">
 					<ColorGrid onSelect={applyColor} />
 				</Popover.Content>
 			</Popover>
 
 			<Popover>
-				<Tooltip>
-					<Tooltip.Trigger
-						render={
-							<Popover.Trigger
+				<Popover.Trigger
+					render={
+						<Tooltip>
+							<Tooltip.Trigger
 								render={
 									<Button
 										type="button"
@@ -538,10 +538,10 @@ const ColorToggles: React.FC = () => {
 									</Button>
 								}
 							/>
-						}
-					/>
-					<Tooltip.Content>Background Color</Tooltip.Content>
-				</Tooltip>
+							<Tooltip.Content>Background Color</Tooltip.Content>
+						</Tooltip>
+					}
+				/>
 				<Popover.Content className="w-44 p-0">
 					<ColorGrid onSelect={applyBgColor} />
 				</Popover.Content>
@@ -582,10 +582,10 @@ const UserValues: React.FC<{
 }> = ({ items, onSelect }) => {
 	return (
 		<Popover>
-			<Tooltip>
-				<Tooltip.Trigger
-					render={
-						<Popover.Trigger
+			<Popover.Trigger
+				render={
+					<Tooltip>
+						<Tooltip.Trigger
 							render={
 								<Button
 									type="button"
@@ -598,10 +598,10 @@ const UserValues: React.FC<{
 								</Button>
 							}
 						/>
-					}
-				/>
-				<Tooltip.Content>User Variable</Tooltip.Content>
-			</Tooltip>
+						<Tooltip.Content>User Variable</Tooltip.Content>
+					</Tooltip>
+				}
+			/>
 			<Popover.Content className="w-75 h-100">
 				<div className="flex flex-col gap-1">
 					{items.map((item, index) => (
