@@ -118,15 +118,21 @@ function DialogContent({
 	overlay = true,
 	variant,
 	mode,
+	portalProps,
+	overlayProps,
+	closeProps,
 	...props
 }: DialogPrimitive.Popup.Props &
 	VariantProps<typeof dialogContentVariants> & {
 		showCloseButton?: boolean;
 		overlay?: boolean;
+		portalProps?: React.ComponentProps<typeof DialogPortal>;
+		overlayProps?: React.ComponentProps<typeof DialogOverlay>;
+		closeProps?: React.ComponentProps<typeof DialogClose>;
 	}) {
 	return (
-		<DialogPortal>
-			{overlay && <DialogOverlay />}
+		<DialogPortal {...portalProps}>
+			{overlay && <DialogOverlay {...overlayProps} />}
 			<DialogPrimitive.Popup
 				data-slot="dialog-content"
 				className={cn(dialogContentVariants({ variant, mode }), className)}
@@ -142,7 +148,9 @@ function DialogContent({
 								mode="icon"
 								size={'sm'}
 							/>
-						}>
+						}
+						{...closeProps}
+					>
 						<XIcon />
 						<span className="sr-only">Close</span>
 					</DialogPrimitive.Close>
