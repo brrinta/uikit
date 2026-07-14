@@ -76,7 +76,22 @@ type RichMdxEditorProps = Omit<FormFieldProps, 'children' | 'onChange'> &
 	};
 	inputProps?: Omit<FieldControlProps, keyof MdxEditorProps>;
 	onChange?: (markdown: string) => void;
+	hide?: ToolbarNames[]
 };
+type ToolbarNames =
+	'undoRedo'
+	| 'boldItalicUnderline'
+	| 'blockTypeSelect'
+	| 'listsToggle'
+	| 'insertAdmonition'
+	| 'insertCodeBlock'
+	| 'insertImage'
+	| 'insertTable'
+	| 'insertThematicBreak'
+	| 'alignmentToggles'
+	| 'insertLinkButton'
+	| 'colorToggles'
+	| 'userValues';
 
 const DEFAULT_LINK_BUTTON_STYLE =
 	'display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; ' +
@@ -722,6 +737,7 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 	                                                     editorProps,
 	                                                     items = [],
 	                                                     classNames,
+	                                                     hide,
 	                                                     ...props
                                                      }) => {
 	const editorRef = useRef<MDXEditorMethods>(null);
@@ -966,42 +982,64 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 										toolbarClassName: 'md:[&_svg]:!size-5 !p-1 flex-wrap',
 										toolbarContents: () => (
 											<DiffSourceToggleWrapper>
-												<UndoRedo />
+												{hide?.includes('undoRedo') ? null : <>
+													<UndoRedo />
+													<Separator />
+												</>}
+												{hide?.includes('boldItalicUnderline') ? null : <>
+													<BoldItalicUnderlineToggles />
+													<Separator />
+												</>}
+												{hide?.includes('alignmentToggles') ? null : <>
+													<AlignmentToggles />
+													<Separator />
+												</>}
+												{hide?.includes('colorToggles') ? null : <>
+													<ColorToggles />
+													<Separator />
+												</>}
+												{hide?.includes('blockTypeSelect') ? null :
+													<BlockTypeSelect />
+												}
+												{hide?.includes('insertImage') ? null :
+													<InsertImage />
+												}
 												<Separator />
-												<BoldItalicUnderlineToggles />
-												<Separator />
-												<AlignmentToggles />
-												<Separator />
-												<ColorToggles />
-												<Separator />
-												<BlockTypeSelect />
-												{/*<Separator />*/}
-												{/*<CreateLink />*/}
-												<InsertImage />
-												<Separator />
-												<ListsToggle />
-												<Separator />
-												<InsertTable />
-												<InsertThematicBreak />
-												<ConditionalContents
-													options={[
-														{
-															when: (editor) => editor?.editorType === 'codeblock',
-															contents: () => <></>,
-														},
-														{
-															fallback: () => (
-																<>
-																	<InsertCodeBlock />
-																	<Separator />
-																</>
-															),
-														},
-													]}
-												/>
-												<InsertAdmonition />
-												<InsertLinkButton />
-												{/*<InsertFrontmatter />*/}
+												{hide?.includes('listsToggle') ? null : <>
+													<ListsToggle />
+													<Separator />
+												</>}
+												{hide?.includes('insertTable') ? null :
+													<InsertTable />
+												}
+												{hide?.includes('insertCodeBlock') ? null :
+													<InsertThematicBreak />
+												}
+												{hide?.includes('insertCodeBlock') ? null :
+													<ConditionalContents
+														options={[
+															{
+																when: (editor) => editor?.editorType === 'codeblock',
+																contents: () => <></>,
+															},
+															{
+																fallback: () => (
+																	<>
+																		<InsertCodeBlock />
+																		<Separator />
+																	</>
+																),
+															},
+														]}
+													/>
+												}
+												{hide?.includes('insertAdmonition') ? null :
+													<InsertAdmonition />
+												}
+												{hide?.includes('insertLinkButton') ? null :
+													<InsertLinkButton />
+												}
+												{hide?.includes('userValues') ? null : <>
 												{items.length > 0 ? (
 													<>
 														<Separator />
@@ -1011,6 +1049,7 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 														/>
 													</>
 												) : null}
+												</>}
 											</DiffSourceToggleWrapper>
 										),
 									}),
