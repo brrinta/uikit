@@ -518,7 +518,7 @@ const ColorToggles: React.FC = () => {
 					</Tooltip>
 				</Popover.Trigger>
 				<Popover.Content
-					className="w-44 p-0 z-9999"
+					className="w-50 min-h-50 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyColor} />
 				</Popover.Content>
@@ -544,7 +544,7 @@ const ColorToggles: React.FC = () => {
 					</Tooltip>
 				</Popover.Trigger>
 				<Popover.Content
-					className="w-44 p-0 z-9999"
+					className="w-50 min-h-50 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyBgColor} />
 				</Popover.Content>
