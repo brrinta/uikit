@@ -64,19 +64,19 @@ type MdxEditorProps = Pick<FieldControlProps, 'defaultValue' | 'onValueChange' |
 
 type RichMdxEditorProps = Omit<FormFieldProps, 'children' | 'onChange'> &
 	Pick<FieldControlProps, keyof MdxEditorProps> & {
-		placeholder?: string;
-		items?: TemplateUserValue[];
-		editorProps?: {
-			jsxComponentDescriptors?: JsxComponentDescriptor[];
-		};
-		classNames?: {
-			editor?: string;
-			wrapper?: string;
-			content?: string;
-		};
-		inputProps?: Omit<FieldControlProps, keyof MdxEditorProps>;
-		onChange?: (markdown: string) => void;
+	placeholder?: string;
+	items?: TemplateUserValue[];
+	editorProps?: {
+		jsxComponentDescriptors?: JsxComponentDescriptor[];
 	};
+	classNames?: {
+		editor?: string;
+		wrapper?: string;
+		content?: string;
+	};
+	inputProps?: Omit<FieldControlProps, keyof MdxEditorProps>;
+	onChange?: (markdown: string) => void;
+};
 
 const DEFAULT_LINK_BUTTON_STYLE =
 	'display: flex; align-items: center; justify-content: center; border-radius: 6px; cursor: pointer; ' +
@@ -499,26 +499,24 @@ const ColorToggles: React.FC = () => {
 			ref={portalContainerRef}
 			className="flex items-center gap-0.5">
 			<Popover>
-				<Popover.Trigger
-					render={
-						<Tooltip>
-							<Tooltip.Trigger
-								render={
-									<Button
-										type="button"
-										size="xs"
-										variant="ghost"
-										mode="icon"
-										onMouseDown={(e) => e.preventDefault()}
-										className="h-7 w-7">
-										<Baseline className="h-4 w-4" />
-									</Button>
-								}
-							/>
-							<Tooltip.Content>Text Color</Tooltip.Content>
-						</Tooltip>
-					}
-				/>
+				<Popover.Trigger>
+					<Tooltip>
+						<Tooltip.Trigger
+							render={
+								<Button
+									type="button"
+									size="xs"
+									variant="ghost"
+									mode="icon"
+									onMouseDown={(e) => e.preventDefault()}
+									className="h-7 w-7">
+									<Baseline className="h-4 w-4" />
+								</Button>
+							}
+						/>
+						<Tooltip.Content>Text Color</Tooltip.Content>
+					</Tooltip>
+				</Popover.Trigger>
 				<Popover.Content
 					className="w-44 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
@@ -527,26 +525,24 @@ const ColorToggles: React.FC = () => {
 			</Popover>
 
 			<Popover>
-				<Popover.Trigger
-					render={
-						<Tooltip>
-							<Tooltip.Trigger
-								render={
-									<Button
-										type="button"
-										size="xs"
-										variant="ghost"
-										mode="icon"
-										onMouseDown={(e) => e.preventDefault()}
-										className="h-7 w-7">
-										<Highlighter className="h-4 w-4" />
-									</Button>
-								}
-							/>
-							<Tooltip.Content>Background Color</Tooltip.Content>
-						</Tooltip>
-					}
-				/>
+				<Popover.Trigger>
+					<Tooltip>
+						<Tooltip.Trigger
+							render={
+								<Button
+									type="button"
+									size="xs"
+									variant="ghost"
+									mode="icon"
+									onMouseDown={(e) => e.preventDefault()}
+									className="h-7 w-7">
+									<Highlighter className="h-4 w-4" />
+								</Button>
+							}
+						/>
+						<Tooltip.Content>Background Color</Tooltip.Content>
+					</Tooltip>
+				</Popover.Trigger>
 				<Popover.Content
 					className="w-44 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
@@ -592,52 +588,53 @@ const UserValues: React.FC<{
 		<div
 			ref={portalContainerRef}
 			className="inline-flex">
-		<Popover>
-			<Popover.Trigger
-				render={
-					<Tooltip>
-						<Tooltip.Trigger
-							render={
-								<Button
-									type="button"
-									size="xs"
-									variant="ghost"
-									mode="icon"
-									onMouseDown={(e) => e.preventDefault()}
-									className="h-7 w-7">
-									<Variable className="h-4 w-4" />
-								</Button>
-							}
-						/>
-						<Tooltip.Content>User Variable</Tooltip.Content>
-					</Tooltip>
-				}
-			/>
-			<Popover.Content
-				portalProps={{ container: portalContainerRef }}
-				className="w-75 h-100 z-9999">
-				<div className="flex flex-col gap-1">
-					{items.map((item, index) => (
-						<div
-							key={`${item.trigger}-${index}`}
-							className={
-								'flex gap-1 p-1 rounded-lg cursor-pointer transition-all items-center hover:bg-gray-50 border-2 border-transparent justify-center'
-							}
-							onMouseDown={(e) => e.preventDefault()}
-							onClick={() => onSelect(item)}>
-							<div className="shrink-0 bg-blue-600 text-white p-1 my-auto rounded-md font-mono text-xs font-semibold self-start">{item.trigger}</div>
-							<div className="flex-1 min-w-0">
-								<div className="font-mono text-sm text-gray-900 truncate font-medium">
-									{item.label.substring(0, 50)}
-									{item.label.length > 50 ? '...' : ''}
+			<Popover>
+				<Popover.Trigger
+					render={
+						<Tooltip>
+							<Tooltip.Trigger
+								render={
+									<Button
+										type="button"
+										size="xs"
+										variant="ghost"
+										mode="icon"
+										onMouseDown={(e) => e.preventDefault()}
+										className="h-7 w-7">
+										<Variable className="h-4 w-4" />
+									</Button>
+								}
+							/>
+							<Tooltip.Content>User Variable</Tooltip.Content>
+						</Tooltip>
+					}
+				/>
+				<Popover.Content
+					portalProps={{ container: portalContainerRef }}
+					className="w-75 h-100 z-9999">
+					<div className="flex flex-col gap-1">
+						{items.map((item, index) => (
+							<div
+								key={`${item.trigger}-${index}`}
+								className={
+									'flex gap-1 p-1 rounded-lg cursor-pointer transition-all items-center hover:bg-gray-50 border-2 border-transparent justify-center'
+								}
+								onMouseDown={(e) => e.preventDefault()}
+								onClick={() => onSelect(item)}>
+								<div
+									className="shrink-0 bg-blue-600 text-white p-1 my-auto rounded-md font-mono text-xs font-semibold self-start">{item.trigger}</div>
+								<div className="flex-1 min-w-0">
+									<div className="font-mono text-sm text-gray-900 truncate font-medium">
+										{item.label.substring(0, 50)}
+										{item.label.length > 50 ? '...' : ''}
+									</div>
+									<div className="text-xs text-gray-600 mt-1">{item.description || item.param}</div>
 								</div>
-								<div className="text-xs text-gray-600 mt-1">{item.description || item.param}</div>
 							</div>
-						</div>
-					))}
-				</div>
-			</Popover.Content>
-		</Popover>
+						))}
+					</div>
+				</Popover.Content>
+			</Popover>
 		</div>
 	);
 };
@@ -714,17 +711,17 @@ const AutocompleteSuggestions: React.FC<{
 };
 
 const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
-	defaultValue,
-	onValueChange,
-	onChange,
-	value,
-	readOnly = false,
-	inputProps,
-	editorProps,
-	items = [],
-	classNames,
-	...props
-}) => {
+	                                                     defaultValue,
+	                                                     onValueChange,
+	                                                     onChange,
+	                                                     value,
+	                                                     readOnly = false,
+	                                                     inputProps,
+	                                                     editorProps,
+	                                                     items = [],
+	                                                     classNames,
+	                                                     ...props
+                                                     }) => {
 	const editorRef = useRef<MDXEditorMethods>(null);
 	const [showSuggestions, setShowSuggestions] = useState(false);
 	const [filteredSuggestions, setFilteredSuggestions] = useState<TemplateUserValue[]>([]);
@@ -865,7 +862,7 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 	const handleChange = useCallback(
 		(markdown: string): void => {
 			checkForTriggers(markdown);
-			// @ts-ignore
+			// @ts-expect-error
 			onValueChange?.(markdown, null);
 			onChange?.(markdown);
 		},
