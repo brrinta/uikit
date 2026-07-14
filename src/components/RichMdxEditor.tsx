@@ -190,7 +190,7 @@ const LinkButtonEditor: React.FC<DirectiveEditorProps> = (props) => {
 			/>
 			<div
 				className={
-					'absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity z-9999 pointer-events-none group-hover:pointer-events-auto'
+					'absolute -top-3 -right-3 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none group-hover:pointer-events-auto'
 				}>
 				<Button
 					type="button"
@@ -210,7 +210,7 @@ const LinkButtonEditor: React.FC<DirectiveEditorProps> = (props) => {
 			<Dialog
 				open={isOpen}
 				onOpenChange={setIsOpen}>
-				<Dialog.Content className={'max-w-100 md:px-8'}>
+				<Dialog.Content className={'max-w-100 md:px-8 z-9999'}>
 					<Dialog.Header>
 						<Dialog.Title>LinkButton Attributes</Dialog.Title>
 					</Dialog.Header>
@@ -520,7 +520,7 @@ const ColorToggles: React.FC = () => {
 					}
 				/>
 				<Popover.Content
-					className="w-44 p-0"
+					className="w-44 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyColor} />
 				</Popover.Content>
@@ -548,7 +548,7 @@ const ColorToggles: React.FC = () => {
 					}
 				/>
 				<Popover.Content
-					className="w-44 p-0"
+					className="w-44 p-0 z-9999"
 					portalProps={{ container: portalContainerRef }}>
 					<ColorGrid onSelect={applyBgColor} />
 				</Popover.Content>
@@ -615,7 +615,7 @@ const UserValues: React.FC<{
 			/>
 			<Popover.Content
 				portalProps={{ container: portalContainerRef }}
-				className="w-75 h-100">
+				className="w-75 h-100 z-9999">
 				<div className="flex flex-col gap-1">
 					{items.map((item, index) => (
 						<div
