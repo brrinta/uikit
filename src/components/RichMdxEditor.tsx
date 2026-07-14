@@ -516,7 +516,7 @@ const ColorToggles: React.FC = () => {
 						</Tooltip>
 					}
 				/>
-				<Popover.Content className="w-44 p-0 z-9999">
+				<Popover.Content className="w-44 p-0">
 					<ColorGrid onSelect={applyColor} />
 				</Popover.Content>
 			</Popover>
@@ -542,7 +542,7 @@ const ColorToggles: React.FC = () => {
 						</Tooltip>
 					}
 				/>
-				<Popover.Content className="w-44 p-0 z-9999">
+				<Popover.Content className="w-44 p-0">
 					<ColorGrid onSelect={applyBgColor} />
 				</Popover.Content>
 			</Popover>
@@ -602,7 +602,7 @@ const UserValues: React.FC<{
 					</Tooltip>
 				}
 			/>
-			<Popover.Content className="w-75 h-100 z-9999">
+			<Popover.Content className="w-75 h-100">
 				<div className="flex flex-col gap-1">
 					{items.map((item, index) => (
 						<div
