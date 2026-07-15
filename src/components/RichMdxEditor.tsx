@@ -979,7 +979,7 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 
 									// Toolbar
 									toolbarPlugin({
-										toolbarClassName: 'md:[&_svg]:!size-5 !p-1 flex-wrap',
+										toolbarClassName: 'md:[&_svg]:!size-5 !p-1 flex-wrap !z-0',
 										toolbarContents: () => (
 											<DiffSourceToggleWrapper>
 												{hide?.includes('undoRedo') ? null : <>
