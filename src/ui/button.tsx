@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ReactNode } from 'react';
 import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';
 import { ChevronDown, LucideIcon } from 'lucide-react';
@@ -856,7 +857,7 @@ export type ButtonProps = useRender.ComponentProps<'button'> &
 	selected?: boolean;
 	loading?: boolean;
 	hideable?: useRender.ComponentProps<'span'>;
-
+	icon?: ReactNode;
 };
 
 function Button({
@@ -877,6 +878,7 @@ function Button({
 	                type,
 	                render,
 	                hideable,
+	                icon,
 	                ...props
                 }: ButtonProps) {
 	const isDisabled = props.disabled || loading;
@@ -951,9 +953,11 @@ function Button({
 							size={spinnerSize}
 							className={cn(mode !== 'icon' && 'mr-2')}
 						/>
-						{mode === 'icon' ? null : children}
+						{mode === 'icon' ? null :
+							<>{icon}{hideable ? hideableComponent : null}{children}</>
+						}
 					</>
-				) : <>{hideable ? hideableComponent : null}{children}</>,
+				) : <>{icon}{hideable ? hideableComponent : null}{children}</>,
 			},
 			props,
 		),
