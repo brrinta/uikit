@@ -894,7 +894,7 @@ function Button({
 		props: mergeProps(
 			{
 				className: cn(
-					'flex items-center justify-center',
+					'flex items-center justify-center max-sm:hidden',
 					hideable?.className,
 				),
 			},
