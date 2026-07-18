@@ -852,31 +852,33 @@ export const buttonVariants = cvaWithMeta(
 export type ButtonProps = useRender.ComponentProps<'button'> &
 	ButtonPrimitive.Props &
 	Omit<VariantProps<typeof buttonVariants>, 'variant'> & {
-		variant?: VariantProps<typeof buttonVariants>['variant'] | 'primary' | 'secondary' | 'destructive';
-		selected?: boolean;
-		loading?: boolean;
-		// type?: 'submit' | 'reset' | 'button';
-	};
+	variant?: VariantProps<typeof buttonVariants>['variant'] | 'primary' | 'secondary' | 'destructive';
+	selected?: boolean;
+	loading?: boolean;
+	hideable?: useRender.ComponentProps<'span'>;
+
+};
 
 function Button({
-	className,
-	children,
-	selected,
-	variant,
-	color,
-	radius,
-	appearance,
-	mode,
-	size,
-	autoHeight,
-	underlined,
-	underline,
-	placeholder = false,
-	loading = false,
-	type,
-	render,
-	...props
-}: ButtonProps) {
+	                className,
+	                children,
+	                selected,
+	                variant,
+	                color,
+	                radius,
+	                appearance,
+	                mode,
+	                size,
+	                autoHeight,
+	                underlined,
+	                underline,
+	                placeholder = false,
+	                loading = false,
+	                type,
+	                render,
+	                hideable,
+	                ...props
+                }: ButtonProps) {
 	const isDisabled = props.disabled || loading;
 	const isLegacyVariant = variant === 'primary' || variant === 'secondary' || variant === 'destructive';
 	const resolvedVariant = isLegacyVariant ? 'solid' : variant;
@@ -887,6 +889,24 @@ function Button({
 		(size === 'lg' && 'lg') ||
 		(size === 'icon' && 'md') ||
 		'md') as React.ComponentProps<typeof Spinner>['size'];
+	const hideableComponent = useRender({
+		defaultTagName: 'span',
+		props: mergeProps(
+			{
+				className: cn(
+					'flex items-center justify-center',
+					hideable?.className,
+				),
+			},
+			hideable,
+		),
+		render: hideable?.render,
+		state: {
+			slot: 'button-hideable',
+		},
+	});
+
+
 	return useRender({
 		defaultTagName: 'button',
 		render,
@@ -933,14 +953,13 @@ function Button({
 						/>
 						{mode === 'icon' ? null : children}
 					</>
-				) : (
-					children
-				),
+				) : <>{hideable ? hideableComponent : null}{children}</>,
 			},
 			props,
 		),
 	});
 }
+
 Button.displayName = 'Button';
 
 interface ButtonArrowProps extends React.SVGProps<SVGSVGElement> {
@@ -956,6 +975,7 @@ function ButtonArrow({ icon: Icon = ChevronDown, className, ...props }: ButtonAr
 		/>
 	);
 }
+
 ButtonArrow.displayName = 'ButtonArrow';
 
 export const buttonGroupVariants = cvaWithMeta(
@@ -987,6 +1007,7 @@ export const buttonGroupVariants = cvaWithMeta(
 );
 
 export type ButtonGroupProps = React.ComponentProps<'div'> & VariantProps<typeof buttonGroupVariants>;
+
 function ButtonGroup({ className, orientation, ...props }: ButtonGroupProps) {
 	return (
 		<div
