@@ -954,10 +954,10 @@ function Button({
 							className={cn(mode !== 'icon' && 'mr-2')}
 						/>
 						{mode === 'icon' ? null :
-							<>{icon}{hideable ? hideableComponent : null}{children}</>
+							<>{icon?.()}{hideable ? hideableComponent : null}{children}</>
 						}
 					</>
-				) : <>{icon}{hideable ? hideableComponent : null}{children}</>,
+				) : <>{icon?.()}{hideable ? hideableComponent : null}{children}</>,
 			},
 			props,
 		),
