@@ -856,7 +856,7 @@ export type ButtonProps = useRender.ComponentProps<'button'> &
 	variant?: VariantProps<typeof buttonVariants>['variant'] | 'primary' | 'secondary' | 'destructive';
 	selected?: boolean;
 	loading?: boolean;
-	hideable?: { icon?: ReactNode } & useRender.ComponentProps<'span'>;
+	hideable?: { start?: ReactNode, label?: ReactNode, end?: ReactNode } & Omit<useRender.ComponentProps<'span'>, 'children'>;
 };
 
 function Button({
@@ -889,7 +889,7 @@ function Button({
 		(size === 'lg' && 'lg') ||
 		(size === 'icon' && 'md') ||
 		'md') as React.ComponentProps<typeof Spinner>['size'];
-	const { icon: hideableIcon, ...hideableProps } = hideable || {};
+	const { start: hideableStart, end: hideableEnd, label: hideableLabel, ...hideableProps } = hideable || {};
 	const hideableComponent = useRender({
 		defaultTagName: 'span',
 		props: mergeProps(
@@ -898,6 +898,9 @@ function Button({
 					'flex items-center justify-center max-sm:hidden',
 					hideableProps?.className,
 				),
+			},
+			{
+				children: hideableLabel,
 			},
 			hideableProps,
 		),
@@ -952,10 +955,10 @@ function Button({
 							className={cn(mode !== 'icon' && 'mr-2')}
 						/>
 						{mode === 'icon' ? null :
-							<>{hideableIcon}{hideable ? hideableComponent : null}{children}</>
+							<>{hideable ? <>{hideableStart}{hideableComponent}{hideableEnd}</> : null}{children}</>
 						}
 					</>
-				) : <>{hideableIcon}{hideable ? hideableComponent : null}{children}</>,
+				) : <>{hideable ? <>{hideableStart}{hideableComponent}{hideableEnd}</> : null}{children}</>,
 			},
 			props,
 		),
