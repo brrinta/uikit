@@ -514,23 +514,23 @@ const ColorToggles: React.FC = () => {
 			ref={portalContainerRef}
 			className="flex items-center gap-0.5">
 			<Popover>
-				<Popover.Trigger>
-					<Tooltip>
-						<Tooltip.Trigger
-							render={
-								<Button
-									type="button"
-									size="xs"
-									variant="ghost"
-									mode="icon"
-									onMouseDown={(e) => e.preventDefault()}
-									className="h-7 w-7">
-									<Baseline className="h-4 w-4" />
-								</Button>
-							}
-						/>
-						<Tooltip.Content>Text Color</Tooltip.Content>
-					</Tooltip>
+				<Popover.Trigger render={<Tooltip>
+					<Tooltip.Trigger
+						render={
+							<Button
+								type="button"
+								size="xs"
+								variant="ghost"
+								mode="icon"
+								onMouseDown={(e) => e.preventDefault()}
+								className="h-7 w-7">
+								<Baseline className="h-4 w-4" />
+							</Button>
+						}
+					/>
+					<Tooltip.Content>Text Color</Tooltip.Content>
+				</Tooltip>}>
+
 				</Popover.Trigger>
 				<Popover.Content
 					positionerProps={{ className: 'fixed! z-9999' }}
@@ -541,7 +541,7 @@ const ColorToggles: React.FC = () => {
 			</Popover>
 
 			<Popover>
-				<Popover.Trigger>
+				<Popover.Trigger render={
 					<Tooltip>
 						<Tooltip.Trigger
 							render={
@@ -557,7 +557,7 @@ const ColorToggles: React.FC = () => {
 							}
 						/>
 						<Tooltip.Content>Background Color</Tooltip.Content>
-					</Tooltip>
+					</Tooltip>}>
 				</Popover.Trigger>
 				<Popover.Content
 					positionerProps={{ className: 'fixed! z-9999' }}
@@ -1040,15 +1040,15 @@ const RichMdxEditor: React.FC<RichMdxEditorProps> = ({
 													<InsertLinkButton />
 												}
 												{hide?.includes('userValues') ? null : <>
-												{items.length > 0 ? (
-													<>
-														<Separator />
-														<UserValues
-															items={items}
-															onSelect={handleUserValueSelect}
-														/>
-													</>
-												) : null}
+													{items.length > 0 ? (
+														<>
+															<Separator />
+															<UserValues
+																items={items}
+																onSelect={handleUserValueSelect}
+															/>
+														</>
+													) : null}
 												</>}
 											</DiffSourceToggleWrapper>
 										),
