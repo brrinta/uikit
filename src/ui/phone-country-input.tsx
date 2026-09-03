@@ -55,7 +55,7 @@ function CountrySelect({ disabled, value: selectedCountry, options: countryList,
 			items={countryList}
 			value={selectedCountry || ''}>
 			<Combobox.Trigger
-				render={(props) => (
+				render={({ color: _color, ...props }) => (
 					<Button
 						{...props}
 						type="button"

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 
 import { cn, cvaWithMeta } from '../lib/utils';
-import { Button, buttonVariants } from './button';
+import { Button, buttonClassName } from './button';
 import { type VariantProps } from 'class-variance-authority';
 
 export const paginationVariants = cvaWithMeta('mx-auto flex justify-center', { variants: {}, defaultVariants: {} });
@@ -150,7 +150,7 @@ function PaginationLink({ className, isActive, size = 'icon', children, ...props
 			data-slot="pagination-link"
 			data-active={isActive}
 			className={cn(
-				buttonVariants({
+				buttonClassName({
 					variant: isActive ? 'outline' : 'ghost',
 					size,
 				}),

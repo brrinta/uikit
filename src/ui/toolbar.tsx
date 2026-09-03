@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { ButtonProps, buttonVariants } from './button';
+import { type ButtonProps, buttonClassName } from './button';
 import { Toolbar as BaseToolbar } from '@base-ui/react/toolbar';
 import { cn } from '../lib/utils';
 
@@ -17,7 +17,7 @@ function Toolbar({ className, ...props }: React.ComponentProps<typeof BaseToolba
 function ToolbarButton({ className, variant, size, ...props }: React.ComponentProps<typeof BaseToolbar.Button> & ButtonProps) {
 	return (
 		<BaseToolbar.Button
-			className={cn(buttonVariants({ variant: variant ?? 'ghost', size: size ?? 'md' }), 'shrink-0', className)}
+			className={cn(buttonClassName({ variant: variant ?? 'ghost', size: size ?? 'md' }), 'shrink-0', className)}
 			{...props}
 		/>
 	);

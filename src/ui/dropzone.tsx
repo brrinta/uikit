@@ -780,5 +780,5 @@ export {
 	DropzoneTrigger,
 	InfiniteProgress,
 	useDropzone,
-	UseDropzoneReturn,
 };
+export type { UseDropzoneReturn };

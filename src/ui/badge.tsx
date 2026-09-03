@@ -370,4 +370,5 @@ type CompoundBadge = typeof Badge & { Button: typeof BadgeButton; Dot: typeof Ba
 const BadgeComponent = Badge as CompoundBadge;
 BadgeComponent.Button = BadgeButton;
 BadgeComponent.Dot = BadgeDot;
-export { BadgeComponent as Badge, BadgeButton, BadgeDot, BadgeProps };
+export { BadgeComponent as Badge, BadgeButton, BadgeDot };
+export type { BadgeProps };

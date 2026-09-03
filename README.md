@@ -1,6 +1,8 @@
 # @brrinta/uikit
 
-A standalone React UI component library built with **Tailwind CSS v4**, **Radix UI primitives**, and **shadcn/ui** patterns. 
+A standalone React UI component library built with **Tailwind CSS v4**, **[Base UI](https://base-ui.com) primitives**, and **shadcn/ui** patterns.
+
+See [IMPROVEMENT-PLAN.md](./IMPROVEMENT-PLAN.md) for the component-by-component upgrade in progress.
 ---
 
 ## Features

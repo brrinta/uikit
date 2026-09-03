@@ -1,5 +1,5 @@
 import { LinkProps } from '@tanstack/react-router';
-import { Button, ButtonGroup, buttonVariants } from '../ui/button';
+import { Button, ButtonGroup, buttonClassName } from '../ui/button';
 import { ChevronRightIcon } from 'lucide-react';
 import { isValidElement } from 'react';
 import { Collapsible } from '../ui/collapsible';
@@ -114,7 +114,7 @@ export const NavDropdownMenu = ({ item, sub, isMobile }: { item: NavbarLinkProps
 			<DropdownMenu.Trigger
 				nativeButton={!item.link}
 				className={cn(
-					buttonVariants({
+					buttonClassName({
 						variant: 'dim',
 						mode: 'icon',
 						color: 'accent',

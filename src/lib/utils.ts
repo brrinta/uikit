@@ -1,7 +1,6 @@
 import { type ClassValue, clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { cva } from 'class-variance-authority';
-import { ArgTypes, InputType } from 'storybook/internal/csf';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 /**
  * Merges Tailwind class names, resolving any conflicts.
@@ -82,34 +81,43 @@ export function getInitials(name: string | null | undefined, limit = 2): string 
 }
 
 /**** Cva ***/
-export const cvaWithMeta: typeof cva = (base, config) => {
-	const variance = cva(base, config);
-	return Object.assign(variance, { _cva: config });
+type CvaConfig = Parameters<typeof cva>[1];
+type CvaFn = ReturnType<typeof cva>;
+export type CvaWithMeta<T extends CvaFn = CvaFn> = T & { _cva: CvaConfig };
+
+/**
+ * `cva` that keeps its config on the returned function so Storybook (and docs)
+ * can enumerate variants with `getCvaSchema` / `prepareArgTypes`.
+ */
+export const cvaWithMeta = ((base: Parameters<typeof cva>[0], config?: CvaConfig) =>
+	Object.assign(cva(base, config), { _cva: config })) as typeof cva;
+
+export const getCvaSchema = (comp: unknown): Record<string, string[]> => {
+	const variants = (comp as { _cva?: { variants?: Record<string, object> } } | undefined)?._cva?.variants;
+	if (!variants) return {};
+	return Object.fromEntries(Object.entries(variants).map(([key, value]) => [key, Object.keys(value)]));
 };
 
-export const getCvaSchema = (comp: any): Record<string, string[]> => {
-	if (!comp?._cva?.variants) return {};
-	return Object.fromEntries(Object.entries(comp._cva.variants).map(([key, value]) => [key, Object.keys(value as object)]));
-};
+/** Minimal structural type so this file does not import Storybook into the published library. */
+export type StoryArgType = { control?: unknown; options?: string[]; [key: string]: unknown };
+export type StoryArgTypes = Record<string, StoryArgType>;
 
-export const prepareArgTypes = (compVariants: any, additionalArgs?: ArgTypes) => {
+/**
+ * Builds Storybook `argTypes` from a `cvaWithMeta` function. Boolean-like variants
+ * (`true`/`false`) become boolean controls; everything else a select.
+ */
+export const prepareArgTypes = (compVariants: unknown, additionalArgs?: StoryArgTypes): StoryArgTypes => {
 	const schema = getCvaSchema(compVariants);
-	return Object.assign(additionalArgs||{},Object.keys(schema)
-		.map((key) => ({
-			[key]: {
-				control: schema[key].length ===2 && schema[key].includes('true') && schema[key].includes('false') ? 'boolean' : 'select',
-				options: schema[key],
-			} as InputType,
-		}))
-		.flatMap((obj) => Object.entries(obj))
-		.reduce(
-			(acc, [key, value]) => ({
-				...acc,
-				[key]: value,
-			}),
-			{},
-		));
+	const generated: StoryArgTypes = {};
+	for (const [key, options] of Object.entries(schema)) {
+		const isBoolean = options.length === 2 && options.includes('true') && options.includes('false');
+		generated[key] = isBoolean ? { control: 'boolean' } : { control: 'select', options };
+	}
+	return { ...generated, ...(additionalArgs ?? {}) };
 };
+
+/** Extracts the props type of a `cvaWithMeta` function. */
+export type VariantsOf<T> = T extends (...args: never[]) => string ? VariantProps<T> : never;
 
 /**
  * Parses a style string into a React.CSSProperties object.

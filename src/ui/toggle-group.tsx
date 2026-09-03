@@ -413,7 +413,7 @@ function ToggleGroup({
 				data-appearance={appearance}
 				data-size={size}
 				data-orientation={orientation}
-				style={{ '--toggle-group-gap': `${gap}px`, gap: 'var(--toggle-group-gap)', ...style } as React.CSSProperties}
+				style={{ '--toggle-group-gap': `${gap}px`, gap: 'var(--toggle-group-gap)', ...style } as React.CSSProperties & Record<`--${string}`, string>}
 				className={cn(toggleGroupVariants({ orientation, variant }), className)}
 				{...props}>
 				{children}

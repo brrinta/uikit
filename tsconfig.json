@@ -2,11 +2,19 @@
 	"compilerOptions": {
 		"jsx": "react-jsx",
 		"allowJs": false,
-		"esModuleInterop": false,
 		"allowSyntheticDefaultImports": true,
 		"strict": true,
 		"moduleResolution": "bundler",
-		"baseUrl": ".",
+		"module": "ESNext",
+		"target": "ES2022",
+		"lib": [
+			"ES2022",
+			"DOM",
+			"DOM.Iterable"
+		],
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"noEmit": true
 	},
 	"files": [],
 	"include": [],

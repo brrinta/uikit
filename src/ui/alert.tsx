@@ -308,4 +308,5 @@ AlertComponent.Icon = AlertIcon;
 AlertComponent.Toolbar = AlertToolbar;
 AlertComponent.Content = AlertContent;
 
-export { AlertComponent as Alert, AlertTitle, AlertDescription, AlertIcon, AlertToolbar, AlertContent, AlertProps };
+export { AlertComponent as Alert, AlertTitle, AlertDescription, AlertIcon, AlertToolbar, AlertContent };
+export type { AlertProps };

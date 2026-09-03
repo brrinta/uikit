@@ -5,7 +5,7 @@ import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react
 import { type DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
 
 import { cn } from '../lib/utils';
-import { Button, buttonVariants } from './button';
+import { Button, buttonClassName } from './button';
 
 function Calendar({
 	className,
@@ -42,12 +42,12 @@ function Calendar({
 				month: cn('flex flex-col w-full gap-4', defaultClassNames.month),
 				nav: cn('flex items-center gap-1 w-full absolute top-0 inset-x-0 justify-between', defaultClassNames.nav),
 				button_previous: cn(
-					buttonVariants({ variant: buttonVariant }),
+					buttonClassName({ variant: buttonVariant }),
 					'size-(--cell-size) aria-disabled:opacity-50 p-0 select-none',
 					defaultClassNames.button_previous,
 				),
 				button_next: cn(
-					buttonVariants({ variant: buttonVariant }),
+					buttonClassName({ variant: buttonVariant }),
 					'size-(--cell-size) aria-disabled:opacity-50 p-0 select-none',
 					defaultClassNames.button_next,
 				),
@@ -65,7 +65,6 @@ function Calendar({
 						: 'rounded-md pl-2 pr-1 flex items-center gap-1 text-sm h-8 [&>svg]:text-muted-foreground [&>svg]:size-3.5',
 					defaultClassNames.caption_label,
 				),
-				table: 'w-full border-collapse',
 				weekdays: cn('flex', defaultClassNames.weekdays),
 				weekday: cn('text-muted-foreground rounded-md flex-1 font-normal text-[0.8rem] select-none', defaultClassNames.weekday),
 				week: cn('flex w-full mt-2', defaultClassNames.week),
@@ -139,7 +138,7 @@ function Calendar({
 	);
 }
 
-function CalendarDayButton({ className, day, modifiers, ...props }: React.ComponentProps<typeof DayButton>) {
+function CalendarDayButton({ className, day, modifiers, color: _color, ...props }: React.ComponentProps<typeof DayButton>) {
 	const defaultClassNames = getDefaultClassNames();
 
 	const ref = React.useRef<HTMLButtonElement>(null);

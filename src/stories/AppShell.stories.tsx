@@ -1,12 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { AppShell } from '../layout/app-shell';
 import { Nav } from '../layout/nav';
-import { NavLink } from '../layout/nav-link';
 import { NavUser } from '../layout/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarProvider, SidebarTrigger } from '../ui/sidebar';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '../ui/breadcrumb';
 import { Separator } from '../ui/separator';
-import { Home, Settings, User, Bell, Search, LayoutDashboard, Package, ShoppingCart } from 'lucide-react';
+import { LayoutDashboard, Package, Settings, ShoppingCart } from 'lucide-react';
 import * as React from 'react';
 
 const meta: Meta<typeof AppShell> = {
@@ -78,7 +77,8 @@ export const Default: Story = {
 					</Sidebar>
 				}
 			>
-				<header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+				<header
+					className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
 					<div className="flex items-center gap-2 px-4">
 						<SidebarTrigger className="-ml-1" />
 						<Separator orientation="vertical" className="mr-2 h-4" />
