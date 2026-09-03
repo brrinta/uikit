@@ -9,23 +9,19 @@ export const Devtools = ({
 	                         withQueryPlugin,
 	                         withRouterPlugin,
 	                         withFormPlugin,
-	                         eventBusPort,
+	                         eventBusConfig,
                          }: {
 	withQueryPlugin?: boolean;
 	withRouterPlugin?: boolean;
 	withFormPlugin?: boolean;
 	plugins?: TanStackDevtoolsReactInit['plugins'];
 	config?: Partial<TanStackDevtoolsReactInit['config']>;
-	eventBusPort?: number;
+	eventBusConfig?: TanStackDevtoolsReactInit['eventBusConfig'];
 }) => {
 	return (
 		<TanStackDevtools
 			config={config}
-			eventBusConfig={{
-				debug: false,
-				connectToServerBus: true,
-				port: eventBusPort,
-			}}
+			eventBusConfig={eventBusConfig}
 			plugins={[
 				...(withQueryPlugin
 					? [
