@@ -7,6 +7,7 @@ import { XIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
 import { fieldControlVariants } from './field';
 import { popoverContentVariants } from './popover';
+import { listboxGroupLabelVariants, listboxGroupVariants, listboxItemVariants } from './listbox';
 import { useRender } from '@base-ui/react/use-render';
 import { PopupArrowSvg } from '../components/PopupArrowSvg';
 
@@ -217,14 +218,7 @@ const PrimitiveAutocompleteItem: React.FC<AutocompleteItemProps> = ({ className,
 	return (
 		<AutocompletePrimitive.Item
 			data-slot="autocomplete-item"
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground data-highlighted:bg-accent data-highlighted:text-accent-foreground
-				 not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-sm
-				py-1.5 px-2 text-sm [&_svg:not([class*='size-'])]:size-4 relative
-				 flex w-full cursor-default items-center outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50
-				  [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(listboxItemVariants(), className)}
 			{...props}>
 			{children}
 		</AutocompletePrimitive.Item>
@@ -235,7 +229,7 @@ const AutocompleteGroup: React.FC<React.ComponentProps<typeof AutocompletePrimit
 	return (
 		<AutocompletePrimitive.Group
 			data-slot="autocomplete-group"
-			className={cn('scroll-my-1 p-1', className)}
+			className={cn(listboxGroupVariants(), className)}
 			{...props}
 		/>
 	);
@@ -245,7 +239,7 @@ const AutocompleteGroupLabel: React.FC<React.ComponentProps<typeof AutocompleteP
 	return (
 		<AutocompletePrimitive.GroupLabel
 			data-slot="autocomplete-label"
-			className={cn('text-muted-foreground px-2 py-1.5 text-xs', className)}
+			className={cn(listboxGroupLabelVariants(), className)}
 			{...props}
 		/>
 	);
@@ -256,6 +250,17 @@ const AutocompleteSeparator: React.FC<React.ComponentProps<typeof AutocompletePr
 		<AutocompletePrimitive.Separator
 			data-slot="autocomplete-separator"
 			className={cn('bg-border -mx-1 my-1 h-px pointer-events-none', className)}
+			{...props}
+		/>
+	);
+};
+
+/** Inline action area at the end of `Autocomplete.Control` (clear button, spinners, custom icons). */
+const AutocompleteActionWrapper: React.FC<React.ComponentProps<'div'>> = ({ className, ...props }) => {
+	return (
+		<div
+			data-slot="autocomplete-action-wrapper"
+			className={cn('ms-auto flex shrink-0 items-center gap-1 text-muted-foreground [&_svg:not([class*=size-])]:size-4', className)}
 			{...props}
 		/>
 	);
@@ -292,6 +297,7 @@ type CompoundAutocomplete = typeof Autocomplete & {
 	Item: typeof PrimitiveAutocompleteItem;
 	Separator: typeof AutocompleteSeparator;
 	Clear: typeof AutocompleteClear;
+	ActionWrapper: typeof AutocompleteActionWrapper;
 	Empty: typeof AutocompleteEmpty;
 	Status: typeof AutocompleteStatus;
 };
@@ -308,6 +314,7 @@ AutocompleteComponent.GroupLabel = AutocompleteGroupLabel;
 AutocompleteComponent.Item = PrimitiveAutocompleteItem;
 AutocompleteComponent.Separator = AutocompleteSeparator;
 AutocompleteComponent.Clear = AutocompleteClear;
+AutocompleteComponent.ActionWrapper = AutocompleteActionWrapper;
 AutocompleteComponent.Empty = AutocompleteEmpty;
 AutocompleteComponent.Status = AutocompleteStatus;
 
@@ -323,6 +330,7 @@ export {
 	PrimitiveAutocompleteInput,
 	AutocompleteValue,
 	AutocompleteClear,
+	AutocompleteActionWrapper,
 	AutocompleteEmpty,
 	AutocompleteStatus,
 };

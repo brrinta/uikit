@@ -75,3 +75,23 @@ export const DrawerTop: Story = {
 		</Drawer>
 	),
 };
+
+export const SnapPoints: StoryObj<typeof Drawer> = {
+	parameters: { docs: { description: { story: 'Base UI snap points: the drawer rests at 40% or full height; drag to switch.' } } },
+	render: () => (
+		<Drawer snapPoints={[0.4, 1]} defaultSnapPoint={0.4}>
+			<Drawer.Trigger>Open with snap points</Drawer.Trigger>
+			<Drawer.Content className="h-[90vh]">
+				<Drawer.Header>
+					<Drawer.Title>Nearby places</Drawer.Title>
+					<Drawer.Description>Drag the handle up for the full list.</Drawer.Description>
+				</Drawer.Header>
+				<div className="flex flex-col gap-2 p-4 pt-0 text-sm">
+					{Array.from({ length: 30 }, (_, i) => (
+						<div key={i} className="rounded-md border p-3">Place #{i + 1}</div>
+					))}
+				</div>
+			</Drawer.Content>
+		</Drawer>
+	),
+};

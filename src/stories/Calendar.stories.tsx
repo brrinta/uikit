@@ -80,3 +80,26 @@ export const CalendarMultiple: Story = {
 		);
 	},
 };
+
+export const Colors: StoryObj<typeof Calendar> = {
+	parameters: { layout: 'padded' },
+	render: () => (
+		<div className="flex flex-wrap gap-4">
+			{(['brand', 'success', 'violet', 'rose'] as const).map((color) => (
+				<div key={color} className="flex flex-col items-center gap-1">
+					<span className="text-xs text-muted-foreground">{color}</span>
+					<Calendar mode="single" color={color} selected={new Date()} />
+				</div>
+			))}
+		</div>
+	),
+};
+
+export const RangeWithColor: StoryObj<typeof Calendar> = {
+	render: () => {
+		const today = new Date();
+		const in5 = new Date(today);
+		in5.setDate(today.getDate() + 5);
+		return <Calendar mode="range" color="emerald" numberOfMonths={1} selected={{ from: today, to: in5 }} />;
+	},
+};

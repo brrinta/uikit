@@ -1326,8 +1326,72 @@ function MaskInput(props: MaskInputProps) {
 	);
 }
 
+/* -------------------------------------------------------------------------------------------------
+ * useMaskedInput — ref-based masking on the same engine as <MaskInput>.
+ *
+ * Drop-in replacement for `@react-input/mask`'s useMask for uncontrolled or form-driven inputs:
+ * attach the returned ref to any <input>; the value is re-masked in place on every input event
+ * (before React's own handlers run), so form libraries see the masked value in `onChange`.
+ *
+ *   const ref = useMaskedInput({ pattern: '#### #### #### ####' });
+ *   <input ref={ref} />
+ *
+ * `#` marks a slot; every other character is a literal. `accept` limits slot characters
+ * (default: digits). The pattern may change between renders — the current one is always used.
+ * -----------------------------------------------------------------------------------------------*/
+
+interface UseMaskedInputOptions {
+	pattern: string;
+	/** Regex a single character must match to fill a slot. Default: /\d/ */
+	accept?: RegExp;
+}
+
+function useMaskedInput({ pattern, accept }: UseMaskedInputOptions): React.RefCallback<HTMLInputElement> {
+	const optionsRef = React.useRef({ pattern, accept });
+	optionsRef.current = { pattern, accept };
+	const cleanupRef = React.useRef<(() => void) | null>(null);
+
+	// Cleanup on unmount even if the ref callback is never called with null.
+	React.useEffect(() => () => cleanupRef.current?.(), []);
+
+	return React.useCallback((el: HTMLInputElement | null) => {
+		cleanupRef.current?.();
+		cleanupRef.current = null;
+		if (!el) return;
+
+		const onInput = () => {
+			const { pattern: currentPattern, accept: currentAccept } = optionsRef.current;
+			const acceptRe = currentAccept ?? /\d/;
+			const strip = (input: string) => Array.from(input).filter((ch) => acceptRe.test(ch)).join('');
+
+			const raw = el.value;
+			const caret = el.selectionStart ?? raw.length;
+			const slotCount = (currentPattern.match(/#/g) ?? []).length;
+			const unmasked = strip(raw).slice(0, slotCount);
+			const masked = unmasked ? applyMask({ value: unmasked, pattern: currentPattern }) : '';
+
+			if (masked !== raw) {
+				const unmaskedBefore = Math.min(strip(raw.slice(0, caret)).length, unmasked.length);
+				el.value = masked;
+				const firstSlot = currentPattern.indexOf('#');
+				const next =
+					unmaskedBefore > 0
+						? fromUnmaskedIndex({ masked, pattern: currentPattern, unmaskedIndex: unmaskedBefore })
+						: Math.min(firstSlot === -1 ? 0 : firstSlot, masked.length);
+				el.setSelectionRange(next, next);
+			}
+		};
+
+		el.addEventListener('input', onInput);
+		cleanupRef.current = () => {
+			el.removeEventListener('input', onInput);
+		};
+	}, []);
+}
+
 export {
 	MaskInput,
+	useMaskedInput,
 	//
 	MASK_PATTERNS,
 	//

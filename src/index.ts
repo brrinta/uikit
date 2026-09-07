@@ -1,6 +1,7 @@
 export * from './components/CreditCardBrand';
 export * from './components/DataTable/data-table';
 export * from './components/DataTable/hooks';
+export * from './components/DataTable/table-features';
 export * from './components/DataTable/table-footer-skeleton';
 export * from './components/DataTable/table-sort';
 export * from './components/DataTable/types';
@@ -121,6 +122,7 @@ export * from './ui/label';
 export * from './ui/list';
 export * from './ui/loading';
 export * from './ui/mask-input';
+export * from './ui/menubar';
 export * from './ui/meter';
 export * from './ui/navigation-menu';
 export * from './ui/number-input';

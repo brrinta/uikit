@@ -10,9 +10,9 @@ import { VariantProps } from 'class-variance-authority';
 export const dialogContentVariants = cvaWithMeta(
 	[
 		'flex flex-col fixed outline-0 border border-border bg-background p-6 shadow-lg shadow-black/5 duration-200',
-		'data-[state=open]:animate-in data-[state=closed]:animate-out',
-		'data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-		'data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 sm:rounded-xl max-h-screen',
+		'data-open:animate-in data-closed:animate-out',
+		'data-closed:fade-out-0 data-open:fade-in-0',
+		'data-closed:zoom-out-95 data-open:zoom-in-95 sm:rounded-xl max-h-screen',
 	].join(' '),
 	{
 		variants: {
@@ -38,7 +38,7 @@ export const dialogCloseVariants = cvaWithMeta(
 	[
 		'cursor-pointer outline-0 absolute end-5 top-5 rounded-sm opacity-60 ring-offset-background',
 		'transition-opacity hover:opacity-100 focus:outline-hidden disabled:pointer-events-none',
-		'data-[state=open]:bg-accent data-[state=open]:text-muted-foreground ',
+		'data-open:bg-accent data-open:text-muted-foreground',
 	].join(' '),
 	{
 		variants: {

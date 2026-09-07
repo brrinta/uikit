@@ -7,6 +7,11 @@ import { endOfMonth, endOfYear, format, isEqual, startOfDay, startOfMonth, start
 import { DateRange } from 'react-day-picker';
 import { cn } from '../lib/utils';
 
+
+/** Serialize a Date as a LOCAL calendar date. `toISOString()` converts to UTC first,
+ * which shifts the day for any timezone east of UTC (e.g. selecting Sep 7 in Dhaka emitted Sep 6). */
+const toLocalDateString = (d: Date) => format(d, 'yyyy-MM-dd');
+
 type CustomRendererProps = {
 	values: unknown[];
 	className?: string;
@@ -24,8 +29,8 @@ function DateRangeInput({ values, onChange, className }: CustomRendererProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const handleApply = () => {
 		if (date?.from) {
-			const fromStr = date.from.toISOString().split('T')[0];
-			const toStr = date.to ? date.to.toISOString().split('T')[0] : fromStr;
+			const fromStr = toLocalDateString(date.from);
+			const toStr = date.to ? toLocalDateString(date.to) : fromStr;
 			onChange([fromStr, toStr]);
 		}
 		setIsOpen(false);
@@ -137,8 +142,8 @@ function DateRangeWithPresetsInput({ values, onChange, className }: CustomRender
 	}, [date, presets]);
 	const handleApply = () => {
 		if (date?.from) {
-			const fromStr = date.from.toISOString().split('T')[0];
-			const toStr = date.to ? date.to.toISOString().split('T')[0] : fromStr;
+			const fromStr = toLocalDateString(date.from);
+			const toStr = date.to ? toLocalDateString(date.to) : fromStr;
 			onChange([fromStr, toStr]);
 		}
 		setIsOpen(false);
@@ -166,8 +171,8 @@ function DateRangeWithPresetsInput({ values, onChange, className }: CustomRender
 		setMonth(preset.range.from || today);
 		setSelectedPreset(preset.label);
 		if (preset.range?.from) {
-			const fromStr = preset.range.from.toISOString().split('T')[0];
-			const toStr = preset.range.to ? preset.range.to.toISOString().split('T')[0] : fromStr;
+			const fromStr = toLocalDateString(preset.range.from);
+			const toStr = preset.range.to ? toLocalDateString(preset.range.to) : fromStr;
 			onChange([fromStr, toStr]);
 		}
 		setIsOpen(false);
@@ -248,45 +253,27 @@ function DateRangeWithPresetsInput({ values, onChange, className }: CustomRender
 	);
 }
 
-function DateTimeInput({ values, onChange, className }: CustomRendererProps) {
+export type DateTimeSlot = { time: string; available: boolean };
+
+/** Default: every 30 minutes from 09:00 to 23:30, all available. Pass `timeSlots` to control availability. */
+function generateTimeSlots(start = 9, end = 24, stepMinutes = 30): DateTimeSlot[] {
+	const slots: DateTimeSlot[] = [];
+	for (let m = start * 60; m < end * 60; m += stepMinutes) {
+		const hh = String(Math.floor(m / 60)).padStart(2, '0');
+		const mm = String(m % 60).padStart(2, '0');
+		slots.push({ time: `${hh}:${mm}`, available: true });
+	}
+	return slots;
+}
+
+function DateTimeInput({ values, onChange, className, timeSlots: timeSlotsProp }: CustomRendererProps & { timeSlots?: DateTimeSlot[] }) {
 	const today = new Date();
 	const [date, setDate] = useState<Date | undefined>(values?.[0] && typeof values[0] === 'string' ? new Date(values[0] as string) : undefined);
 	const [time, setTime] = useState<string | undefined>(
 		values?.[0] && typeof values[0] === 'string' ? new Date(values[0] as string).toTimeString().slice(0, 5) : '10:00',
 	);
 	const [isOpen, setIsOpen] = useState(false);
-	const timeSlots = [
-		{ time: '09:00', available: false },
-		{ time: '09:30', available: false },
-		{ time: '10:00', available: true },
-		{ time: '10:30', available: true },
-		{ time: '11:00', available: true },
-		{ time: '11:30', available: true },
-		{ time: '12:00', available: false },
-		{ time: '12:30', available: true },
-		{ time: '13:00', available: true },
-		{ time: '13:30', available: true },
-		{ time: '14:00', available: true },
-		{ time: '14:30', available: false },
-		{ time: '15:00', available: false },
-		{ time: '15:30', available: true },
-		{ time: '16:00', available: true },
-		{ time: '16:30', available: true },
-		{ time: '17:00', available: true },
-		{ time: '17:30', available: true },
-		{ time: '18:00', available: true },
-		{ time: '18:30', available: true },
-		{ time: '19:00', available: true },
-		{ time: '19:30', available: true },
-		{ time: '20:00', available: true },
-		{ time: '20:30', available: true },
-		{ time: '21:00', available: true },
-		{ time: '21:30', available: true },
-		{ time: '22:00', available: true },
-		{ time: '22:30', available: true },
-		{ time: '23:00', available: true },
-		{ time: '23:30', available: true },
-	];
+	const timeSlots = useMemo(() => timeSlotsProp ?? generateTimeSlots(), [timeSlotsProp]);
 	const handleApply = () => {
 		if (date && time) {
 			const dateTime = new Date(date);

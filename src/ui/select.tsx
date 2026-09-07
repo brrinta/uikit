@@ -5,6 +5,7 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { buttonClassName, type ButtonVariantInput } from './button';
 import { VariantProps } from 'class-variance-authority';
 import { popoverContentVariants } from './popover';
+import { listboxGroupLabelVariants, listboxGroupVariants, listboxItemVariants, listboxScrollButtonVariants, listboxSeparatorVariants } from './listbox';
 
 export type SelectProps<Value = any, Multiple extends boolean | undefined = false> = SelectPrimitive.Root.Props<Value, Multiple>;
 const Select = <Value = any, Multiple extends boolean | undefined = false>(props: SelectProps<Value, Multiple>) => {
@@ -172,10 +173,8 @@ const SelectItem: React.FC<SelectItemProps> = ({ className, children, textProps,
 		<SelectPrimitive.Item
 			data-slot="select-item"
 			className={cn(
-				`focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-sm
-				py-1.5 pr-8 pl-2 text-sm [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2 relative
-				 flex w-full cursor-default items-center outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50
-				  [&_svg]:pointer-events-none [&_svg]:shrink-0`,
+				listboxItemVariants(),
+				'pr-8 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2',
 				className,
 			)}
 			{...props}>
@@ -197,7 +196,7 @@ const SelectGroup: React.FC<React.ComponentProps<typeof SelectPrimitive.Group>> 
 	return (
 		<SelectPrimitive.Group
 			data-slot="select-group"
-			className={cn('scroll-my-1 p-1', className)}
+			className={cn(listboxGroupVariants(), className)}
 			{...props}
 		/>
 	);
@@ -207,7 +206,7 @@ const SelectGroupLabel: React.FC<React.ComponentProps<typeof SelectPrimitive.Gro
 	return (
 		<SelectPrimitive.GroupLabel
 			data-slot="select-label"
-			className={cn('text-muted-foreground px-2 py-1.5 text-xs', className)}
+			className={cn(listboxGroupLabelVariants(), className)}
 			{...props}
 		/>
 	);
@@ -217,7 +216,7 @@ const SelectSeparator: React.FC<React.ComponentProps<typeof SelectPrimitive.Sepa
 	return (
 		<SelectPrimitive.Separator
 			data-slot="select-separator"
-			className={cn('bg-border -mx-1 my-1 h-px pointer-events-none', className)}
+			className={cn(listboxSeparatorVariants(), className)}
 			{...props}
 		/>
 	);
@@ -227,11 +226,7 @@ const SelectScrollUpButton: React.FC<React.ComponentProps<typeof SelectPrimitive
 	return (
 		<SelectPrimitive.ScrollUpArrow
 			data-slot="select-scroll-up-button"
-			className={cn(
-				`bg-popover z-10 flex cursor-default items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4
-				top-0 w-full`,
-				className,
-			)}
+			className={cn(listboxScrollButtonVariants({ side: 'up' }), className)}
 			{...props}>
 			<ChevronUpIcon />
 		</SelectPrimitive.ScrollUpArrow>
@@ -242,11 +237,7 @@ const SelectScrollDownButton: React.FC<React.ComponentProps<typeof SelectPrimiti
 	return (
 		<SelectPrimitive.ScrollDownArrow
 			data-slot="select-scroll-down-button"
-			className={cn(
-				`bg-popover z-10 flex cursor-default items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4
-					 bottom-0 w-full`,
-				className,
-			)}
+			className={cn(listboxScrollButtonVariants({ side: 'down' }), className)}
 			{...props}>
 			<ChevronDownIcon />
 		</SelectPrimitive.ScrollDownArrow>

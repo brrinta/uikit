@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useMask } from '@react-input/mask';
+import { useMaskedInput } from './mask-input';
 import { FormField, FormFieldProps } from './form-field';
 import { Field, FieldControlProps } from './field';
 import { cn } from '../lib/utils';
@@ -22,12 +22,8 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
 	mask = '+1 (___) ___-____',
 	...props
 }) => {
-	const inputRef = useMask({
-		mask,
-		replacement: { _: /\d/ },
-		showMask: true,
-	});
-	const [phone, setPhone] = React.useState(value ?? defaultValue ?? '');
+	// `_` marks digit slots in the public API; the internal engine uses `#`.
+	const inputRef = useMaskedInput({ pattern: mask.replaceAll('_', '#') });
 	return (
 		<FormField {...props}>
 			<Field.Control
@@ -37,13 +33,9 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
 				defaultValue={defaultValue}
 				onValueChange={onValueChange}
 				value={value}
-				placeholder={placeholder}
+				placeholder={placeholder ?? mask}
 				{...inputProps}
-				onChange={(e) => {
-					inputProps?.onChange?.(e);
-					setPhone(e.target.value);
-				}}
-				className={cn({ 'text-muted-foreground': phone === mask }, inputProps?.className)}
+				className={cn(inputProps?.className)}
 			/>
 		</FormField>
 	);

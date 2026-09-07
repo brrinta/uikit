@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import cardValidator from 'card-validator';
-import { useMask } from '@react-input/mask';
+import { useMaskedInput } from '../../ui/mask-input';
 import { FormField, FormFieldProps } from '../../ui/form-field';
 import { cn } from '../../lib/utils';
 import { withFieldGroup } from './form';
@@ -72,20 +72,9 @@ export const CreditCardInput = withFieldGroup({
 		const [cardMaskPattern, setCardMaskPattern] = useState('#### #### #### ####');
 		const [codeMeta, setCodeMeta] = useState({ name: 'CVV', size: 3 });
 
-		const cardNoRef = useMask({
-			mask: cardMaskPattern,
-			replacement: { '#': /\d/ },
-		});
-
-		const expRef = useMask({
-			mask: '##/##',
-			replacement: { '#': /\d/ },
-		});
-
-		const cvcRef = useMask({
-			mask: codeMeta.size === 4 ? '####' : '###',
-			replacement: { '#': /\d/ },
-		});
+		const cardNoRef = useMaskedInput({ pattern: cardMaskPattern });
+		const expRef = useMaskedInput({ pattern: '##/##' });
+		const cvcRef = useMaskedInput({ pattern: codeMeta.size === 4 ? '####' : '###' });
 
 		const cardNumber = useStore(group.store, (state) => state.values?.no);
 		const cardType = useStore(group.store, (state) => state.values?.type);

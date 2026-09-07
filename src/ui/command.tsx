@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
 import { cn } from '../lib/utils';
+import { listboxItemVariants } from './listbox';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './dialog';
 import { Input, InputAddonProps, InputGroupProps, inputVariants } from './input';
 import { CheckIcon, SearchIcon } from 'lucide-react';
@@ -129,10 +130,8 @@ function CommandItem({ className, children, ...props }: React.ComponentProps<typ
 		<CommandPrimitive.Item
 			data-slot="command-item"
 			className={cn(
-				`data-[selected=true]:bg-muted data-[selected=true]:text-foreground data-[selected=true]:**:[svg]:text-foreground relative
-				flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none [&_svg:not([class*=\'size-\'])]:size-4
-				in-data-[slot=dialog-content]:rounded-lg!
-				 group/command-item data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0'`,
+				listboxItemVariants({ highlight: 'cmdk' }),
+				'in-data-[slot=dialog-content]:rounded-lg!',
 				className,
 			)}
 			{...props}>

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react/menu';
 
 import { cn } from '../lib/utils';
+import { menuCheckableItemVariants, menuContentVariants, menuItemVariants, menuSubTriggerVariants } from './menu-shared';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { useRender } from '@base-ui/react/use-render';
 import { PopupArrowSvg } from '../components/PopupArrowSvg';
@@ -53,12 +54,8 @@ function DropdownMenuContent({ align = 'start', alignOffset = 0, side = 'bottom'
 				<MenuPrimitive.Popup
 					data-slot="dropdown-menu-content"
 					className={cn(
-						`data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95
-						 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2
-						 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-fit rounded-md p-1 shadow-md
-						 ring-1 duration-100 max-h-(--available-height) w-(--anchor-width) max-w-full origin-(--transform-origin)
-						  overflow-x-hidden overflow-y-auto
-						 outline-none data-closed:overflow-hidden`,
+						menuContentVariants(),
+						'min-w-fit shadow-md max-h-(--available-height) w-(--anchor-width) max-w-full origin-(--transform-origin) overflow-x-hidden overflow-y-auto outline-none data-closed:overflow-hidden',
 						className,
 					)}
 					{...props}
@@ -102,14 +99,7 @@ function DropdownMenuItem({ className, inset, variant = 'default', ...props }: D
 			data-slot="dropdown-menu-item"
 			data-inset={inset}
 			data-variant={variant}
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10
-				dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive cursor-pointer h-10
-				data-[variant=destructive]:*:[svg]:text-destructive not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-sm
-				px-2 py-1.5 text-sm [&_svg:not([class*='size-'])]:size-4 group/dropdown-menu-item relative flex items-center outline-hidden
-				select-none data-disabled:pointer-events-none data-disabled:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(menuItemVariants({ variant }), 'group/dropdown-menu-item h-10 cursor-pointer', className)}
 			{...props}
 		/>
 	);
@@ -133,12 +123,7 @@ function DropdownMenuSubTrigger({ className, inset, children, ...props }: Dropdo
 		<MenuPrimitive.SubmenuTrigger
 			data-slot="dropdown-menu-sub-trigger"
 			data-inset={inset}
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground
-				not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-sm px-2 py-1.5 text-sm [&_svg:not([class*='size-'])]:size-4
-				flex cursor-default items-center outline-hidden select-none data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(menuSubTriggerVariants(), 'h-10 cursor-pointer', className)}
 			{...props}>
 			{children}
 			<ChevronRightIcon className="ml-auto" />
@@ -158,13 +143,7 @@ function DropdownMenuSubContent({
 	return (
 		<DropdownMenuContent
 			data-slot="dropdown-menu-sub-content"
-			className={cn(
-				`data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95
-				data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2
-				data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 bg-popover text-popover-foreground min-w-[96px] rounded-md p-1 shadow-lg ring-1
-				duration-100 w-auto`,
-				className,
-			)}
+			className={cn(menuContentVariants(), className)}
 			align={align}
 			alignOffset={alignOffset}
 			side={side}
@@ -179,12 +158,7 @@ function DropdownMenuCheckboxItem({ className, children, checked, ...props }: Dr
 	return (
 		<MenuPrimitive.CheckboxItem
 			data-slot="dropdown-menu-checkbox-item"
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm
-				[&_svg:not([class*='size-'])]:size-4 relative flex cursor-default items-center outline-hidden select-none
-				data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(menuCheckableItemVariants(), className)}
 			checked={checked}
 			{...props}>
 			<span
@@ -214,12 +188,7 @@ function DropdownMenuRadioItem({ className, children, ...props }: DropdownMenuRa
 	return (
 		<MenuPrimitive.RadioItem
 			data-slot="dropdown-menu-radio-item"
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground gap-2 rounded-sm py-1.5 pr-8 pl-2 text-sm
-         [&_svg:not([class*='size-'])]:size-4 relative flex cursor-default items-center outline-hidden select-none data-[disabled]:pointer-events-none
-          data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(menuCheckableItemVariants(), className)}
 			{...props}>
 			<span
 				className="pointer-events-none absolute right-2 flex items-center justify-center pointer-events-none"

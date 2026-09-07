@@ -324,13 +324,13 @@ export const filterAddButtonVariants = cvaWithMeta(
 );
 
 export const filterOperatorVariants = cvaWithMeta(
-	['transition text-muted-foreground hover:text-foreground data-[state=open]:text-foreground shrink-0 flex items-center relative focus-visible:z-1'],
+	['transition text-muted-foreground hover:text-foreground data-popup-open:text-foreground data-[state=open]:text-foreground shrink-0 flex items-center relative focus-visible:z-1'],
 	{
 		variants: {
 			variant: {
 				solid: 'bg-secondary',
 				outline:
-					'bg-background border border-border border-e-0 hover:bg-secondary data-[state=open]:bg-secondary [&+[data-slot=filters-remove]]:border-s',
+					'bg-background border border-border border-e-0 hover:bg-secondary data-popup-open:bg-secondary data-[state=open]:bg-secondary [&+[data-slot=filters-remove]]:border-s',
 			},
 			size: {
 				lg: 'h-10 px-4 text-sm gap-1.5',

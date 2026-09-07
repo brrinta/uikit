@@ -5,6 +5,7 @@ import { CheckIcon, ChevronsUpDownIcon, XIcon } from 'lucide-react';
 import { VariantProps } from 'class-variance-authority';
 import { fieldControlVariants } from './field';
 import { popoverContentVariants } from './popover';
+import { listboxGroupLabelVariants, listboxGroupVariants, listboxItemVariants, listboxListVariants } from './listbox';
 import { badgeButtonVariants, badgeVariants } from './badge';
 import { useRender } from '@base-ui/react/use-render';
 import { PopupArrowSvg } from '../components/PopupArrowSvg';
@@ -215,7 +216,7 @@ const ComboboxContent: React.FC<ComboboxContentProps> = ({
 					<ComboboxPrimitive.List
 						data-slot="combobox-list"
 						{...listProps}
-						className={cn('p-1 max-h-100 overflow-y-auto', listProps?.className)}>
+						className={cn(listboxListVariants(), listProps?.className)}>
 						{children}
 					</ComboboxPrimitive.List>
 					{renderAtBottom?.()}
@@ -232,14 +233,7 @@ const ComboboxItem: React.FC<ComboboxItemProps> = ({ className, children, indica
 	return (
 		<ComboboxPrimitive.Item
 			data-slot="combobox-item"
-			className={cn(
-				`focus:bg-accent focus:text-accent-foreground data-highlighted:bg-accent data-highlighted:text-accent-foreground
-				 not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-sm
-				py-1.5 px-2 text-sm [&_svg:not([class*='size-'])]:size-4 relative
-				 flex w-full cursor-default items-center outline-hidden select-none data-disabled:pointer-events-none data-disabled:opacity-50
-				  [&_svg]:pointer-events-none [&_svg]:shrink-0`,
-				className,
-			)}
+			className={cn(listboxItemVariants(), className)}
 			{...props}>
 			<ComboboxPrimitive.ItemIndicator
 				render={<span className="pointer-events-none flex size-4 items-center justify-center" />}
@@ -255,7 +249,7 @@ const ComboboxGroup: React.FC<React.ComponentProps<typeof ComboboxPrimitive.Grou
 	return (
 		<ComboboxPrimitive.Group
 			data-slot="combobox-group"
-			className={cn('scroll-my-1 p-1', className)}
+			className={cn(listboxGroupVariants(), className)}
 			{...props}
 		/>
 	);
@@ -265,7 +259,7 @@ const ComboboxGroupLabel: React.FC<React.ComponentProps<typeof ComboboxPrimitive
 	return (
 		<ComboboxPrimitive.GroupLabel
 			data-slot="combobox-label"
-			className={cn('text-muted-foreground px-2 py-1.5 text-xs font-bold', className)}
+			className={cn(listboxGroupLabelVariants({ weight: 'bold' }), className)}
 			{...props}
 		/>
 	);

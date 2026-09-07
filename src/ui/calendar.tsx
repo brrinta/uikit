@@ -7,17 +7,47 @@ import { type DayButton, DayPicker, getDefaultClassNames } from 'react-day-picke
 import { cn } from '../lib/utils';
 import { Button, buttonClassName } from './button';
 
+
+/** Selected-day colors. One literal line per color so Tailwind can scan them. */
+export const calendarColors = {
+	primary: '[--cal:var(--color-primary)] [--cal-fg:var(--color-primary-foreground)]',
+	brand: '[--cal:var(--color-brand)] [--cal-fg:var(--color-brand-foreground)]',
+	success: '[--cal:var(--color-success)] [--cal-fg:var(--color-success-foreground)]',
+	warning: '[--cal:var(--color-warning)] [--cal-fg:var(--color-warning-foreground)]',
+	info: '[--cal:var(--color-info)] [--cal-fg:var(--color-info-foreground)]',
+	destructive: '[--cal:var(--color-destructive)] [--cal-fg:var(--color-destructive-foreground)]',
+	mono: '[--cal:var(--color-zinc-950)] [--cal-fg:var(--color-white)] dark:[--cal:var(--color-zinc-300)] dark:[--cal-fg:var(--color-black)]',
+	red: '[--cal:var(--color-red-500)] [--cal-fg:var(--color-white)]',
+	orange: '[--cal:var(--color-orange-500)] [--cal-fg:var(--color-white)]',
+	amber: '[--cal:var(--color-amber-500)] [--cal-fg:var(--color-white)]',
+	green: '[--cal:var(--color-green-500)] [--cal-fg:var(--color-white)]',
+	emerald: '[--cal:var(--color-emerald-500)] [--cal-fg:var(--color-white)]',
+	teal: '[--cal:var(--color-teal-500)] [--cal-fg:var(--color-white)]',
+	sky: '[--cal:var(--color-sky-500)] [--cal-fg:var(--color-white)]',
+	blue: '[--cal:var(--color-blue-500)] [--cal-fg:var(--color-white)]',
+	indigo: '[--cal:var(--color-indigo-500)] [--cal-fg:var(--color-white)]',
+	violet: '[--cal:var(--color-violet-500)] [--cal-fg:var(--color-white)]',
+	purple: '[--cal:var(--color-purple-500)] [--cal-fg:var(--color-white)]',
+	pink: '[--cal:var(--color-pink-500)] [--cal-fg:var(--color-white)]',
+	rose: '[--cal:var(--color-rose-500)] [--cal-fg:var(--color-white)]',
+} as const;
+
+export type CalendarColor = keyof typeof calendarColors;
+
 function Calendar({
 	className,
 	classNames,
 	showOutsideDays = false,
 	captionLayout = 'dropdown',
 	buttonVariant = 'ghost',
+	color = 'primary',
 	formatters,
 	components,
 	...props
 }: React.ComponentProps<typeof DayPicker> & {
 	buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+	/** Selected-day color; range middle keeps the accent tint. */
+	color?: CalendarColor;
 }) {
 	const defaultClassNames = getDefaultClassNames();
 
@@ -27,6 +57,7 @@ function Calendar({
 			className={cn(
 				`bg-background group/calendar p-3 [--cell-size:--spacing(8)] in-data-[slot=card-content]:bg-transparent
 				in-data-[slot=popover-content]:bg-transparent`,
+				calendarColors[color],
 				String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
 				String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
 				className,
@@ -157,9 +188,9 @@ function CalendarDayButton({ className, day, modifiers, color: _color, ...props 
 			data-range-end={modifiers.range_end}
 			data-range-middle={modifiers.range_middle}
 			className={cn(
-				`data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[range-middle=true]:bg-accent
-				 data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground
-				 data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground group-data-[focused=true]/day:border-ring
+				`data-[selected-single=true]:bg-(--cal) data-[selected-single=true]:text-(--cal-fg) data-[range-middle=true]:bg-accent
+				 data-[range-middle=true]:text-accent-foreground data-[range-start=true]:bg-(--cal) data-[range-start=true]:text-(--cal-fg)
+				 data-[range-end=true]:bg-(--cal) data-[range-end=true]:text-(--cal-fg) group-data-[focused=true]/day:border-ring
 				 group-data-[focused=true]/day:ring-ring/50 dark:hover:text-accent-foreground flex aspect-square size-auto w-full min-w-(--cell-size)
 				 flex-col gap-1 leading-none font-normal group-data-[focused=true]/day:relative group-data-[focused=true]/day:z-10
 				 group-data-[focused=true]/day:ring-[3px] data-[range-end=true]:rounded-md data-[range-end=true]:rounded-r-md

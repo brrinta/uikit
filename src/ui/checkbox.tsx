@@ -2,25 +2,60 @@ import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { CheckboxGroup as CheckboxGroupPrimitive } from '@base-ui/react/checkbox-group';
 import * as React from 'react';
 import { ReactNode, useId } from 'react';
+import { CheckIcon, MinusIcon } from 'lucide-react';
+import { type VariantProps } from 'class-variance-authority';
 import { cn, cvaWithMeta } from '../lib/utils';
-import { VariantProps } from 'class-variance-authority';
 import { Flex } from './flex';
 import { Label } from './label';
-import { CheckIcon } from 'lucide-react';
 
-// Define the variants for the Checkbox using cva.
+/**
+ * Each color sets two CSS variables; the checked/indeterminate styles read them.
+ * NOTE: Base UI emits `data-checked` / `data-indeterminate` / `data-unchecked`
+ * (not Radix's `data-[state=checked]`).
+ */
+export const checkboxColors = {
+	primary: '[--cb:var(--color-primary)] [--cb-fg:var(--color-primary-foreground)]',
+	brand: '[--cb:var(--color-brand)] [--cb-fg:var(--color-brand-foreground)]',
+	secondary: '[--cb:var(--color-secondary)] [--cb-fg:var(--color-secondary-foreground)]',
+	accent: '[--cb:var(--color-accent)] [--cb-fg:var(--color-accent-foreground)]',
+	destructive: '[--cb:var(--color-destructive)] [--cb-fg:var(--color-destructive-foreground)]',
+	success: '[--cb:var(--color-success)] [--cb-fg:var(--color-success-foreground)]',
+	warning: '[--cb:var(--color-warning)] [--cb-fg:var(--color-warning-foreground)]',
+	info: '[--cb:var(--color-info)] [--cb-fg:var(--color-info-foreground)]',
+	mono: '[--cb:var(--color-zinc-950)] [--cb-fg:var(--color-white)] dark:[--cb:var(--color-zinc-300)] dark:[--cb-fg:var(--color-black)]',
+	red: '[--cb:var(--color-red-500)] [--cb-fg:var(--color-white)]',
+	orange: '[--cb:var(--color-orange-500)] [--cb-fg:var(--color-white)]',
+	amber: '[--cb:var(--color-amber-500)] [--cb-fg:var(--color-white)]',
+	yellow: '[--cb:var(--color-yellow-500)] [--cb-fg:var(--color-black)]',
+	lime: '[--cb:var(--color-lime-500)] [--cb-fg:var(--color-black)]',
+	green: '[--cb:var(--color-green-500)] [--cb-fg:var(--color-white)]',
+	emerald: '[--cb:var(--color-emerald-500)] [--cb-fg:var(--color-white)]',
+	teal: '[--cb:var(--color-teal-500)] [--cb-fg:var(--color-white)]',
+	cyan: '[--cb:var(--color-cyan-500)] [--cb-fg:var(--color-black)]',
+	sky: '[--cb:var(--color-sky-500)] [--cb-fg:var(--color-white)]',
+	blue: '[--cb:var(--color-blue-500)] [--cb-fg:var(--color-white)]',
+	indigo: '[--cb:var(--color-indigo-500)] [--cb-fg:var(--color-white)]',
+	violet: '[--cb:var(--color-violet-500)] [--cb-fg:var(--color-white)]',
+	purple: '[--cb:var(--color-purple-500)] [--cb-fg:var(--color-white)]',
+	fuchsia: '[--cb:var(--color-fuchsia-500)] [--cb-fg:var(--color-white)]',
+	pink: '[--cb:var(--color-pink-500)] [--cb-fg:var(--color-white)]',
+	rose: '[--cb:var(--color-rose-500)] [--cb-fg:var(--color-white)]',
+} as const;
+
+export type CheckboxColor = keyof typeof checkboxColors;
+
 export const checkboxVariants = cvaWithMeta(
 	[
-		'group peer bg-background shrink-0 rounded-md border border-input ring-offset-background',
+		'group peer flex shrink-0 items-center justify-center rounded-md border border-input bg-background',
+		'ring-offset-background transition-colors [&_svg]:transition-colors',
 		'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-		'disabled:cursor-not-allowed disabled:opacity-50',
+		'disabled:cursor-not-allowed disabled:opacity-50 data-disabled:cursor-not-allowed data-disabled:opacity-50',
 		'aria-invalid:border-destructive/60 aria-invalid:ring-destructive/10 dark:aria-invalid:border-destructive dark:aria-invalid:ring-destructive/20',
 		'in-data-[invalid=true]:border-destructive/60 in-data-[invalid=true]:ring-destructive/10',
 		'dark:in-data-[invalid=true]:border-destructive dark:in-data-[invalid=true]:ring-destructive/20',
-		'data-[state=checked]:text-primary-foreground',
-		'data-[state=indeterminate]:text-primary-foreground',
-		'flex items-center justify-center transition-colors [&_svg]:transition-colors',
-	].join(' '),
+		'data-checked:border-(--cb) data-checked:bg-(--cb) data-checked:text-(--cb-fg)',
+		'data-indeterminate:border-(--cb) data-indeterminate:bg-(--cb) data-indeterminate:text-(--cb-fg)',
+	],
 	{
 		variants: {
 			size: {
@@ -28,27 +63,7 @@ export const checkboxVariants = cvaWithMeta(
 				md: 'size-5 [&_svg]:size-3.5',
 				lg: 'size-5.5 [&_svg]:size-4',
 			},
-			color: {
-				primary:
-					'data-[state=checked]:bg-primary data-[state=checked]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:border-primary',
-				brand:
-					'data-[state=checked]:bg-brand data-[state=checked]:border-brand data-[state=indeterminate]:bg-brand data-[state=indeterminate]:border-brand',
-				success:
-					'data-[state=checked]:bg-success data-[state=checked]:border-success data-[state=indeterminate]:bg-success data-[state=indeterminate]:border-success',
-				warning:
-					'data-[state=checked]:bg-warning data-[state=checked]:border-warning data-[state=indeterminate]:bg-warning data-[state=indeterminate]:border-warning',
-				info: 'data-[state=checked]:bg-info data-[state=checked]:border-info data-[state=indeterminate]:bg-info data-[state=indeterminate]:border-info',
-				destructive:
-					'data-[state=checked]:bg-destructive data-[state=checked]:border-destructive data-[state=indeterminate]:bg-destructive data-[state=indeterminate]:border-destructive',
-				accent:
-					'data-[state=checked]:bg-accent data-[state=checked]:border-accent data-[state=indeterminate]:bg-accent data-[state=indeterminate]:border-accent',
-				red: 'data-[state=checked]:bg-red-500 data-[state=checked]:border-red-500 data-[state=indeterminate]:bg-red-500 data-[state=indeterminate]:border-red-500',
-				orange:
-					'data-[state=checked]:bg-orange-500 data-[state=checked]:border-orange-500 data-[state=indeterminate]:bg-orange-500 data-[state=indeterminate]:border-orange-500',
-				green:
-					'data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500 data-[state=indeterminate]:bg-green-500 data-[state=indeterminate]:border-green-500',
-				blue: 'data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 data-[state=indeterminate]:bg-blue-500 data-[state=indeterminate]:border-blue-500',
-			},
+			color: checkboxColors,
 		},
 		defaultVariants: {
 			size: 'md',
@@ -56,38 +71,49 @@ export const checkboxVariants = cvaWithMeta(
 		},
 	},
 );
+
 export type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root> &
 	VariantProps<typeof checkboxVariants> & {
 		label?: ReactNode;
+		/** Custom indicator icon; replaces both the check and the indeterminate dash. */
 		icon?: ReactNode;
 		classNames?: { root?: string; indicator?: string; label?: string; icon?: string };
 	};
 
 const Checkbox: React.FC<CheckboxProps> = ({ className, size, color, children, label, icon, classNames, id, ...props }) => {
 	const genID = useId();
-	return label ? (
-		<Flex className={cn('items-center gap-1 [&_label]:cursor-pointer [&_label]:disabled:cursor-not-allowed', className, classNames?.root)}>
-			<CheckboxPrimitive.Root
-				id={id ?? genID}
-				data-slot="checkbox"
-				className={cn(checkboxVariants({ size, color }), classNames?.indicator)}
-				{...props}>
-				{children || <CheckboxPrimitive.Indicator>{icon ?? <CheckIcon className={cn(classNames?.icon)} />}</CheckboxPrimitive.Indicator>}
-			</CheckboxPrimitive.Root>
-			<Label
-				className={classNames?.label}
-				htmlFor={id ?? genID}>
+	const resolvedId = id ?? genID;
+
+	const box = (
+		<CheckboxPrimitive.Root
+			id={resolvedId}
+			data-slot="checkbox"
+			data-size={size ?? 'md'}
+			data-color={color ?? 'primary'}
+			className={cn(checkboxVariants({ size, color }), label ? classNames?.indicator : cn(className, classNames?.indicator))}
+			{...props}>
+			{children || (
+				<CheckboxPrimitive.Indicator data-slot="checkbox-indicator">
+					{icon ?? (
+						<>
+							<CheckIcon className={cn('group-data-indeterminate:hidden', classNames?.icon)} />
+							<MinusIcon className={cn('hidden group-data-indeterminate:block', classNames?.icon)} />
+						</>
+					)}
+				</CheckboxPrimitive.Indicator>
+			)}
+		</CheckboxPrimitive.Root>
+	);
+
+	if (!label) return box;
+
+	return (
+		<Flex className={cn('items-center gap-1.5 [&_label]:cursor-pointer has-data-disabled:[&_label]:cursor-not-allowed', className, classNames?.root)}>
+			{box}
+			<Label className={classNames?.label} htmlFor={resolvedId}>
 				{label}
 			</Label>
 		</Flex>
-	) : (
-		<CheckboxPrimitive.Root
-			id={id ?? genID}
-			data-slot="checkbox"
-			className={cn(checkboxVariants({ size, color }), className, classNames?.indicator)}
-			{...props}>
-			{children || <CheckboxPrimitive.Indicator>{icon ?? <CheckIcon className={cn(classNames?.icon)} />}</CheckboxPrimitive.Indicator>}
-		</CheckboxPrimitive.Root>
 	);
 };
 
@@ -96,7 +122,7 @@ const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ className, ...props }) =>
 	return (
 		<CheckboxGroupPrimitive
 			data-slot="checkbox-group"
-			className={cn('flex flex-col items-start gap-1', className)}
+			className={cn('flex flex-col items-start gap-1.5', className)}
 			{...props}
 		/>
 	);
