@@ -24,6 +24,17 @@ import { cn, cvaWithMeta } from '../lib/utils';
 //
 // ---------------------------------------------------------------------------
 
+// Tailwind palette colors are styled through CSS variables (`--tg`/`--tg-strong`/`--tg-fg`)
+// set by the color variants below. The previous implementation built these classes with
+// template strings (`data-pressed:bg-${base}`) inside four `.map()` loops — Tailwind only
+// scans literal strings, so NONE of those palette classes were ever generated: palette
+// toggles rendered with no pressed style at all (and `light` palette with no styling).
+const PALETTE_COLORS = [
+	'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
+	'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink',
+	'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone',
+] as const;
+
 export const toggleVariants = cvaWithMeta(
 	cn(
 		'cursor-pointer group/toggle focus-visible:outline-hidden inline-flex items-center justify-center',
@@ -57,28 +68,28 @@ export const toggleVariants = cvaWithMeta(
 				inverse: '',
 				white: '',
 				mono: '',
-				red: '',
-				orange: '',
-				amber: '',
-				yellow: '',
-				lime: '',
-				green: '',
-				emerald: '',
-				teal: '',
-				cyan: '',
-				sky: '',
-				blue: '',
-				indigo: '',
-				violet: '',
-				purple: '',
-				fuchsia: '',
-				pink: '',
-				rose: '',
-				slate: '',
-				gray: '',
-				zinc: '',
-				neutral: '',
-				stone: '',
+				red: '[--tg:var(--color-red-500)] [--tg-strong:var(--color-red-600)] [--tg-fg:var(--color-white)]',
+				orange: '[--tg:var(--color-orange-500)] [--tg-strong:var(--color-orange-600)] [--tg-fg:var(--color-white)]',
+				amber: '[--tg:var(--color-amber-500)] [--tg-strong:var(--color-amber-600)] [--tg-fg:var(--color-white)]',
+				yellow: '[--tg:var(--color-yellow-500)] [--tg-strong:var(--color-yellow-400)] [--tg-fg:var(--color-black)]',
+				lime: '[--tg:var(--color-lime-500)] [--tg-strong:var(--color-lime-400)] [--tg-fg:var(--color-black)]',
+				green: '[--tg:var(--color-green-500)] [--tg-strong:var(--color-green-600)] [--tg-fg:var(--color-white)]',
+				emerald: '[--tg:var(--color-emerald-500)] [--tg-strong:var(--color-emerald-600)] [--tg-fg:var(--color-white)]',
+				teal: '[--tg:var(--color-teal-500)] [--tg-strong:var(--color-teal-600)] [--tg-fg:var(--color-white)]',
+				cyan: '[--tg:var(--color-cyan-500)] [--tg-strong:var(--color-cyan-400)] [--tg-fg:var(--color-black)]',
+				sky: '[--tg:var(--color-sky-500)] [--tg-strong:var(--color-sky-600)] [--tg-fg:var(--color-white)]',
+				blue: '[--tg:var(--color-blue-500)] [--tg-strong:var(--color-blue-600)] [--tg-fg:var(--color-white)]',
+				indigo: '[--tg:var(--color-indigo-500)] [--tg-strong:var(--color-indigo-600)] [--tg-fg:var(--color-white)]',
+				violet: '[--tg:var(--color-violet-500)] [--tg-strong:var(--color-violet-600)] [--tg-fg:var(--color-white)]',
+				purple: '[--tg:var(--color-purple-500)] [--tg-strong:var(--color-purple-600)] [--tg-fg:var(--color-white)]',
+				fuchsia: '[--tg:var(--color-fuchsia-500)] [--tg-strong:var(--color-fuchsia-600)] [--tg-fg:var(--color-white)]',
+				pink: '[--tg:var(--color-pink-500)] [--tg-strong:var(--color-pink-600)] [--tg-fg:var(--color-white)]',
+				rose: '[--tg:var(--color-rose-500)] [--tg-strong:var(--color-rose-600)] [--tg-fg:var(--color-white)]',
+				slate: '[--tg:var(--color-slate-500)] [--tg-strong:var(--color-slate-600)] [--tg-fg:var(--color-white)]',
+				gray: '[--tg:var(--color-gray-500)] [--tg-strong:var(--color-gray-600)] [--tg-fg:var(--color-white)]',
+				zinc: '[--tg:var(--color-zinc-500)] [--tg-strong:var(--color-zinc-600)] [--tg-fg:var(--color-white)]',
+				neutral: '[--tg:var(--color-neutral-500)] [--tg-strong:var(--color-neutral-600)] [--tg-fg:var(--color-white)]',
+				stone: '[--tg:var(--color-stone-500)] [--tg-strong:var(--color-stone-600)] [--tg-fg:var(--color-white)]',
 			},
 			appearance: {
 				default: '',
@@ -165,36 +176,11 @@ export const toggleVariants = cvaWithMeta(
 			},
 
 			// Tailwind palette — solid
-			...(
-				[
-					['red', 'red-500', 'red-600', 'white'],
-					['orange', 'orange-500', 'orange-600', 'white'],
-					['amber', 'amber-500', 'amber-600', 'white'],
-					['yellow', 'yellow-500', 'yellow-400', 'black'],
-					['lime', 'lime-500', 'lime-400', 'black'],
-					['green', 'green-500', 'green-600', 'white'],
-					['emerald', 'emerald-500', 'emerald-600', 'white'],
-					['teal', 'teal-500', 'teal-600', 'white'],
-					['cyan', 'cyan-500', 'cyan-400', 'black'],
-					['sky', 'sky-500', 'sky-600', 'white'],
-					['blue', 'blue-500', 'blue-600', 'white'],
-					['indigo', 'indigo-500', 'indigo-600', 'white'],
-					['violet', 'violet-500', 'violet-600', 'white'],
-					['purple', 'purple-500', 'purple-600', 'white'],
-					['fuchsia', 'fuchsia-500', 'fuchsia-600', 'white'],
-					['pink', 'pink-500', 'pink-600', 'white'],
-					['rose', 'rose-500', 'rose-600', 'white'],
-					['slate', 'slate-500', 'slate-600', 'white'],
-					['gray', 'gray-500', 'gray-600', 'white'],
-					['zinc', 'zinc-500', 'zinc-600', 'white'],
-					['neutral', 'neutral-500', 'neutral-600', 'white'],
-					['stone', 'stone-500', 'stone-600', 'white'],
-				] as const
-			).map(([color, base, hover, fg]) => ({
-				variant: 'solid' as const,
-				color,
-				className: `bg-muted hover:bg-muted-foreground/20 data-pressed:bg-${base} data-pressed:text-${fg} data-pressed:hover:bg-${hover}`,
-			})),
+			{
+				variant: 'solid',
+				color: [...PALETTE_COLORS],
+				className: 'bg-muted hover:bg-muted-foreground/20 data-pressed:bg-(--tg) data-pressed:text-(--tg-fg) data-pressed:hover:bg-(--tg-strong)',
+			},
 
 			// -----------------------------------------------------------------
 			// LIGHT appearance — Button parity (tinted bg, colored text)
@@ -209,17 +195,12 @@ export const toggleVariants = cvaWithMeta(
 			{ appearance: 'light', color: 'secondary', className: 'bg-secondary/5 text-secondary-foreground hover:bg-secondary/10 data-pressed:bg-secondary/20' },
 
 			// Tailwind palette — light
-			...(
-				[
-					'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
-					'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink',
-					'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone',
-				] as const
-			).map((color) => ({
-				appearance: 'light' as const,
-				color,
-				className: `bg-${color}-50/50 text-${color}-600 hover:bg-${color}-50 data-pressed:bg-${color}-100 dark:bg-${color}-950/10 dark:text-${color}-400 dark:hover:bg-${color}-950/20 dark:data-pressed:bg-${color}-950/40`,
-			})),
+			{
+				appearance: 'light',
+				color: [...PALETTE_COLORS],
+				className:
+					'bg-(--tg)/5 text-(--tg) hover:bg-(--tg)/10 data-pressed:bg-(--tg)/20 dark:bg-(--tg)/10 dark:hover:bg-(--tg)/15 dark:data-pressed:bg-(--tg)/25',
+			},
 
 			// -----------------------------------------------------------------
 			// OUTLINE + color — bordered, tinted fill on pressed
@@ -235,17 +216,12 @@ export const toggleVariants = cvaWithMeta(
 			{ variant: 'outline', color: 'warning', className: 'data-pressed:border-warning data-pressed:bg-warning/10 data-pressed:text-warning' },
 			{ variant: 'outline', color: 'info', className: 'data-pressed:border-info data-pressed:bg-info/10 data-pressed:text-info' },
 
-			...(
-				[
-					'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
-					'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink',
-					'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone',
-				] as const
-			).map((color) => ({
-				variant: 'outline' as const,
-				color,
-				className: `data-pressed:border-${color}-500/60 data-pressed:bg-${color}-50 data-pressed:text-${color}-600 dark:data-pressed:bg-${color}-950/30 dark:data-pressed:text-${color}-400 dark:data-pressed:border-${color}-400/50`,
-			})),
+			{
+				variant: 'outline',
+				color: [...PALETTE_COLORS],
+				className:
+					'data-pressed:border-(--tg)/60 data-pressed:bg-(--tg)/10 data-pressed:text-(--tg) dark:data-pressed:bg-(--tg)/20',
+			},
 
 			// DASHED inherits outline's color behavior
 			{ variant: 'dashed', color: 'primary', className: 'data-pressed:border-primary data-pressed:bg-primary/10 data-pressed:text-primary' },
@@ -273,17 +249,11 @@ export const toggleVariants = cvaWithMeta(
 			{ variant: 'ghost', color: 'warning', className: 'text-foreground hover:text-warning data-pressed:bg-warning/10 data-pressed:text-warning' },
 			{ variant: 'ghost', color: 'info', className: 'text-foreground hover:text-info data-pressed:bg-info/10 data-pressed:text-info' },
 
-			...(
-				[
-					'red', 'orange', 'amber', 'yellow', 'lime', 'green', 'emerald', 'teal',
-					'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple', 'fuchsia', 'pink',
-					'rose', 'slate', 'gray', 'zinc', 'neutral', 'stone',
-				] as const
-			).map((color) => ({
-				variant: 'ghost' as const,
-				color,
-				className: `data-pressed:bg-${color}-50 data-pressed:text-${color}-600 dark:data-pressed:bg-${color}-950/30 dark:data-pressed:text-${color}-400`,
-			})),
+			{
+				variant: 'ghost',
+				color: [...PALETTE_COLORS],
+				className: 'data-pressed:bg-(--tg)/10 data-pressed:text-(--tg) dark:data-pressed:bg-(--tg)/20',
+			},
 
 			// -----------------------------------------------------------------
 			// UNDERLINED + color — colored bottom border on pressed

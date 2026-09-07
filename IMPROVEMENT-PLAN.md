@@ -127,16 +127,16 @@ Done in 4b:
 
 Base UI `toast` moves to batch 5 (feedback batch owns it alongside the sonner wrapper).
 
-### Batch 5 — feedback & status
+### Done — batch 5 (feedback) & status
 `alert`, `badge`, `progress`, `spinner`, `loading`, `skeleton`, `empty`, `sonner` → add
 **`toast` on `@base-ui/react/toast`** (keep `sonner` wrapper as opt-in), `stepper`, `timeline`.
 
-### Batch 6 — navigation & structure
+### Done — batch 6 (navigation & structure)
 `tabs` → **migrate to `@base-ui/react/tabs`** (686 lines currently hand-rolled), `accordion`,
 `collapsible`, `breadcrumb`, `pagination`, `toggle-group`, `toolbar`, `separator`, `scroll-area`,
 `sidebar`, `tree`, `sortable`.
 
-### Batch 7 — display & layout primitives
+### Done — batch 7 (display, layout & story health) primitives
 `avatar`, `card`, `image`, `item`, `list`, `table`, `text`, `title`, `Anchor`, `box`, `container`,
 `flex`, `group`, `stack`, `affix`, `chart` (two chart libs: `echarts` + `recharts` — pick one),
 `aurora-text`, `sparkles-text`, `animated-theme-toggler`, `dropzone`.

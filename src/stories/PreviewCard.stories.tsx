@@ -18,7 +18,7 @@ type Story = StoryObj<typeof PreviewCard>;
 export const PreviewCardPreview: Story = {
 	render: (args) => (
 		<PreviewCard {...args}>
-			<PreviewCard.Trigger asChild>
+			<PreviewCard.Trigger render={<span />}>
 				<Button
 					variant="link"
 					className="p-0 h-auto">

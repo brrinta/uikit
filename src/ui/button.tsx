@@ -435,11 +435,16 @@ function ButtonGroupSeparator({ className, orientation = 'vertical', ...props }:
 }
 ButtonGroupSeparator.displayName = 'ButtonGroupSeparator';
 
+const ButtonGroupCompound = Object.assign(ButtonGroup, {
+	Text: ButtonGroupText,
+	Separator: ButtonGroupSeparator,
+});
+
 const CompoundButton = Object.assign(Button, {
 	Arrow: ButtonArrow,
-	Group: ButtonGroup,
+	Group: ButtonGroupCompound,
 	GroupText: ButtonGroupText,
 	GroupSeparator: ButtonGroupSeparator,
 });
 
-export { CompoundButton as Button, ButtonArrow, ButtonGroup, ButtonGroupText, ButtonGroupSeparator };
+export { CompoundButton as Button, ButtonArrow, ButtonGroupCompound as ButtonGroup, ButtonGroupText, ButtonGroupSeparator };

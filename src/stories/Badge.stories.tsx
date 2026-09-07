@@ -16,7 +16,7 @@ export default meta;
 type Story = StoryObj<typeof Badge>;
 
 export const BadgePreview: Story = {
-	render: Badge,
+	render: (args) => <Badge {...args} />,
 	args: {
 		children: 'Badge',
 		variant: 'primary',
@@ -26,7 +26,7 @@ export const BadgePreview: Story = {
 };
 
 export const BadgeLight: Story = {
-	render: Badge,
+	render: (args) => <Badge {...args} />,
 	args: {
 		children: 'Light Badge',
 		variant: 'primary',
@@ -36,7 +36,7 @@ export const BadgeLight: Story = {
 };
 
 export const BadgeOutline: Story = {
-	render: Badge,
+	render: (args) => <Badge {...args} />,
 	args: {
 		children: 'Outline Badge',
 		variant: 'primary',

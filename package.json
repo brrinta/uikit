@@ -1,10 +1,11 @@
 {
 	"name": "@brrinta/uikit",
-	"version": "0.1.63",
+	"version": "0.1.55",
 	"description": " React UI component library.",
-	"main": "./src/index.ts",
-	"types": "./src/index.ts",
+	"main": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"files": [
+		"dist",
 		"src"
 	],
 	"publishConfig": {
@@ -15,7 +16,9 @@
 		"storybook:build": "storybook build",
 		"typecheck": "tsc -p tsconfig.lib.json --noEmit",
 		"gen": "node gen.js",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"build": "tsdown",
+		"prepublishOnly": "pnpm typecheck && pnpm build"
 	},
 	"dependencies": {
 		"@base-ui/react": "^1.6.0",
@@ -26,20 +29,10 @@
 		"@floating-ui/dom": "^1.8.0",
 		"@headless-tree/core": "^1.7.0",
 		"@hookform/resolvers": "^5.5.7",
-		"@lexical/code": "^0.48.0",
-		"@lexical/link": "^0.48.0",
-		"@lexical/list": "^0.48.0",
-		"@lexical/markdown": "^0.48.0",
-		"@lexical/overflow": "^0.48.0",
-		"@lexical/react": "^0.48.0",
-		"@lexical/rich-text": "^0.48.0",
-		"@lexical/selection": "^0.48.0",
-		"@lexical/table": "^0.48.0",
-		"@lexical/utils": "^0.48.0",
-		"@mdxeditor/editor": "^4.1.1",
 		"@tabler/icons-react": "^3.46.0",
 		"@tailwindcss/typography": "^0.5.20",
 		"@tanstack/react-db": "^0.1.95",
+		"@tanstack/react-table-devtools": "^9.2.0",
 		"bson-objectid": "^2.0.4",
 		"card-validator": "^10.0.4",
 		"class-variance-authority": "^0.7.1",
@@ -49,11 +42,7 @@
 		"date-fns": "^4.4.0",
 		"dayjs": "^1.11.21",
 		"dompurify": "^3.4.12",
-		"echarts": "^6.1.0",
-		"echarts-for-react": "^3.0.6",
-		"framer-motion": "^12.43.0",
 		"html-to-text": "^10.0.0",
-		"lexical": "^0.48.0",
 		"localforage": "^1.10.0",
 		"lodash-es": "^4.18.1",
 		"lucide-react": "^1.28.0",
@@ -87,11 +76,28 @@
 		"zustand": "^5.0.14"
 	},
 	"peerDependencies": {
+		"@lexical/code": "^0.48.0",
+		"@lexical/link": "^0.48.0",
+		"@lexical/list": "^0.48.0",
+		"@lexical/markdown": "^0.48.0",
+		"@lexical/overflow": "^0.48.0",
+		"@lexical/react": "^0.48.0",
+		"@lexical/rich-text": "^0.48.0",
+		"@lexical/selection": "^0.48.0",
+		"@lexical/table": "^0.48.0",
+		"@lexical/utils": "^0.48.0",
+		"@mdxeditor/editor": "^4.1.1",
+		"@tanstack/devtools-event-client": "*",
+		"@tanstack/react-devtools": "*",
 		"@tanstack/react-form": "^1.32.0",
+		"@tanstack/react-form-devtools": "*",
 		"@tanstack/react-query": "^5.100.10",
+		"@tanstack/react-query-devtools": "*",
 		"@tanstack/react-router": "^1.169.2",
-		"@tanstack/react-table": "^8.21.3",
+		"@tanstack/react-router-devtools": "*",
+		"@tanstack/react-table": "^9.0.0",
 		"axios": "^1.16.0",
+		"lexical": "^0.48.0",
 		"react": "^19.2.6",
 		"react-dom": "^19.2.6",
 		"tailwindcss": "^4.3.3",
@@ -102,6 +108,17 @@
 		"@babel/preset-typescript": "^8.0.1",
 		"@chromatic-com/storybook": "^5.2.1",
 		"@eslint/js": "^10.0.1",
+		"@lexical/code": "^0.48.0",
+		"@lexical/link": "^0.48.0",
+		"@lexical/list": "^0.48.0",
+		"@lexical/markdown": "^0.48.0",
+		"@lexical/overflow": "^0.48.0",
+		"@lexical/react": "^0.48.0",
+		"@lexical/rich-text": "^0.48.0",
+		"@lexical/selection": "^0.48.0",
+		"@lexical/table": "^0.48.0",
+		"@lexical/utils": "^0.48.0",
+		"@mdxeditor/editor": "^4.1.1",
 		"@storybook/addon-a11y": "^10.5.5",
 		"@storybook/addon-docs": "^10.5.5",
 		"@storybook/addon-onboarding": "^10.5.5",
@@ -110,6 +127,12 @@
 		"@storybook/react-vite": "^10.5.5",
 		"@tailwindcss/postcss": "^4.3.3",
 		"@tailwindcss/vite": "^4.3.3",
+		"@tanstack/devtools-event-client": "^0.5.0",
+		"@tanstack/react-devtools": "^0.10.12",
+		"@tanstack/react-form-devtools": "*",
+		"@tanstack/react-query-devtools": "^5.102.8",
+		"@tanstack/react-router-devtools": "^1.167.1",
+		"@tanstack/react-table": "^9.0.0",
 		"@types/dayjs-recur": "^1.0.5",
 		"@types/html-to-text": "^9.0.4",
 		"@types/lodash-es": "^4.17.12",
@@ -127,12 +150,89 @@
 		"eslint-plugin-jsx-a11y": "^6.10.2",
 		"eslint-plugin-react": "^7.37.5",
 		"eslint-plugin-react-hooks": "^7.1.1",
+		"lexical": "^0.48.0",
 		"postcss": "^8.5.25",
 		"storybook": "^10.5.5",
+		"tsdown": "^0.23.0",
 		"tslib": "^2.8.1",
 		"typescript": "^7.0.2",
 		"typescript-eslint": "^8.65.0",
 		"vite": "^8.2.0",
 		"vite-tsconfig-paths": "^6.1.1"
-	}
+	},
+	"peerDependenciesMeta": {
+		"@tanstack/react-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-query-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-router-devtools": {
+			"optional": true
+		},
+		"@tanstack/devtools-event-client": {
+			"optional": true
+		},
+		"@tanstack/react-form-devtools": {
+			"optional": true
+		},
+		"@lexical/code": {
+			"optional": true
+		},
+		"@lexical/link": {
+			"optional": true
+		},
+		"@lexical/list": {
+			"optional": true
+		},
+		"@lexical/markdown": {
+			"optional": true
+		},
+		"@lexical/overflow": {
+			"optional": true
+		},
+		"@lexical/react": {
+			"optional": true
+		},
+		"@lexical/rich-text": {
+			"optional": true
+		},
+		"@lexical/selection": {
+			"optional": true
+		},
+		"@lexical/table": {
+			"optional": true
+		},
+		"@lexical/utils": {
+			"optional": true
+		},
+		"@mdxeditor/editor": {
+			"optional": true
+		},
+		"lexical": {
+			"optional": true
+		}
+	},
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.mts",
+			"import": "./dist/index.mjs"
+		},
+		"./editor": {
+			"types": "./dist/editor.d.mts",
+			"import": "./dist/editor.mjs"
+		},
+		"./devtools": {
+			"types": "./dist/devtools.d.mts",
+			"import": "./dist/devtools.mjs"
+		},
+		"./styles.css": "./src/styles/global.css",
+		"./src/styles/global.css": "./src/styles/global.css",
+		"./package.json": "./package.json"
+	},
+	"sideEffects": [
+		"**/*.css"
+	],
+	"module": "./dist/index.mjs"
 }

@@ -38,8 +38,8 @@ export const BarChartPreview: Story = {
 	render: (args) => (
 		<div className="w-[600px] h-[400px]">
 			<ChartContainer
-				config={chartConfig}
-				{...args}>
+				{...args}
+				config={chartConfig}>
 				<BarChart
 					accessibilityLayer
 					data={chartData}>

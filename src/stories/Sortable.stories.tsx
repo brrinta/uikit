@@ -38,15 +38,15 @@ export const KanbanPreview: Story = {
 				getItemValue={(item: any) => item.id}
 				className="flex gap-4 p-4 h-[500px]">
 				{Object.entries(data).map(([columnId, items]) => (
-					<Kanban.Column key={columnId} id={columnId} className="w-64 bg-muted/50 rounded-lg p-2 flex flex-col gap-2 border">
+					<Kanban.Column key={columnId} value={columnId} className="w-64 bg-muted/50 rounded-lg p-2 flex flex-col gap-2 border">
 						<div className="flex items-center justify-between px-2 py-1">
-							<Kanban.ColumnTrigger className="font-semibold text-sm cursor-grab active:cursor-grabbing">
+							<Kanban.ColumnHandle className="font-semibold text-sm cursor-grab active:cursor-grabbing">
 								{columnId}
-							</Kanban.ColumnTrigger>
+							</Kanban.ColumnHandle>
 						</div>
-						<Kanban.ColumnContent className="flex flex-col gap-2 min-h-[50px]">
-							{items.map((item: any) => (
-								<Kanban.Item key={item.id} id={item.id} className="bg-card p-3 rounded border shadow-sm cursor-grab active:cursor-grabbing">
+						<Kanban.ColumnContent value={columnId} className="flex flex-col gap-2 min-h-[50px]">
+							{(items as any[]).map((item: any) => (
+								<Kanban.Item key={item.id} value={item.id} className="bg-card p-3 rounded border shadow-sm cursor-grab active:cursor-grabbing">
 									<div className="text-sm">{item.content}</div>
 								</Kanban.Item>
 							))}
@@ -54,9 +54,9 @@ export const KanbanPreview: Story = {
 					</Kanban.Column>
 				))}
 				<Kanban.Overlay>
-					{(id, type) => (
+					{({ value, variant }) => (
 						<div className="bg-card p-3 rounded border shadow-lg opacity-80 border-primary">
-							{type === 'item' ? `Dragging Item ${id}` : `Dragging Column ${id}`}
+							{variant === 'item' ? `Dragging Item ${value}` : `Dragging Column ${value}`}
 						</div>
 					)}
 				</Kanban.Overlay>

@@ -149,4 +149,11 @@ function ProgressValue({ className, ...props }: ProgressPrimitive.Value.Props) {
 	);
 }
 
-export { Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue };
+const ProgressCompound = Object.assign(Progress, {
+	Track: ProgressTrack,
+	Indicator: ProgressIndicator,
+	Label: ProgressLabel,
+	Value: ProgressValue,
+});
+
+export { ProgressCompound as Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue };

@@ -24,7 +24,7 @@ export default meta;
 type Story = StoryObj<typeof Avatar>;
 
 export const AvatarPreview: Story = {
-	render: Avatar,
+	render: (args) => <Avatar {...args} />,
 	args: {
 		src: 'https://github.com/shadcn.png',
 		name: 'John Doe',
@@ -34,7 +34,7 @@ export const AvatarPreview: Story = {
 };
 
 export const AvatarWithStatus: Story = {
-	render: Avatar,
+	render: (args) => <Avatar {...args} />,
 	args: {
 		src: 'https://github.com/shadcn.png',
 		name: 'John Doe',
@@ -44,7 +44,7 @@ export const AvatarWithStatus: Story = {
 };
 
 export const AvatarFallback: Story = {
-	render: Avatar,
+	render: (args) => <Avatar {...args} />,
 	args: {
 		name: 'John Doe',
 		size: 'md',

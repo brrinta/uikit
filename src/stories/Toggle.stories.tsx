@@ -19,8 +19,8 @@ type Story = StoryObj<typeof ToggleGroupItem>;
 export const TogglePreview: Story = {
 	render: (args) => <ToggleGroupItem {...args} />,
 	args: {
-		variant: 'default',
-		size: 'default',
+		variant: 'solid',
+		size: 'md',
 		children: <BoldIcon />,
 	},
 };
@@ -28,8 +28,8 @@ export const TogglePreview: Story = {
 export const ToggleWithText: Story = {
 	render: (args) => <ToggleGroupItem {...args} />,
 	args: {
-		variant: 'default',
-		size: 'default',
+		variant: 'solid',
+		size: 'md',
 		children: 'ToggleGroupItem',
 	},
 };
@@ -38,7 +38,7 @@ export const ToggleOutline: Story = {
 	render: (args) => <ToggleGroupItem {...args} />,
 	args: {
 		variant: 'outline',
-		size: 'default',
+		size: 'md',
 		children: <ItalicIcon />,
 	},
 };
@@ -49,7 +49,7 @@ export const ToggleSizes: Story = {
 			<ToggleGroupItem size="sm">
 				<BoldIcon />
 			</ToggleGroupItem>
-			<ToggleGroupItem size="default">
+			<ToggleGroupItem size="md">
 				<BoldIcon />
 			</ToggleGroupItem>
 			<ToggleGroupItem size="lg">
@@ -62,7 +62,7 @@ export const ToggleSizes: Story = {
 export const ToggleGroup: Story = {
 	render: () => (
 		<div className="flex items-center gap-1">
-			<ToggleGroupItem variant="outlined">
+			<ToggleGroupItem variant='outline'>
 				<BoldIcon />
 			</ToggleGroupItem>
 			<ToggleGroupItem variant="outline">

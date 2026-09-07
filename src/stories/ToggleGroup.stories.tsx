@@ -90,3 +90,30 @@ export const ToggleGroupVertical: Story = {
 		</ToggleGroup>
 	),
 };
+
+export const PaletteColors: Story = {
+	parameters: {
+		layout: 'padded',
+		docs: { description: { story: 'Palette pressed styles were previously generated with template strings Tailwind never saw — no pressed styling rendered at all. Now driven by CSS variables.' } },
+	},
+	render: () => (
+		<div className="flex flex-col gap-3">
+			{(['solid', 'outline', 'ghost'] as const).map((variant) => (
+				<ToggleGroup key={variant} defaultValue={['teal']} multiple>
+					{(['red', 'amber', 'green', 'teal', 'blue', 'violet', 'rose'] as const).map((color) => (
+						<ToggleGroupItem key={color} value={color} variant={variant} color={color}>
+							{color}
+						</ToggleGroupItem>
+					))}
+				</ToggleGroup>
+			))}
+			<ToggleGroup defaultValue={['blue']} multiple>
+				{(['red', 'amber', 'green', 'teal', 'blue', 'violet', 'rose'] as const).map((color) => (
+					<ToggleGroupItem key={color} value={color} appearance="light" color={color}>
+						{color}
+					</ToggleGroupItem>
+				))}
+			</ToggleGroup>
+		</div>
+	),
+};

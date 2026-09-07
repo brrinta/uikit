@@ -3,7 +3,7 @@
 import { JSX, ReactNode, useRef } from 'react';
 import { Button } from './button';
 import { Box, ChevronDown, ChevronRight, Folder, Info, Search } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { ContextMenu } from './context-menu';
 import { PreviewCard } from './preview-card';
 import { cn } from '../lib/utils';

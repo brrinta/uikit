@@ -14,10 +14,6 @@ const meta: Meta<typeof List> = {
 			control: 'select',
 			options: ['ordered', 'unordered'],
 		},
-		spacing: {
-			control: 'select',
-			options: ['xs', 'sm', 'md', 'lg', 'xl'],
-		},
 	},
 	subcomponents: {
 		ListItem: List.Item,
@@ -60,7 +56,7 @@ export const ListWithIcon: Story = {
 export const ListWithSpacing: Story = {
 	render: () => (
 		<List
-			spacing="md"
+			className="flex flex-col gap-2"
 			withPadding>
 			<List.Item>Spaced item one</List.Item>
 			<List.Item>Spaced item two</List.Item>

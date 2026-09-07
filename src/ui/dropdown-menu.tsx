@@ -246,6 +246,7 @@ type CompoundDropdownMenu = typeof DropdownMenu & {
 	CheckboxItem: typeof DropdownMenuCheckboxItem;
 	RadioItem: typeof DropdownMenuRadioItem;
 	GroupLabel: typeof DropdownMenuGroupLabel;
+	Label: typeof DropdownMenuGroupLabel;
 	Separator: typeof DropdownMenuSeparator;
 	Group: typeof DropdownMenuGroup;
 	Sub: typeof DropdownMenuSub;
@@ -263,6 +264,7 @@ DropdownMenuComponent.Item = DropdownMenuItem;
 DropdownMenuComponent.CheckboxItem = DropdownMenuCheckboxItem;
 DropdownMenuComponent.RadioItem = DropdownMenuRadioItem;
 DropdownMenuComponent.GroupLabel = DropdownMenuGroupLabel;
+DropdownMenuComponent.Label = DropdownMenuGroupLabel;
 DropdownMenuComponent.Separator = DropdownMenuSeparator;
 DropdownMenuComponent.Group = DropdownMenuGroup;
 DropdownMenuComponent.Sub = DropdownMenuSub;

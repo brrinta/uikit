@@ -16,11 +16,11 @@ const preview: Preview = {
 		}),
 		(Story, context) => {
 			const theme = context.globals.theme || 'light';
-			return React.createElement(
-				UiKitProvider,
-				{ defaultTheme: theme as any, storageKey: 'storybook-theme' },
-				React.createElement(Story),
-			);
+			return React.createElement(UiKitProvider, {
+				defaultTheme: theme as any,
+				storageKey: 'storybook-theme',
+				children: React.createElement(Story),
+			});
 		},
 	],
 	parameters: {

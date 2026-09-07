@@ -56,7 +56,8 @@ export const ComboboxInputPreview: Story = {
 		clearable: true,
 		creatable: true,
 		placeholder: 'Select a fruit',
-		defaultValue: 'Blackberry',
+		// valueKey="_id" selects by id string at runtime; ComboboxInputProps types defaultValue as V — cast until valueKey is modeled in the generics.
+		defaultValue: 'Blackberry' as never,
 		items: [
 			'Apple',
 			'Banana',
@@ -105,7 +106,9 @@ export const ComboboxInputCreatable: Story = {
 };
 
 export const MultipleValueModes: Story = {
-	render: (props) => {
+	// Preview args are single-select (M=false); these renders flip `multiple` on, so the
+	// spread's M=false callback/value types clash. Loosened locally.
+	render: (props: any) => {
 		return (
 			<div className="flex flex-col gap-8 w-80">
 				<ComboboxInput
@@ -113,14 +116,14 @@ export const MultipleValueModes: Story = {
 					label="Chips Mode (Default)"
 					multipleValueMode="chips"
 					multiple
-					defaultValue={['Apple', 'Banana', 'Orange']}
+					defaultValue={['Apple', 'Banana', 'Orange'] as never}
 				/>
 				<ComboboxInput
 					{...props}
 					label="Comma Mode"
 					multipleValueMode="comma"
 					multiple
-					defaultValue={['Apple', 'Banana', 'Orange']}
+					defaultValue={['Apple', 'Banana', 'Orange'] as never}
 				/>
 				<ComboboxInput
 					{...props}
@@ -128,7 +131,7 @@ export const MultipleValueModes: Story = {
 					multipleValueMode="more"
 					multipleValueLimit={2}
 					multiple
-					defaultValue={['Apple', 'Banana', 'Orange', 'Pineapple']}
+					defaultValue={['Apple', 'Banana', 'Orange', 'Pineapple'] as never}
 				/>
 			</div>
 		);
@@ -140,7 +143,7 @@ export const MultipleValueModes: Story = {
 };
 
 export const ComplexLabels: Story = {
-	render: (props) => {
+	render: (props: any) => {
 		return (
 			<div className="flex flex-col gap-8 w-150">
 				<ComboboxInput
@@ -149,7 +152,7 @@ export const ComplexLabels: Story = {
 					multipleValueMode="more"
 					multipleValueLimit={4}
 					multiple
-					defaultValue={['Apple', 'Banana', 'Orange', 'Pineapple', 'Grape']}
+					defaultValue={['Apple', 'Banana', 'Orange', 'Pineapple', 'Grape'] as never}
 				/>
 			</div>
 		);
@@ -159,7 +162,7 @@ export const ComplexLabels: Story = {
 		creatable: false,
 		items: ['Apple', 'Banana', 'Orange', 'Pineapple', 'Grape'].map((item, i) => ({
 			_id: item,
-			value: item,
+			value: item as unknown as Item,
 			label: (
 				<div className="flex flex-row items-center gap-2 border p-1 rounded">
 					<span className="font-bold">{item}</span>

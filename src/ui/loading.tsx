@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { Loader2 } from 'lucide-react';
 import { cn, cvaWithMeta } from '../lib/utils';
 import { type VariantProps } from 'class-variance-authority';

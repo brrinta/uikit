@@ -99,6 +99,16 @@ const PopoverClose: React.FC<React.ComponentProps<typeof PopoverPrimitive.Close>
 	);
 };
 
+function PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
+	return (
+		<div
+			data-slot="popover-header"
+			className={cn('flex flex-col gap-1 pb-2', className)}
+			{...props}
+		/>
+	);
+}
+
 function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
 	return (
 		<PopoverPrimitive.Title
@@ -125,6 +135,7 @@ type CompoundPopover = typeof Popover & {
 	Content: typeof PopoverContent;
 	Close: typeof PopoverClose;
 	Viewport: typeof PopoverViewport;
+	Header: typeof PopoverHeader;
 	Title: typeof PopoverTitle;
 	Description: typeof PopoverDescription;
 };
@@ -133,7 +144,8 @@ PopoverComponent.Trigger = PopoverTrigger;
 PopoverComponent.Content = PopoverContent;
 PopoverComponent.Close = PopoverClose;
 PopoverComponent.Viewport = PopoverViewport;
+PopoverComponent.Header = PopoverHeader;
 PopoverComponent.Title = PopoverTitle;
 PopoverComponent.Description = PopoverDescription;
 
-export { PopoverComponent as Popover, PopoverTrigger, PopoverContent, PopoverClose, PopoverViewport, PopoverTitle, PopoverDescription };
+export { PopoverComponent as Popover, PopoverTrigger, PopoverContent, PopoverClose, PopoverViewport, PopoverHeader, PopoverTitle, PopoverDescription };

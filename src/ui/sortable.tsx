@@ -474,7 +474,7 @@ function KanbanColumnContent({ value, className, children, render, ...props }: K
 	);
 }
 
-export type KanbanOverlayProps = useRender.ComponentProps<'div'> & {
+export type KanbanOverlayProps = Omit<useRender.ComponentProps<'div'>, 'children'> & {
 	children?: React.ReactNode | ((params: { value: UniqueIdentifier; variant: 'column' | 'item' }) => React.ReactNode);
 };
 
