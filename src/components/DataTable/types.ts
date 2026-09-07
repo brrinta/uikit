@@ -1,4 +1,4 @@
-import { ColumnDef } from '@tanstack/react-table';
+import { LegacyColumnDef } from '@tanstack/react-table/legacy';
 import { SortDirection } from '../../schema';
 import { ButtonProps } from '../../ui/button';
 import { FilterFieldConfig } from '../../ui/filters';
@@ -18,7 +18,7 @@ export type DatatableLabelValuePair = {
 /**
  * Column definition for datatable, with optional noRender flag.
  */
-export type DatatableColumnDefinition<TData extends Record<string, unknown> = NonNullable<Record<string, unknown>>> = ColumnDef<TData> & {
+export type DatatableColumnDefinition<TData extends Record<string, unknown> = NonNullable<Record<string, unknown>>> = LegacyColumnDef<TData> & {
 	noRender?: boolean;
 };
 

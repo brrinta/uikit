@@ -1,13 +1,12 @@
 import {
-	ColumnDef,
-	flexRender,
 	getCoreRowModel,
-	PaginationState,
-	Row,
-	Table as CreateTableType,
-	TableOptions,
-	useReactTable,
-} from '@tanstack/react-table';
+	LegacyColumnDef,
+	LegacyRow,
+	LegacyTable as CreateTableType,
+	LegacyTableOptions,
+	useLegacyTable,
+} from '@tanstack/react-table/legacy';
+import { flexRender, PaginationState } from '@tanstack/react-table';
 import { AxiosDefaults, AxiosRequestConfig } from 'axios';
 import * as React from 'react';
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
@@ -50,7 +49,7 @@ type RowSectionProps<TData extends Record<string, unknown>> = {
 	table: CreateTableType<TData>;
 	response?: DatatableResponse<TData>;
 	refetch?: (options?: RefetchOptions) => Promise<QueryObserverResult<ResponseInterface<DatatableResponse<TData>>, unknown>>;
-	row: Row<TData>;
+	row: LegacyRow<TData>;
 	loading?: boolean;
 	filter?: Array<Filter>;
 } & UseConfirmationDialogReturn;
@@ -64,7 +63,7 @@ type SectionProps<TData extends Record<string, unknown>> = {
 type RowActionType<TData extends Record<string, unknown>> = {
 	enabled: boolean;
 	items?: (sectionProps: RowSectionProps<TData>) => ReactNode;
-	column?: Omit<ColumnDef<TData>, 'id'>;
+	column?: Omit<LegacyColumnDef<TData>, 'id'>;
 	menuProps?: DropdownMenuProps;
 	actionIconProps?: ButtonProps;
 	wrapperProps?: ButtonGroupProps;
@@ -73,7 +72,7 @@ type RowActionType<TData extends Record<string, unknown>> = {
 };
 
 export type DataTableProps<TData extends Record<string, unknown>, TFilter extends Record<string, unknown> = Record<string, unknown>> = {
-	columns: Array<ColumnDef<TData>>;
+	columns: Array<LegacyColumnDef<TData>>;
 	fetchConfig: AxiosRequestConfig & { default: AxiosDefaults; url: string; method: AxiosRequestConfig['method'] };
 	options: DatatableOptions<TData, TFilter>;
 	reloadListeners?: Array<string>;
@@ -85,7 +84,7 @@ export type DataTableProps<TData extends Record<string, unknown>, TFilter extend
 	filter?: Array<Filter>;
 	onFilterChange?: (filer: TFilter, rawFilter: Array<Filter>) => void;
 	setTable?: (table: CreateTableType<TData>) => void;
-	tableOptions?: Omit<TableOptions<TData>, 'data' | 'columns' | 'getCoreRowModel'>;
+	tableOptions?: Omit<LegacyTableOptions<TData>, 'data' | 'columns' | 'getCoreRowModel'>;
 	rootTop?: (props: SectionProps<TData>) => ReactNode;
 	tableHeader?: {
 		rightSection?: (props: SectionProps<TData>) => ReactNode;
@@ -135,26 +134,29 @@ export type DataTableProps<TData extends Record<string, unknown>, TFilter extend
 };
 
 export function DataTable<TData extends Record<string, unknown>, TFilter extends Record<string, unknown>>({
-	reloadListeners,
-	fetchConfig: { default: reqDefaults, ...fetchConfig },
-	rootTop,
-	primaryKey = '_id',
-	setTable,
-	tableOptions,
-	tableHeader,
-	tableFooter,
-	classNames,
-	containerProps,
-	rowAction,
-	tableProps,
-	card,
-	options,
-	enableBodyBottom,
-	onFilterChange,
-	withoutSearchQuery,
-	filter: initFilters = [],
-	columns: initColumns,
-}: DataTableProps<TData, TFilter>) {
+	                                                                                                          reloadListeners,
+	                                                                                                          fetchConfig: {
+		                                                                                                          default: reqDefaults,
+		                                                                                                          ...fetchConfig
+	                                                                                                          },
+	                                                                                                          rootTop,
+	                                                                                                          primaryKey = '_id',
+	                                                                                                          setTable,
+	                                                                                                          tableOptions,
+	                                                                                                          tableHeader,
+	                                                                                                          tableFooter,
+	                                                                                                          classNames,
+	                                                                                                          containerProps,
+	                                                                                                          rowAction,
+	                                                                                                          tableProps,
+	                                                                                                          card,
+	                                                                                                          options,
+	                                                                                                          enableBodyBottom,
+	                                                                                                          onFilterChange,
+	                                                                                                          withoutSearchQuery,
+	                                                                                                          filter: initFilters = [],
+	                                                                                                          columns: initColumns,
+                                                                                                          }: DataTableProps<TData, TFilter>) {
 	const confirmationDialog = useConfirmationDialog();
 	const { currentRoute, searchQuery } = useRouterState({
 		select: (r) => ({ currentRoute: r.location.pathname, searchQuery: r.location.search as Record<string, any> }),
@@ -179,7 +181,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 	const [sort, setSort] = useSetState<SortType>(options.sort);
 
 	const columns = useMemo(() => {
-		const selectColumn: ColumnDef<TData> = {
+		const selectColumn: LegacyColumnDef<TData> = {
 			meta: { style: { width: 50 } },
 			id: 'select',
 			header: ({ table }) => (
@@ -247,7 +249,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 				),
 				header: '',
 				...(ra?.column || {}),
-			}) as ColumnDef<TData>;
+			}) as LegacyColumnDef<TData>;
 		return [...(tableOptions?.enableRowSelection ? [selectColumn] : []), ...initColumns, ...(rowAction?.enabled ? [actionColumn(rowAction)] : [])];
 	}, [initColumns, tableOptions?.enableRowSelection, rowAction]);
 
@@ -275,7 +277,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 				columns: Object.assign(
 					options.columns || {},
 					...columns
-						.filter((c): c is ColumnDef<TData> & { accessorKey: string } => 'accessorKey' in c)
+						.filter((c): c is LegacyColumnDef<TData> & { accessorKey: string } => 'accessorKey' in c)
 						.map((c) => ({ [c.accessorKey]: `$${c.accessorKey}` })),
 				),
 			},
@@ -328,7 +330,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 		placeholderData: keepPreviousData,
 	});
 
-	const table = useReactTable<TData>({
+	const table = useLegacyTable<TData>({
 		data: response?.body?.rows ?? defaultData,
 		columns,
 		rowCount: response?.body?.filtered ?? 0,
@@ -529,7 +531,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 							</div>
 						) : card?.cardRenderItem ? (
 							card?.cardRenderItem({
-								row: undefined as unknown as Row<TData>, // Row is not used in card mode
+								row: undefined as unknown as LegacyRow<TData>, // LegacyRow is not used in card mode
 								table,
 								refetch,
 								response: response?.body,

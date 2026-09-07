@@ -1,5 +1,5 @@
 import { DependencyList, useMemo } from 'react';
-import { ColumnDef } from '@tanstack/react-table';
+import { LegacyColumnDef } from '@tanstack/react-table/legacy';
 import { DatatableOptions } from './types';
 import { FilterFieldConfig, FilterType } from '../../ui/filters';
 
@@ -21,7 +21,7 @@ const assignDefaultOperator = (item: FilterFieldConfig) =>
 								: undefined),
 	}) as FilterFieldConfig;
 
-const useCreateColumns = <TData extends Record<string, unknown>, Columns = Array<ColumnDef<TData>>>(columns: () => Columns, deps: DependencyList) =>
+const useCreateColumns = <TData extends Record<string, unknown>, Columns = Array<LegacyColumnDef<TData>>>(columns: () => Columns, deps: DependencyList) =>
 	useMemo<Columns>(columns, deps);
 
 const useCreateOptions = <
