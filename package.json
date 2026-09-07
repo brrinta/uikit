@@ -1,6 +1,6 @@
 {
 	"name": "@brrinta/uikit",
-	"version": "0.1.64",
+	"version": "0.1.65",
 	"description": " React UI component library.",
 	"main": "./dist/index.mjs",
 	"types": "./dist/index.d.mts",
