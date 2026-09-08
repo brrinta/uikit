@@ -9,12 +9,11 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import recur from 'dayjs-recur';
-import { utils, write } from 'xlsx';
+const XLSX = await import('xlsx')
 import mixPlugin from 'colord/plugins/mix';
 import { extend } from 'colord';
 
 extend([mixPlugin]);
-// @ts-ignore
 dayjs.extend(recur);
 dayjs.extend(utc);
 dayjs.extend(isSameOrBefore);
@@ -46,12 +45,12 @@ export function exportAsExcelFile(
 	type: 'csv' | 'xlsx' | 'txt' = 'csv',
 	sheetName = 'Sheet 1',
 ): void {
-	const worksheet = utils.json_to_sheet(json, {
+	const worksheet = XLSX.utils.json_to_sheet(json, {
 		header,
 	});
-	const workbook = utils.book_new();
-	utils.book_append_sheet(workbook, worksheet, sheetName);
-	const excelBuffer = write(workbook, { bookType: type, type: 'array', compression: true });
+	const workbook = XLSX.utils.book_new();
+	XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+	const excelBuffer = XLSX.write(workbook, { bookType: type, type: 'array', compression: true });
 	saveAsFile(
 		excelBuffer,
 		`${fileName}.${type}`,
