@@ -96,8 +96,8 @@
 		"@tanstack/react-table-devtools": "*",
 		"axios": "^1.16.0",
 		"lexical": "^0.48.0",
-		"react": "^19.2.6",
-		"react-dom": "^19.2.6",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
 		"tailwindcss": "^4.3.3",
 		"xlsx": "^0.18.5"
 	},
@@ -135,5 +135,12 @@
 		"axios": {
 			"optional": true
 		}
+	},
+	"devDependencies": {
+		"@types/dayjs-recur": "^1.0.5",
+		"@types/html-to-text": "^9.0.4",
+		"@types/react": "19.2.18",
+		"@types/react-dom": "19.2.7",
+		"dayjs-recur": "^1.0.1"
 	}
 }

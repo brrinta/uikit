@@ -34,7 +34,7 @@ importers:
         version: 4.2.3(@codemirror/language@6.12.4)(@lezer/highlight@1.2.3)(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(yjs@13.6.30)
       '@tailwindcss/typography':
         specifier: ^0.5.20
-        version: 0.5.20(tailwindcss@4.3.3)
+        version: 0.5.20
       '@tanstack/react-devtools':
         specifier: '*'
         version: 0.10.12(@types/react-dom@19.2.7(@types/react@19.2.18))(@types/react@19.2.18)(csstype@3.2.3)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(solid-js@1.9.15)
@@ -114,13 +114,13 @@ importers:
         specifier: ^13.2.0
         version: 13.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
-        specifier: ^19.2.6
+        specifier: ^19.2.8
         version: 19.2.8
       react-day-picker:
         specifier: ^10.0.1
         version: 10.0.1(@types/react@19.2.18)(react@19.2.8)
       react-dom:
-        specifier: ^19.2.6
+        specifier: ^19.2.8
         version: 19.2.8(react@19.2.8)
       react-dropzone:
         specifier: ^20.1.1
@@ -176,6 +176,22 @@ importers:
       xlsx:
         specifier: ^0.18.5
         version: 0.18.5
+    devDependencies:
+      '@types/dayjs-recur':
+        specifier: ^1.0.5
+        version: 1.0.5
+      '@types/html-to-text':
+        specifier: ^9.0.4
+        version: 9.0.4
+      '@types/react':
+        specifier: 19.2.18
+        version: 19.2.18
+      '@types/react-dom':
+        specifier: 19.2.7
+        version: 19.2.7(@types/react@19.2.18)
+      dayjs-recur:
+        specifier: ^1.0.1
+        version: 1.0.1
 
 packages:
 
@@ -1531,6 +1547,9 @@ packages:
   '@types/d3-timer@3.0.2':
     resolution: {integrity: sha512-Ps3T8E8dZDam6fUyNiMkekK3XUsaUEik+idO9/YjPtfj2qruF8tFBXS7XhtE4iIXBLxhmLjP3SXpLhVf21I9Lw==}
 
+  '@types/dayjs-recur@1.0.5':
+    resolution: {integrity: sha512-YsB5tI1Yd2BIxq0B46ueUqvjFfJrNwaPiV/DX3uS6bHxYfWi7t6vF910GgW+oXM3buvqb0zGPdC63tW7WrDdXQ==}
+
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
 
@@ -1545,6 +1564,9 @@ packages:
 
   '@types/hast@3.0.5':
     resolution: {integrity: sha512-rp/ezSWaD1m44dPKICGhiskI13nVr7qTloFwDa/IYkhhf5nzwP+zIQcIJh3WIFSBOy/H1PzB40jPjMDksN4F+g==}
+
+  '@types/html-to-text@9.0.4':
+    resolution: {integrity: sha512-pUY3cKH/Nm2yYrEmDlPR1mR7yszjGx4DrwPjQ702C4/D5CwHuZTgZdIdwPkRbcuhs7BAh2L5rg3CL5cbRiGTCQ==}
 
   '@types/katex@0.16.8':
     resolution: {integrity: sha512-trgaNyfU+Xh2Tc+ABIb44a5AYUpicB3uwirOioeOkNPPbmgRNtcWyDeeFRzjPZENO9Vq8gvVqfhaaXWLlevVwg==}
@@ -1758,6 +1780,9 @@ packages:
 
   date-fns@4.4.0:
     resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
+
+  dayjs-recur@1.0.1:
+    resolution: {integrity: sha512-guVj/GSfwZ/i6RQwzXzW9jCwXBqD50gFQxn/CCt7M9YZ0n9w1kly0FhIA+7Z2H6mqTL53NDhMXoN7YvcYCaVUg==}
 
   dayjs@1.11.23:
     resolution: {integrity: sha512-QDTCU0M0MxR3hQfnlDJfwekQiaanm1ubOD231u73WBckQ/fsamwRLiE2GBz6D3a/xF1NgfiDLJjXBa1hYOYTtQ==}
@@ -4022,10 +4047,9 @@ snapshots:
 
   '@standard-schema/utils@0.3.0': {}
 
-  '@tailwindcss/typography@0.5.20(tailwindcss@4.3.3)':
+  '@tailwindcss/typography@0.5.20':
     dependencies:
       postcss-selector-parser: 6.0.10
-      tailwindcss: 4.3.3
 
   '@tanstack/devtools-client@0.0.8':
     dependencies:
@@ -4299,6 +4323,10 @@ snapshots:
 
   '@types/d3-timer@3.0.2': {}
 
+  '@types/dayjs-recur@1.0.5':
+    dependencies:
+      dayjs: 1.11.23
+
   '@types/debug@4.1.13':
     dependencies:
       '@types/ms': 2.1.0
@@ -4316,6 +4344,8 @@ snapshots:
   '@types/hast@3.0.5':
     dependencies:
       '@types/unist': 3.0.3
+
+  '@types/html-to-text@9.0.4': {}
 
   '@types/katex@0.16.8': {}
 
@@ -4499,6 +4529,8 @@ snapshots:
   d3-timer@3.0.1: {}
 
   date-fns@4.4.0: {}
+
+  dayjs-recur@1.0.1: {}
 
   dayjs@1.11.23: {}
 
