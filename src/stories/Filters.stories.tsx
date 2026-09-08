@@ -51,7 +51,7 @@ export const FiltersPreview: Story = {
 	render: (args) => {
 		const [filters, setFilters] = useState<any[]>([]);
 		return (
-			<div className="w-[800px] min-h-[400px] p-4 border rounded-lg bg-card">
+			<div className="w-200 min-h-100 p-4 border rounded-lg bg-card">
 				<Filters
 					{...args}
 					fields={fields}

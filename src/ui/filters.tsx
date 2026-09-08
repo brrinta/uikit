@@ -1016,8 +1016,7 @@ function SelectOptionsPopover<T = unknown>({ field, values, onChange, onClose, i
 						<Command.Input
 							autoFocus
 							loading={field.loading}
-							// @ts-ignore
-							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label || '')}
+							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label as string)}
 							value={searchInput}
 							onValueChange={setSearchInput}
 							onInput={field.onInputChange as unknown as React.FormEventHandler<HTMLInputElement>}
@@ -1151,8 +1150,7 @@ function SelectOptionsPopover<T = unknown>({ field, values, onChange, onClose, i
 						<Command.Input
 							autoFocus
 							loading={field.loading}
-							// @ts-ignore
-							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label || '')}
+							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label  as string)}
 							value={searchInput}
 							onValueChange={setSearchInput}
 							onInput={field.onInputChange as unknown as React.FormEventHandler<HTMLInputElement>}
@@ -1625,8 +1623,7 @@ function FilterValueSelector<T = unknown>({
 						<Command.Input
 							autoFocus
 							loading={field.loading}
-							// @ts-ignore
-							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label || '')}
+							placeholder={field.placeholder || context.i18n.placeholders.searchField(field.label as string)}
 							value={searchInput}
 							onValueChange={setSearchInput}
 							onInput={field.onInputChange as unknown as React.FormEventHandler<HTMLInputElement>}

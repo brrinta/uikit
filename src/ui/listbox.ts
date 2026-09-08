@@ -12,7 +12,6 @@ import { cvaWithMeta } from '../lib/utils';
 export const listboxItemVariants = cvaWithMeta(
 	[
 		'relative flex w-full cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none',
-		'data-disabled:pointer-events-none data-disabled:opacity-50 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50',
 		'[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*=size-])]:size-4',
 	],
 	{
@@ -23,8 +22,9 @@ export const listboxItemVariants = cvaWithMeta(
 				'base-ui': [
 					'focus:bg-accent focus:text-accent-foreground data-highlighted:bg-accent data-highlighted:text-accent-foreground',
 					'not-data-[variant=destructive]:focus:**:text-accent-foreground',
+					'data-disabled:pointer-events-none data-disabled:opacity-50',
 				].join(' '),
-				cmdk: 'group/command-item data-[selected=true]:bg-muted data-[selected=true]:text-foreground data-[selected=true]:**:[svg]:text-foreground',
+				cmdk: 'group/command-item data-[selected=true]:bg-muted data-[selected=true]:text-foreground data-[selected=true]:**:[svg]:text-foreground data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50',
 			},
 		},
 		defaultVariants: { highlight: 'base-ui' },
