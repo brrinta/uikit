@@ -1,4 +1,4 @@
-import { IconListDetails, IconPlus } from '@tabler/icons-react';
+import { IconListDetails, List, Plus } from 'lucide-react';
 import { Button } from '../ui/button';
 import { ComboboxData, ComboboxInput, ComboboxInputProps } from '../ui/combobox-input';
 import { Flex, FlexProps } from '../ui/flex';
@@ -75,7 +75,7 @@ export const AppCardGrid = <
 							<Button
 								variant={'outline'}
 								{...leftButtonProps}>
-								{leftButtonIcon || <IconListDetails />}
+								{leftButtonIcon || <List />}
 							</Button>
 						)}
 					</Flex>
@@ -101,7 +101,7 @@ export const AppCardGrid = <
 								className={'grow'}
 								variant={'primary'}
 								{...rightButtonProps}>
-								{rightButtonIcon || <IconPlus />}
+								{rightButtonIcon || <Plus />}
 								{isMobile ? '' : rightButtonLabel}
 							</Button>
 						)}

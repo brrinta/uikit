@@ -3,17 +3,17 @@ import { RadioGroup } from '../../ui/radio';
 import { Tabs } from '../../ui/tabs';
 import { Popover } from '../../ui/popover';
 import { Button, ButtonProps } from '../../ui/button';
-import { IconArrowsSort } from '@tabler/icons-react';
 import { SortType } from './types';
 import { enumToPair } from '../../lib/uikit-utility';
 import { Stack } from '../../ui/stack';
+import { ArrowDownUp } from 'lucide-react';
 
 export const TableSort = <T extends Record<string, unknown>>({
-	sortOptions,
-	sort,
-	setSort,
-	sortBtnProps,
-}: {
+	                                                             sortOptions,
+	                                                             sort,
+	                                                             setSort,
+	                                                             sortBtnProps,
+                                                             }: {
 	sortBtnProps?: ButtonProps;
 	sortOptions?: Array<{ label: string; field: string }>;
 	sort: SortType;
@@ -27,7 +27,7 @@ export const TableSort = <T extends Record<string, unknown>>({
 						mode={'icon'}
 						variant={'secondary'}
 						{...(sortBtnProps || {})}>
-						<IconArrowsSort />
+						<ArrowDownUp />
 					</Button>
 				}
 			/>

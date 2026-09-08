@@ -1,5 +1,4 @@
 import type { RowData } from '@tanstack/react-table';
-import type * as React from 'react';
 import type { ReactNode } from 'react';
 
 import type { createAppColumnHelper } from './app-table';
@@ -41,7 +40,7 @@ export interface UseServerTableOptions<TData extends RowData> {
 	sortOptions?: Array<{ label: string; field: string }>;
 
 	tabs?: {
-		renderTab?: (tab: DatatableLabelValuePair) => React.ReactNode;
+		renderTab?: (tab: DatatableLabelValuePair) => ReactNode;
 		className?: string;
 		options: Array<DatatableLabelValuePair>;
 		initialValue: unknown;

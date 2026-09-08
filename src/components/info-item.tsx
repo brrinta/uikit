@@ -3,8 +3,9 @@ import { Text, TextProps } from '../ui/text';
 import { Title, TitleProps } from '../ui/title';
 import { Flex } from '../ui/flex';
 import { Group, GroupProps } from '../ui/group';
-import { IconPointFilled, IconProps } from '@tabler/icons-react';
 import { cn } from '../lib/utils';
+import { Circle, LucideProps } from 'lucide-react';
+
 
 export interface InfoItemProps extends Omit<GroupProps, 'children' | 'title'> {
 	/** Main label */
@@ -28,7 +29,7 @@ export interface InfoItemProps extends Omit<GroupProps, 'children' | 'title'> {
 	/** Props passed to internal elements */
 	titleProps?: Omit<TitleProps, 'children'>;
 	descriptionProps?: Omit<TextProps, 'children'>;
-	iconProps?: IconProps;
+	iconProps?: LucideProps;
 
 	/** granular styles */
 	classNames?: {
@@ -61,7 +62,7 @@ export const InfoItem = ({
 	const finalIcon =
 		icon ||
 		(withDot ? (
-			<IconPointFilled
+			<Circle
 				className="size-3"
 				{...iconProps}
 			/>
@@ -99,7 +100,7 @@ export const InfoItem = ({
 				{(description || children) && (
 					<Text
 						render={<div />}
-						className={cn('text-sm text-muted-foreground my-auto',{'pl-4':!isHorizontal}, classNames?.description)}
+						className={cn('text-sm text-muted-foreground my-auto', { 'pl-4': !isHorizontal }, classNames?.description)}
 						{...descriptionProps}>
 						{description}
 						{children}

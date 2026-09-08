@@ -13,12 +13,11 @@ import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { DatatableResponse, ResponseInterface, SortDirection } from '../../schema';
 import { keepPreviousData, QueryObserverResult, RefetchOptions, useQuery } from '@tanstack/react-query';
 import { DatatableOptions, SortType } from './types';
-import { IconAlertTriangle, IconDotsVertical, IconReload } from '@tabler/icons-react';
 import { useNavigate, useRouterState } from '@tanstack/react-router';
 import { Button, ButtonGroup, ButtonGroupProps, ButtonProps } from '../../ui/button';
 import { Card, CardProps } from '../../ui/card';
 import { TableFooterSkeleton } from './table-footer-skeleton';
-import { FilterIcon } from 'lucide-react';
+import { EllipsisVertical, FilterIcon, RotateCcw, TriangleAlert } from 'lucide-react';
 import { TableSort } from './table-sort';
 import { useConfirmationDialog, UseConfirmationDialogReturn } from '../popups/confirmation-popup';
 import { useDebounce } from '../../hooks/use-debounce';
@@ -220,7 +219,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 											mode={'icon'}
 											variant={'ghost'}
 											color={'secondary'}
-											children={<IconDotsVertical />}
+											children={<EllipsisVertical />}
 											{...(ra?.actionIconProps || {})}
 										/>
 									}
@@ -459,7 +458,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 									color={'accent'}
 									onClick={() => refetch()}
 									{...(tableHeader?.refetchButtonProps || {})}>
-									<IconReload />
+									<RotateCcw />
 								</Button>
 							)}
 							{(options?.sortOptions?.length || 0) > 0 && (
@@ -510,7 +509,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 							<div className={'w-full py-2'}>
 								<Card className={'w-full col-span-full'}>
 									<Stack className={'justify-center items-center py-14 gap-1'}>
-										<IconAlertTriangle
+										<TriangleAlert
 											size={48}
 											color={'red'}
 										/>
@@ -608,7 +607,7 @@ export function DataTable<TData extends Record<string, unknown>, TFilter extends
 									<Table.Tr>
 										<Table.Td colSpan={table.getAllFlatColumns().length}>
 											<Stack className={'justify-center items-center py-14 gap-1'}>
-												<IconAlertTriangle
+												<TriangleAlert
 													size={48}
 													color={'red'}
 												/>

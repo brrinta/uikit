@@ -1,35 +1,31 @@
-import {
-	Box,
-	Button,
-	Card,
-	cn,
-	createFilter,
-	Filters,
-	Flex,
-	Group,
-	Pagination,
-	Progress,
-	Select,
-	Skeleton,
-	Stack,
-	Table,
-	TableFooterSkeleton,
-	TableSort,
-	Tabs,
-	Text,
-	Title,
-	Tooltip,
-	useIsMobile,
-} from '@brrinta/uikit';
+import { ServerTableSort } from './server-table-sort';
 import type { ServerTableProps } from './types';
 import type { ServerTableContextValue } from './use-server-table';
 import { ServerTableProvider, useServerTableContext } from './use-server-table';
-import { IconAlertTriangle, IconReload } from '@tabler/icons-react';
 import type { RowData } from '@tanstack/react-table';
 import { flexRender } from '@tanstack/react-table';
-import { FilterIcon } from 'lucide-react';
+import { FilterIcon, RotateCcw, TriangleAlert } from 'lucide-react';
 import * as React from 'react';
 import { SortDirection } from '../../schema';
+import { Card } from '../../ui/card';
+import { useIsMobile } from '../../hooks/use-mobile';
+import { cn } from '../../lib/utils';
+import { createFilter, Filters } from '../../ui/filters';
+import { Tabs } from '../../ui/tabs';
+import { Progress } from '../../ui/progress';
+import { Flex } from '../../ui/flex';
+import { Button } from '../../ui/button';
+import { Skeleton } from '../../ui/skeleton';
+import { Box } from '../../ui/box';
+import { Stack } from '../../ui/stack';
+import { Title } from '../../ui/title';
+import { Table } from '../../ui/table';
+import { Text } from '../../ui/text';
+import { Select } from '../../ui/select';
+import { Tooltip } from '../../ui/tooltip';
+import { Pagination } from '../../ui/pagination';
+import { TableFooterSkeleton } from '../DataTable/table-footer-skeleton';
+import { Group } from '../../ui/group';
 
 export function ServerDataTable<TData extends RowData>({ table, ...props }: { table: ServerTableContextValue<TData> } & ServerTableProps<TData>) {
 	return (
@@ -71,7 +67,6 @@ export function ServerDataTableConsumer<TData extends RowData>({
 		calculatedFilter,
 		setCalculatedFilter,
 	} = useServerTableContext<TData>();
-
 	if (!table) {
 		throw new Error('DataTable must be passed a table prop or used within a ServerTableProvider');
 	}
@@ -111,7 +106,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 							setCalculatedFilter({ [tabs?.field]: v });
 						}}>
 						<Tabs.List
-							className={cn('w-full bg-transparent gap-0', {
+							className={cn('w-full bg-transparent gap-0 ', {
 								'px-2': !(tableHeader?.leftSection || filter?.length > 0 || tableHeader?.rightSection || sortOptions?.length),
 							})}
 							variant={'button'}
@@ -121,7 +116,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 									tabs?.renderTab?.(tab) || (
 										<Tabs.Tab
 											value={tab.value}
-											className={cn('grow py-2', tabs?.className, tab.className)}
+											className={cn('grow py-2 data-active:font-bold data-active:border-b-2 rounded-none', tabs?.className, tab.className)}
 											key={'tab-trigger-' + k}>
 											{tab.icon}
 											{tab.label}
@@ -165,15 +160,14 @@ export function ServerDataTableConsumer<TData extends RowData>({
 							{tableHeader?.hideRefetchButton || filter?.length < 1 ? null : (
 								<Button
 									mode={'icon'}
-									variant={'outline'}
 									color={'accent'}
 									onClick={() => dataQuery.refetch()}
 									{...(tableHeader?.refetchButtonProps || {})}>
-									<IconReload />
+									<RotateCcw />
 								</Button>
 							)}
 							{(sortOptions?.length || 0) > 0 && (
-								<TableSort
+								<ServerTableSort
 									sortBtnProps={sortBtnProps}
 									sortOptions={sortOptions}
 									sort={sort as { dir: SortDirection; field: string }}
@@ -203,7 +197,6 @@ export function ServerDataTableConsumer<TData extends RowData>({
 				)}>
 				{confirmationDialog.ConfirmationDialog}
 				<div className={'overflow-auto h-20 size-full grow'}>
-					{table.getRowCount()}
 					{card?.enabled ? (
 						dataQuery.isLoading ? (
 							<div className={'w-full'}>
@@ -220,7 +213,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 							<div className={'w-full py-2'}>
 								<Card className={'w-full col-span-full'}>
 									<Stack className={'justify-center items-center py-14 gap-1'}>
-										<IconAlertTriangle
+										<TriangleAlert
 											size={48}
 											color={'red'}
 										/>
@@ -261,8 +254,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 												return (
 													<Flex
 														className={'grow gap-1'}
-														key={cell.id}
-														{...(cell.column.columnDef.meta || {})}>
+														key={cell.id}>
 														{cell.column.columnDef.header && cell.column.columnDef.header !== '' ? (
 															<Text className={'font-semibold'}>
 																{typeof cell.column.columnDef.header == 'string' ? cell.column.columnDef.header : null}:
@@ -293,8 +285,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 												<Table.Th
 													className={'sticky top-0'}
 													key={header.id}
-													colSpan={header.colSpan}
-													{...(header.column.columnDef.meta || {})}>
+													colSpan={header.colSpan}>
 													{header.isPlaceholder ? null : <Box>{flexRender(header.column.columnDef.header, header.getContext())}</Box>}
 												</Table.Th>
 											);
@@ -317,7 +308,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 									<Table.Tr>
 										<Table.Td colSpan={table.getAllFlatColumns().length}>
 											<Stack className={'justify-center items-center py-14 gap-1'}>
-												<IconAlertTriangle
+												<TriangleAlert
 													size={48}
 													color={'red'}
 												/>
@@ -340,11 +331,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 									rows.map((row) => (
 										<Table.Tr key={row.id}>
 											{row.getVisibleCells().map((cell) => (
-												<Table.Td
-													key={cell.id}
-													{...(cell.column.columnDef.meta || {})}>
-													{flexRender(cell.column.columnDef.cell, cell.getContext())}
-												</Table.Td>
+												<Table.Td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Table.Td>
 											))}
 										</Table.Tr>
 									))
@@ -362,8 +349,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 												return (
 													<Table.Th
 														key={header.id}
-														colSpan={header.colSpan}
-														{...(header.column.columnDef.meta || {})}>
+														colSpan={header.colSpan}>
 														{header.isPlaceholder ? null : <Box>{flexRender(header.column.columnDef.footer, header.getContext())}</Box>}
 													</Table.Th>
 												);
@@ -397,7 +383,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 					) : (
 						<>
 							{filter.length < 1 && (sortOptions?.length || 0) > 0 && (
-								<TableSort
+								<ServerTableSort
 									sortBtnProps={sortBtnProps}
 									sortOptions={sortOptions}
 									sort={sort as { dir: SortDirection; field: string }}
