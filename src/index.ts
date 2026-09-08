@@ -19,8 +19,6 @@ export * from './components/info-item';
 export * from './components/popups/confirmation-popup';
 export * from './components/popups/critical-alert';
 export * from './components/shimmer-button';
-export * from './devtools';
-export * from './editor';
 export * from './hooks/create-storage';
 export * from './hooks/provider';
 export * from './hooks/use-callback-ref';
