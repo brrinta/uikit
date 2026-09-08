@@ -138,6 +138,35 @@ export type DatatableResponse<T = Record<string, any>> = {
 	extra?: any;
 };
 
+export type DatatableSort = {
+	dir: SortDirection;
+	field: string;
+};
+
+export type DatatableQuery<T = Record<string, any>> = {
+	sort: DatatableSort;
+	currentPage: number;
+	pageSize: number;
+	columns?: string[];
+	filter: DatatableFilter<T>;
+	[x: string]: any;
+};
+
+export type DatatableFilterWithEmpty<T> = T | '';
+
+export type DatatableFilter<T = Record<string, any>> = T & {
+	date?: string[];
+	[a: string]: any;
+};
+export type DatatableResult = {
+	filtered: number;
+	timeInSec: number;
+	exec: number;
+	total: number;
+	footer?: any;
+	extra?: any;
+};
+
 // ---------------------------------------------------------------------------
 // File & upload types
 // ---------------------------------------------------------------------------
