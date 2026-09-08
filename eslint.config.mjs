@@ -21,6 +21,17 @@ export default tseslint.config(
 			'react-hooks/exhaustive-deps': 'warn',
 			'@typescript-eslint/no-explicit-any': 'off',
 			'@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+			'no-restricted-imports': [
+				'error',
+				{
+					patterns: [
+						{
+							group: ['@brrinta/uikit/*'],
+							message: "Please import directly from '@brrinta/uikit' instead of deep subpaths.",
+						},
+					],
+				},
+			],
 		},
 	},
 	{
