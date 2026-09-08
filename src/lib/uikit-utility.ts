@@ -9,7 +9,6 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import recur from 'dayjs-recur';
-import ObjectID from 'bson-objectid';
 import { utils, write } from 'xlsx';
 import mixPlugin from 'colord/plugins/mix';
 import { extend } from 'colord';
@@ -191,8 +190,14 @@ export function phoneNumber(phone: string) {
 	return phone;
 }
 
-export function generateID() {
-	return ObjectID().toHexString();
+let objectIdIndex = Math.floor(Math.random() * 0xffffff);
+
+export function generateID(): string {
+	const timestamp = Math.floor(Date.now() / 1000).toString(16).padStart(8, '0');
+	const random = Math.floor(Math.random() * 0xffffffffff).toString(16).padStart(10, '0');
+	objectIdIndex = (objectIdIndex + 1) % 0xffffff;
+	const counter = objectIdIndex.toString(16).padStart(6, '0');
+	return `${timestamp}${random}${counter}`;
 }
 
 export function trimPhoneNo(no: string, withSpace?: boolean, withCode?: boolean) {
