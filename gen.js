@@ -1,5 +1,8 @@
-const { lstatSync, readdirSync, writeFileSync } = require('node:fs');
-const path = require('node:path');
+import { lstatSync, readdirSync, writeFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 let allFiles = [];
 const toIgnore = ['tiptap', 'stories', 'styles', 'chart.tsx', 'phone-country-input.tsx'];
@@ -8,12 +11,11 @@ function generateTs(dir) {
 	const files = [];
 	readdirSync(path.join(__dirname, dir)).forEach((file) => {
 		if (toIgnore.includes(file) || /Impl\.tsx?$/.test(file)) return;
-		if (file !== 'index.ts' && !file.endsWith('.scss') && !file.endsWith('.css')&& !file.endsWith('.stories.tsx')&& !file.endsWith('.md') && file !== '.DS_Store') {
+		if (file !== 'index.ts' && !file.endsWith('.scss')  && !file.endsWith('.md') && !file.endsWith('.css') && !file.endsWith('.stories.tsx') && file !== '.DS_Store') {
 			const filePath = path.join(__dirname, dir, file);
 			const stats = lstatSync(filePath);
 			if (stats.isDirectory()) {
 				generateTs(`${dir}/${file}`);
-				// files.push(`export * from './${file}';`);
 			} else {
 				files.push(`export * from './${file.replace(/\.tsx?/, '')}';`);
 				allFiles.push(`export * from './${dir.replace('src', '')}/${file.replace(/\.tsx?/, '')}';`.replace('//', '/'));
@@ -30,8 +32,3 @@ function generateTs(dir) {
 }
 
 generateTs('src');
-
-// watch(path.join(__dirname, 'src/lib'), { recursive: true }, (eventType, filename) => {
-// 	console.log(`File ${filename} was changed, event type: ${eventType}`);
-// 	generateTs('src');
-// });
