@@ -1,11 +1,13 @@
 {
 	"name": "@brrinta/uikit",
-	"version": "0.1.76",
+	"version": "0.1.77",
 	"description": "React UI component library.",
 	"main": "./src/index.ts",
 	"types": "./src/index.ts",
 	"type": "module",
-	"sideEffects": ["**/*.css"],
+	"sideEffects": [
+		"**/*.css"
+	],
 	"exports": {
 		".": {
 			"types": "./src/index.ts",
@@ -14,9 +16,21 @@
 		},
 		"./src/styles/global.css": "./src/styles/global.css",
 		"./styles/global.css": "./src/styles/global.css",
-		"./global.css": "./src/styles/global.css"
+		"./global.css": "./src/styles/global.css",
+		"./chart": {
+			"types": "./src/ui/chart.tsx",
+			"import": "./src/ui/chart.tsx",
+			"default": "./src/ui/chart.tsx"
+		},
+		"./phone-country-input": {
+			"types": "./src/ui/phone-country-input.tsx",
+			"import": "./src/ui/phone-country-input.tsx",
+			"default": "./src/ui/phone-country-input.tsx"
+		}
 	},
-	"files": ["src"],
+	"files": [
+		"src"
+	],
 	"publishConfig": {
 		"access": "public"
 	},
@@ -43,6 +57,7 @@
 		"dayjs": "^1.11.23",
 		"dompurify": "^3.4.15",
 		"html-to-text": "^10.0.1",
+		"katex": "^0.16.47",
 		"lodash-es": "^4.18.1",
 		"lucide-react": "^1.41.0",
 		"marked": "^18.0.11",
@@ -64,7 +79,6 @@
 		"tailwind-merge": "^3.6.0",
 		"tw-animate-css": "^1.4.0",
 		"unist-util-visit": "^5.1.0",
-		"uuid": "^14.0.2",
 		"valibot": "^1.4.2"
 	},
 	"peerDependencies": {
@@ -88,16 +102,38 @@
 		"xlsx": "^0.18.5"
 	},
 	"peerDependenciesMeta": {
-		"@tanstack/react-devtools": { "optional": true },
-		"@tanstack/react-form-devtools": { "optional": true },
-		"@tanstack/react-query-devtools": { "optional": true },
-		"@tanstack/react-router-devtools": { "optional": true },
-		"@tanstack/react-table-devtools": { "optional": true },
-		"@lexical/rich-text": { "optional": true },
-		"@lexical/selection": { "optional": true },
-		"@mdxeditor/editor": { "optional": true },
-		"lexical": { "optional": true },
-		"xlsx": { "optional": true },
-		"axios": { "optional": true }
+		"@tanstack/react-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-form-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-query-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-router-devtools": {
+			"optional": true
+		},
+		"@tanstack/react-table-devtools": {
+			"optional": true
+		},
+		"@lexical/rich-text": {
+			"optional": true
+		},
+		"@lexical/selection": {
+			"optional": true
+		},
+		"@mdxeditor/editor": {
+			"optional": true
+		},
+		"lexical": {
+			"optional": true
+		},
+		"xlsx": {
+			"optional": true
+		},
+		"axios": {
+			"optional": true
+		}
 	}
 }

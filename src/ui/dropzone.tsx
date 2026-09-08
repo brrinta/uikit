@@ -5,7 +5,6 @@ import { Button, ButtonProps } from './button';
 import { Label, LabelProps } from './label';
 import { Text, TextProps } from './text';
 import { Box, BoxProps } from './box';
-import { v4 as uuidv4 } from 'uuid';
 
 type DropzoneResult<TUploadRes, TUploadError> =
 	| {
@@ -306,7 +305,7 @@ const useDropzone = <TUploadRes, TUploadError = string>(
 					await onRemoveFile(fileStatuses[index].id);
 				}
 
-				const id = uuidv4();
+				const id = crypto.randomUUID();
 				dispatch({ type: 'add', fileName: file.name, file, id });
 				await _uploadFile(file, id);
 			});

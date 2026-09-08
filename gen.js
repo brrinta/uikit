@@ -2,12 +2,12 @@ const { lstatSync, readdirSync, writeFileSync } = require('node:fs');
 const path = require('node:path');
 
 let allFiles = [];
-const toIgnore = ['tiptap', 'stories', 'styles'];
+const toIgnore = ['tiptap', 'stories', 'styles', 'chart.tsx', 'phone-country-input.tsx'];
 
 function generateTs(dir) {
 	const files = [];
 	readdirSync(path.join(__dirname, dir)).forEach((file) => {
-		if (toIgnore.includes(file)) return;
+		if (toIgnore.includes(file) || /Impl\.tsx?$/.test(file)) return;
 		if (file !== 'index.ts' && !file.endsWith('.scss') && !file.endsWith('.css')&& !file.endsWith('.stories.tsx')&& !file.endsWith('.md') && file !== '.DS_Store') {
 			const filePath = path.join(__dirname, dir, file);
 			const stats = lstatSync(filePath);

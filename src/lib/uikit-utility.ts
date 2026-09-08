@@ -9,7 +9,6 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import recur from 'dayjs-recur';
-const XLSX = await import('xlsx')
 import mixPlugin from 'colord/plugins/mix';
 import { extend } from 'colord';
 
@@ -38,13 +37,14 @@ export function secondsToDhms(seconds: any) {
 	return { d, h, m, s };
 }
 
-export function exportAsExcelFile(
+export async function exportAsExcelFile(
 	json: Array<Record<string, any>>,
 	header: string[],
 	fileName: string,
 	type: 'csv' | 'xlsx' | 'txt' = 'csv',
 	sheetName = 'Sheet 1',
-): void {
+): Promise<void> {
+	const XLSX = await import('xlsx');
 	const worksheet = XLSX.utils.json_to_sheet(json, {
 		header,
 	});
