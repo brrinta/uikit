@@ -1,4 +1,4 @@
-import { IconListDetails, List, Plus } from 'lucide-react';
+import { List, Plus } from 'lucide-react';
 import { Button } from '../ui/button';
 import { ComboboxData, ComboboxInput, ComboboxInputProps } from '../ui/combobox-input';
 import { Flex, FlexProps } from '../ui/flex';
@@ -44,20 +44,20 @@ export const AppCardGrid = <
 	ITEM extends ComboboxData<V> = ComboboxData<V>,
 	VK extends keyof ITEM = keyof ITEM,
 >({
-	children,
-	value,
-	items,
-	loading,
-	onValueChange,
-	placeholder,
-	description,
-	topContainerProps,
-	leftButton: { icon: leftButtonIcon, label: leftButtonLabel, hide: hideLeftButton, ...leftButtonProps } = {},
-	rightButton: { icon: rightButtonIcon, label: rightButtonLabel, hide: hideRightButton, ...rightButtonProps } = {},
-	appComboProps,
-	leftSection,
-	rightSection,
-}: AppCardGridProps<V, M, ITEM, VK>) => {
+	  children,
+	  value,
+	  items,
+	  loading,
+	  onValueChange,
+	  placeholder,
+	  description,
+	  topContainerProps,
+	  leftButton: { icon: leftButtonIcon, label: leftButtonLabel, hide: hideLeftButton, ...leftButtonProps } = {},
+	  rightButton: { icon: rightButtonIcon, label: rightButtonLabel, hide: hideRightButton, ...rightButtonProps } = {},
+	  appComboProps,
+	  leftSection,
+	  rightSection,
+  }: AppCardGridProps<V, M, ITEM, VK>) => {
 	const isMobile = useIsMobile();
 
 	return (

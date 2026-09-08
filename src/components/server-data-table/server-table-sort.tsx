@@ -1,13 +1,19 @@
-import type { ButtonProps, SortType } from '@brrinta/uikit';
-import { Button, enumToPair, Popover, RadioGroup, SortDirection, Stack, ToggleGroup } from '@brrinta/uikit';
 import { LucideChevronsUpDown, LucideCircleDot } from 'lucide-react';
+import { Button, ButtonProps } from '../../ui/button';
+import { SortType } from '../DataTable/types';
+import { Popover } from '../../ui/popover';
+import { ToggleGroup } from '../../ui/toggle-group';
+import { enumToPair } from '../../lib/uikit-utility';
+import { SortDirection } from '../../schema';
+import { RadioGroup } from '../../ui/radio';
+import { Stack } from '../../ui/stack';
 
 export const ServerTableSort = <T extends Record<string, unknown>>({
-	sortOptions,
-	sort,
-	setSort,
-	sortBtnProps,
-}: {
+	                                                                   sortOptions,
+	                                                                   sort,
+	                                                                   setSort,
+	                                                                   sortBtnProps,
+                                                                   }: {
 	sortBtnProps?: ButtonProps;
 	sortOptions?: Array<{ label: string; field: string }>;
 	sort: SortType;
