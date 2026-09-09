@@ -119,7 +119,7 @@ export const NavDropdownMenu = ({ item, sub, isMobile }: { item: NavbarLinkProps
 						mode: 'icon',
 						color: 'accent',
 					}),
-					'data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground relative [&>svg]:size-8! w-full px-2',
+					'data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground relative [&>svg]:size-6! w-full px-2',
 				)}
 				render={
 					item.link ? (
@@ -147,7 +147,7 @@ export const NavDropdownMenu = ({ item, sub, isMobile }: { item: NavbarLinkProps
 								render={
 									<AppLink
 										{...item.link}
-										className={' [&>svg]:size-6'}>
+										className={' [&>svg]:size-6!'}>
 										{item.icon ? isValidElement(item.icon) ? item.icon : <item.icon /> : null}
 										{item.label}
 									</AppLink>
