@@ -17,6 +17,7 @@ import { Button, ButtonGroup } from '../../ui/button';
 import { DropdownMenu } from '../../ui/dropdown-menu';
 import { EllipsisVertical } from 'lucide-react';
 import { mitter } from '../../lib/connectivity';
+import { useTanStackTableDevtools } from '@tanstack/react-table-devtools';
 
 export function useServerTable<TData extends RowData>({
 	                                                      key,
@@ -52,8 +53,8 @@ export function useServerTable<TData extends RowData>({
 			Object.assign(
 				additionalColumns || {},
 				...initialColumns
-					.filter((c) => 'accessorKey' in c )
-					.filter((c)=>typeof c.accessorKey ==='string')
+					.filter((c) => 'accessorKey' in c)
+					.filter((c) => typeof c.accessorKey === 'string')
 					.map((c) => ({ [String(c.accessorKey)]: `$${String(c.accessorKey)}` })),
 			),
 		[initialColumns],
@@ -181,6 +182,10 @@ export function useServerTable<TData extends RowData>({
 		if (withoutSearchQuery) return;
 		navigate({ search: calculatedFilter as any });
 	}, [calculatedFilter, withoutSearchQuery]);
+
+
+	useTanStackTableDevtools(table);
+
 	return {
 		table,
 		dataQuery,
