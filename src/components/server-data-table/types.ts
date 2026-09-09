@@ -35,7 +35,7 @@ export interface UseServerTableOptions<TData extends RowData> {
 	key: string;
 	columns: ColumnsFor<TData>;
 	fetcher: (query: DatatableQuery) => Promise<ResponseInterface<DatatableResponse<TData>>>;
-	additionalColumns?: Record<string, string>;
+	additionalColumns?: Record<string, any>;
 	initialSort?: SortType;
 	sortOptions?: Array<{ label: string; field: string }>;
 

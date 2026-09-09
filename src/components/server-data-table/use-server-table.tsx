@@ -47,6 +47,18 @@ export function useServerTable<TData extends RowData>({
 		[initialColumns],
 	);
 
+	const fetchedColumns = useMemo(
+		() =>
+			Object.assign(
+				additionalColumns || {},
+				...initialColumns
+					.filter((c) => 'accessorKey' in c )
+					.filter((c)=>typeof c.accessorKey ==='string')
+					.map((c) => ({ [String(c.accessorKey)]: `$${String(c.accessorKey)}` })),
+			),
+		[initialColumns],
+	);
+
 	const [rowSelection, setRowSelection] = useState({});
 	const selected = useMemo(() => Object.values(rowSelection).filter((v) => v).length, [rowSelection]);
 	const [sort, setSort] = useSetState(initialSort ?? { dir: SortDirection.DESC, field: 'createdAt' });
@@ -131,7 +143,7 @@ export function useServerTable<TData extends RowData>({
 		queryKey: [key, 'table', calculatedFilter, sort, pagination],
 		queryFn: () =>
 			fetcher({
-				columns: additionalColumns,
+				columns: fetchedColumns,
 				filter: calculatedFilter,
 				sort: sort ?? { dir: SortDirection.DESC, field: 'createdAt' },
 				currentPage: pagination.pageIndex + 1,
