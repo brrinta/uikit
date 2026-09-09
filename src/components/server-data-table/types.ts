@@ -19,7 +19,6 @@ type ExtractFn<T> = Extract<T, (...args: any) => any>;
 type CellContextFor<TData extends RowData> = Parameters<ExtractFn<NonNullable<ColumnsFor<TData>[0]['cell']>>>[0];
 type RowSectionProps<TData extends RowData> = UseConfirmationDialogReturn & Pick<CellContextFor<TData>, 'row' | 'table'>;
 type RowActionType<TData extends RowData> = {
-	enabled: boolean;
 	items?: (sectionProps: RowSectionProps<TData>) => ReactNode;
 	column?: Omit<ColumnsFor<TData>, 'id'>;
 	menuProps?: DropdownMenuProps;

@@ -83,10 +83,11 @@ export function useServerTable<TData extends RowData>({
 	const columns = useMemo(() => {
 		return [
 			...initialColumns,
-			...(rowAction?.enabled
+			...(rowAction
 				? [
 					columnHelper.display({
 						id: 'actions',
+						header: '',
 						cell: ({ row, table }) => (
 							<ButtonGroup {...(rowAction?.wrapperProps || {})}>
 								{rowAction?.leftSection?.({

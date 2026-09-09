@@ -3,7 +3,6 @@ import type { ServerTableProps } from './types';
 import type { ServerTableContextValue } from './use-server-table';
 import { ServerTableProvider, useServerTableContext } from './use-server-table';
 import type { RowData } from '@tanstack/react-table';
-import { flexRender } from '@tanstack/react-table';
 import { FilterIcon, RotateCcw, TriangleAlert } from 'lucide-react';
 import * as React from 'react';
 import { SortDirection } from '../../schema';
@@ -253,14 +252,14 @@ export function ServerDataTableConsumer<TData extends RowData>({
 											{row.getVisibleCells().map((cell) => {
 												return (
 													<Flex
-														className={'grow gap-1'}
+														className={cn('grow gap-1', cell.column.columnDef.meta?.classNames?.wrapper)}
 														key={cell.id}>
 														{cell.column.columnDef.header && cell.column.columnDef.header !== '' ? (
-															<Text className={'font-semibold'}>
+															<Text className={cn('font-semibold')} data-cell-header={String(cell.column.columnDef.header)}>
 																{typeof cell.column.columnDef.header == 'string' ? cell.column.columnDef.header : null}:
 															</Text>
 														) : null}
-														<>{flexRender(cell.column.columnDef.cell, cell.getContext())}</>
+														<span className={cn(cell.column.columnDef.meta?.classNames?.content)} data-cell-content>{<table.FlexRender cell={cell} />}</span>
 													</Flex>
 												);
 											})}
@@ -283,10 +282,10 @@ export function ServerDataTableConsumer<TData extends RowData>({
 										{headerGroup.headers.map((header) => {
 											return (
 												<Table.Th
-													className={'sticky top-0'}
+													className={cn('sticky top-0', header.column.columnDef.meta?.classNames?.header)}
 													key={header.id}
 													colSpan={header.colSpan}>
-													{header.isPlaceholder ? null : <Box>{flexRender(header.column.columnDef.header, header.getContext())}</Box>}
+													{header.isPlaceholder ? null : <table.FlexRender header={header} />}
 												</Table.Th>
 											);
 										})}
@@ -331,7 +330,9 @@ export function ServerDataTableConsumer<TData extends RowData>({
 									rows.map((row) => (
 										<Table.Tr key={row.id}>
 											{row.getVisibleCells().map((cell) => (
-												<Table.Td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</Table.Td>
+												<Table.Td key={cell.id} className={cn(cell.column.columnDef.meta?.classNames?.content)}>
+													<table.FlexRender cell={cell} />
+												</Table.Td>
 											))}
 										</Table.Tr>
 									))
@@ -348,9 +349,10 @@ export function ServerDataTableConsumer<TData extends RowData>({
 											{footerGroup.headers.map((header) => {
 												return (
 													<Table.Th
+														className={cn(header.column.columnDef.meta?.classNames?.footer)}
 														key={header.id}
 														colSpan={header.colSpan}>
-														{header.isPlaceholder ? null : <Box>{flexRender(header.column.columnDef.footer, header.getContext())}</Box>}
+														{header.isPlaceholder ? null : <table.FlexRender footer={header} />}
 													</Table.Th>
 												);
 											})}

@@ -35,7 +35,7 @@ export const NavCollapsibleMenu = ({ item, toRight }: { item: NavbarLinkProps; t
 					<ButtonGroup className={'justify-between w-full'}>
 						<AppLink
 							{...item.link}
-							className={'flex flex-row items-center gap-2 grow h-10 [&>svg]:size-8'}>
+							className={'flex flex-row items-center gap-2 grow h-10 [&>svg]:size-6'}>
 							{item.icon ? isValidElement(item.icon) ? item.icon : <item.icon /> : null}
 							<span>{item.label}</span>
 						</AppLink>
@@ -57,7 +57,7 @@ export const NavCollapsibleMenu = ({ item, toRight }: { item: NavbarLinkProps; t
 						render={
 							<AppLink
 								{...item.link}
-								className={'flex flex-row items-center gap-2 grow h-10 [&>svg]:size-8'}
+								className={'flex flex-row items-center gap-2 grow h-10 [&>svg]:size-6'}
 							/>
 						}
 						className={'h-10'}>
@@ -68,7 +68,7 @@ export const NavCollapsibleMenu = ({ item, toRight }: { item: NavbarLinkProps; t
 			) : (
 				<Collapsible.Trigger
 					render={
-						<Sidebar.MenuButton className={'h-10 [&>svg]:size-8'}>
+						<Sidebar.MenuButton className={'h-10 [&>svg]:size-6'}>
 							{item.icon ? isValidElement(item.icon) ? item.icon : <item.icon /> : null}
 							<span>{item.label}</span>
 							{item.links?.length ? (
@@ -90,7 +90,7 @@ export const NavCollapsibleMenu = ({ item, toRight }: { item: NavbarLinkProps; t
 									render={
 										<AppLink
 											{...subItem.link}
-											className={'[&>svg]:size-8'}
+											className={'[&>svg]:size-6'}
 										/>
 									}
 									className={'h-10'}>
@@ -119,7 +119,7 @@ export const NavDropdownMenu = ({ item, sub, isMobile }: { item: NavbarLinkProps
 						mode: 'icon',
 						color: 'accent',
 					}),
-					'data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground relative [&>svg]:size-8 w-full px-2',
+					'data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground relative [&>svg]:size-8! w-full px-2',
 				)}
 				render={
 					item.link ? (
@@ -147,7 +147,7 @@ export const NavDropdownMenu = ({ item, sub, isMobile }: { item: NavbarLinkProps
 								render={
 									<AppLink
 										{...item.link}
-										className={' [&>svg]:size-8'}>
+										className={' [&>svg]:size-6'}>
 										{item.icon ? isValidElement(item.icon) ? item.icon : <item.icon /> : null}
 										{item.label}
 									</AppLink>

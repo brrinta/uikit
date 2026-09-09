@@ -9,6 +9,15 @@ import {
 
 export interface AppColumnMeta {
 	hide?: boolean;
+	classNames?: {
+		content?: string;
+		header?: string;
+		footer?: string;
+		/**
+		 * only applied to card
+		 */
+		wrapper?: string;
+	};
 }
 
 export const { createAppColumnHelper, useAppTable, useTableContext, useCellContext, useHeaderContext, appFeatures } = createTableHook({
