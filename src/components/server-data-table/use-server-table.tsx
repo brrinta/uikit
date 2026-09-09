@@ -200,7 +200,7 @@ export function useServerTable<TData extends RowData>({
 		setSort,
 		selected,
 		setFilter,
-		filterOptions,
+		filterOptions: filterOptions.filter(f => !f.noRender),
 		calculatedFilter,
 		setCalculatedFilter,
 	};
