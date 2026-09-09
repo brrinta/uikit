@@ -252,14 +252,15 @@ export function ServerDataTableConsumer<TData extends RowData>({
 											{row.getVisibleCells().map((cell) => {
 												return (
 													<Flex
+														data-slot={`cell-wrapper-${String(cell.column.columnDef.header)}`}
 														className={cn('grow gap-1', cell.column.columnDef.meta?.classNames?.wrapper)}
 														key={cell.id}>
 														{cell.column.columnDef.header && cell.column.columnDef.header !== '' ? (
-															<Text className={cn('font-semibold')} data-cell-header={String(cell.column.columnDef.header)}>
-																{typeof cell.column.columnDef.header == 'string' ? cell.column.columnDef.header : null}:
+															<Text className={cn('font-semibold')} data-slot={`cell-header-${String(cell.column.columnDef.header)}`}>
+																{typeof cell.column.columnDef.header == 'string' ? cell.column.columnDef.header : null}
 															</Text>
 														) : null}
-														<span className={cn(cell.column.columnDef.meta?.classNames?.content)} data-cell-content>{<table.FlexRender cell={cell} />}</span>
+														<span className={cn(cell.column.columnDef.meta?.classNames?.content)} data-slot={`cell-content-${String(cell.column.columnDef.header)}`}>{<table.FlexRender cell={cell} />}</span>
 													</Flex>
 												);
 											})}
