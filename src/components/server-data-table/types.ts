@@ -63,7 +63,7 @@ export interface UseServerTableOptions<TData extends RowData> {
 	/**
 	 * new Options below
 	 */
-
+	reloadListeners?: Array<string>;
 	rowAction?: RowActionType<TData>;
 }
 

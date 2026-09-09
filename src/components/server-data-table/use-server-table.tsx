@@ -16,6 +16,7 @@ import { useDebounce } from '../../hooks/use-debounce';
 import { Button, ButtonGroup } from '../../ui/button';
 import { DropdownMenu } from '../../ui/dropdown-menu';
 import { EllipsisVertical } from 'lucide-react';
+import { mitter } from '../../lib/connectivity';
 
 export function useServerTable<TData extends RowData>({
 	                                                      key,
@@ -32,6 +33,7 @@ export function useServerTable<TData extends RowData>({
 	                                                      tabs,
 	                                                      rowAction,
 	                                                      withoutSearchQuery,
+	                                                      reloadListeners = [],
                                                       }: UseServerTableOptions<TData>) {
 	const confirmationDialog = useConfirmationDialog();
 	const columnHelper = createAppColumnHelper<TData>();
@@ -148,6 +150,21 @@ export function useServerTable<TData extends RowData>({
 		manualPagination: true,
 	});
 	useEffect(() => {
+		if (reloadListeners?.length) {
+			reloadListeners.forEach((listener) => {
+				if (mitter.all.has(listener)) mitter.all.delete(listener);
+				mitter.on(listener, () => dataQuery.refetch());
+			});
+		}
+		return () => {
+			if (reloadListeners?.length) {
+				reloadListeners.forEach((listener) => {
+					if (mitter.all.has(listener)) mitter.all.delete(listener);
+				});
+			}
+		};
+	}, [reloadListeners]);
+	useEffect(() => {
 		if (withoutSearchQuery) return;
 		navigate({ search: calculatedFilter as any });
 	}, [calculatedFilter, withoutSearchQuery]);
@@ -190,5 +207,6 @@ export function ServerTableProvider<TData extends RowData>({
 	value: ServerTableContextValue<TData>;
 	children: React.ReactNode;
 }) {
+	// @ts-ignore
 	return <ServerTableContext.Provider value={value}>{children}</ServerTableContext.Provider>;
 }
