@@ -125,7 +125,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 						</Tabs.List>
 					</Tabs>
 				) : null}
-				{filter?.length > 0 ? (
+				{filterOptions?.length > 0 ? (
 					<Flex
 						className={cn(
 							'pb-2 px-2 gap-2 flex-wrap md:flex-nowrap justify-between items-center app-table-header',
@@ -140,7 +140,7 @@ export function ServerDataTableConsumer<TData extends RowData>({
 							confirmationIsOpened: confirmationDialog.confirmationIsOpened,
 							showConfirmation: confirmationDialog.showConfirmation,
 						})}
-						{filter?.length > 0 && (
+						{filterOptions?.length > 0 && (
 							<Filters
 								addButtonProps={searchBtnProps}
 								addButtonIcon={<FilterIcon className={'text-primary'} />}
